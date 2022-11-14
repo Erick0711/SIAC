@@ -12,7 +12,7 @@
     <div class="modal-body">
         <div class="container">
             <!-- FORMULARIO -->
-            <form action="./Gasto.php" method="POST">
+            <form action="./Gasto.php" method="POST" id="form1">
             <div class="row  mt-2">
                 <div class="col-md-4">
                     <select class="custom-select" name="tipo_gasto">
@@ -41,6 +41,7 @@
         </form>
         </div>
     <!-- FIN CONTENIDO DEL MODAL -->
+    <?php $consulta->consulta();?>
     </div>
     </div>
 </div>
@@ -64,8 +65,9 @@
             <div class="row  mt-2">
                 <div class="col-md-4">
                 <select class="custom-select" name="tipo_gasto">
+                    <option value="0">Seleccionar</option>
                     <?php foreach($tipos as $tipo){ ?>
-                    <option value="<?php echo $tipo['id'] ?>"><?php echo $tipo['nombre'] ?></option>
+                    <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
                     <?php }; ?>
                     </select>
                 </div>
@@ -79,7 +81,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <input type="text" name="idGasto" id="idGasto">
+                    <input type="hidden" name="idGasto" id="idGasto">
             </div>
                 <div class="col-md-5"></div>
                 <div class="col-md-3">

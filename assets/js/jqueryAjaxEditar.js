@@ -1,18 +1,18 @@
 
-    $(document).ready(function(){
-        $('.editarbtn').on('click', function(){
-            $('#editarModalGasto').modal('show');
+$(document).ready(function () {
+    $('.editarbtn').on('click', function () {
+        $('#editarModalGasto').modal('show');
 
-            $tr = $(this).closest('tr');
+        $tr = $(this).closest('tr');
 
-            var data = $tr.children("td").map(function(){
+        var data = $tr.children("td").map(function () {
             return $(this).text();
-            }).get();
+        }).get();
 
-            // console.log(data);
+        console.log(data);
 
-            $('#idGasto').val(data[0]);
-            $('#descripcion').val(data[2]);
-            $('#monto').val(data[3]);
-        });
+        $('#idGasto').val(data[0]);
+        $('#descripcion').val(data[2]);
+        $('#monto').val(data[3]);
     });
+});
