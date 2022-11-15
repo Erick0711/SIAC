@@ -4,7 +4,7 @@ require(AUTOLOAD);
 
 use App\Controlador\GastoControlador;
 
-$consulta = new GastoControlador();
+$consulta = new GastoControlador;
 $gastos = $consulta->mostrar_gasto();
 $tipos = $consulta->index();
 
@@ -22,9 +22,10 @@ include("./plantilla/aside.php");
 <main class="app-content">
   <div class="app-title">
     <div>
-      <h1><i class="fa fa-th-list"></i>Gasto</h1>
+      <h1><i class="fa fa-th-list"></i> Gasto</h1>
     </div>
   </div>
+  <p><?php $consulta->consulta();?></p>
   <div class="row">
     <div class="clearfix"></div>
     <div class="col-md-12">
@@ -37,7 +38,7 @@ include("./plantilla/aside.php");
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-bordered" id="tablaGasto">
+          <table class="table table-bordered" id="tabla">
             <thead class="text-center">
               <tr>
                 <th>#</th>
@@ -60,7 +61,7 @@ include("./plantilla/aside.php");
                     <th>BS</th>
                     <td>
                       <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModalGasto"><i class="fa fa-pencil-square"></i></a>
-                      <a href="./Gasto.php?eliminar=<?php echo $gasto['id'];?>" class="btn btn-danger btnEliminar" name="eliminar" id="eliminarGasto" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
+                      <a href="./Gasto.php?eliminar=<?php echo $gasto['id'];?>" class="btn btn-danger btnEliminar" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                     </td>
                   </tr>
               <?php

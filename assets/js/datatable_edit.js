@@ -1,13 +1,14 @@
-$('#tablaGasto').DataTable({
+$('#tabla').DataTable({
     responsive: true,
     autoWidh: false,
-
+    "order": [[0, "desc" ]],
+    "pageLength": 3,
     "language":{
         "lengthMenu": "Mostrar " +
                     `<select class="custom-select custom-select-sm form-control form-control-sm">
+                    <option value="3">3</option>
                     <option value="5">5</option>
                     <option value="10">10</option>
-                    <option value="20">20</option>
                     <option value="-1">All</option>
                     </select> ` + 
                     "registros por página",

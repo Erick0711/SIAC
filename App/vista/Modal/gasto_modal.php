@@ -41,7 +41,7 @@
         </form>
         </div>
     <!-- FIN CONTENIDO DEL MODAL -->
-    <?php $consulta->consulta();?>
+
     </div>
     </div>
 </div>

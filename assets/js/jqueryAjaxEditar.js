@@ -9,7 +9,7 @@ $(document).ready(function () {
             return $(this).text();
         }).get();
 
-        console.log(data);
+        // console.log(data);
 
         $('#idGasto').val(data[0]);
         $('#descripcion').val(data[2]);

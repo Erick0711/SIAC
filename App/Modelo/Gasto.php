@@ -4,6 +4,7 @@ use App\config\Conexion;
 use PDO;
 
 class Gasto extends Conexion{
+    
     public function Gasto(){
         parent::__construct();
     }
