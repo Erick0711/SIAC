@@ -61,7 +61,7 @@ include("./plantilla/aside.php");
                     <th>BS</th>
                     <td>
                       <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModalGasto"><i class="fa fa-pencil-square"></i></a>
-                      <a href="./Gasto.php?eliminar=<?php echo $gasto['id'];?>" class="btn btn-danger btnEliminar" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
+                      <a href="./gasto.php?eliminar=<?php echo $gasto['id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                     </td>
                   </tr>
               <?php

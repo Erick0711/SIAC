@@ -3,8 +3,8 @@ namespace App\Controlador;
 use App\Modelo\Gasto;
 
 class GastoControlador extends Gasto{
-    public $gasto;
-    protected   $nombre,
+    protected   $gasto,
+                $nombre,
                 $descripcion,
                 $monto,
                 $location = "<script> window.location.href =  '../vista/gasto.php';</script>",
@@ -53,13 +53,13 @@ class GastoControlador extends Gasto{
             case isset($_POST['actualizarGasto']):
                 $idGasto = $_POST['idGasto'];
                 $tipoGasto = $_POST['tipo_gasto'];
-                $descripcion = $_POST['descripcion'];
-                $monto = $_POST['monto'];
+                $this->descripcion = $_POST['descripcion'];
+                $this->monto = $_POST['monto'];
                 if(strlen($idGasto) > 1 && strlen($tipoGasto) > 1 && strlen($this->descripcion) > 1 && is_numeric($this->monto)){
                     $this->gasto = new Gasto();
-                    $resultados = $this->gasto->registrarGasto("gasto",$tipoGasto, $this->descripcion, $this->monto);
+                    $resultados = $this->gasto->editarGasto("gasto",$tipoGasto, $this->descripcion, $this->monto, $idGasto);
                     echo $this->location; 
-                    
+                    return $resultados;
                 }else{
                     echo $this->alertCompletar;
                 }     

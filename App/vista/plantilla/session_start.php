@@ -1,8 +1,8 @@
 
     <?php
     session_start();
-    $sesion = $_SESSION['nombre_rol'];
-    if(!isset($sesion)){
-    header("location: ./login.php");
+    $rol = $_SESSION['nombre_rol'];
+    if(!isset($rol)){
+        header("location: ./login.php");
     }
     ?>

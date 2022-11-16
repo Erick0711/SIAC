@@ -27,12 +27,14 @@ class Gasto extends Conexion{
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();
         $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        return $registros;
     }
     public function registrarGasto($tabla,$tipoGasto,$descripcion,$monto){
         $sql = "INSERT INTO $tabla (`id`, `id_tipo_gasto`, `descripcion`, `monto_gasto`, `estado`, `created_at`, `updated_at`) VALUES (NULL, '$tipoGasto', '$descripcion', '$monto', '1', current_timestamp(), current_timestamp()) ";
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();
         $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        return $registros;
     }
 
     public function editarGasto($tabla,$tipoGasto,$descripcion,$monto,$id){
@@ -40,8 +42,9 @@ class Gasto extends Conexion{
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();
         $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        return $registros;
     }
-    public function eliminarGasto($tabla,$idGasto){
+    public function eliminarGasto($tabla, $idGasto){
         $sql = "UPDATE $tabla SET estado=0 WHERE id=$idGasto";
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();
