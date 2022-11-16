@@ -6,7 +6,8 @@ class RolControlador extends Rol{
     protected   $rol,
                 $usuario,
                 $contrasenia,
-                $location = "<script> window.location.href =  '../vista/inicio.php';</script>";
+                $location = "<script> window.location.href =  '../vista/inicio.php';</script>",
+                $locationLogin = "<script> window.location.href =  '../vista/inicio.php';</script>";
     public function validar(){
         
         if(isset($_POST['login'])){
@@ -18,21 +19,18 @@ class RolControlador extends Rol{
                 $resultados = $this->rol->buscar($this->usuario, $this->contrasenia);
 
                 if($resultados >= 1){
-                $_SESSION['usuario'] = $resultados['usuario'];
-                $_SESSION['nombre_rol'] = $resultados['nombre_rol'];
-
-                if($_SESSION['nombre_rol'] == "SIAC"){
-                    echo $this->location;
-                }
-                if($_SESSION['nombre_rol'] == "Administrador"){
-                    echo $this->location;
-                }
+                    $_SESSION['usuario'] = $resultados['usuario'];
+                    $_SESSION['nombre_rol'] = $resultados['nombre_rol'];
+                    
+                    if($_SESSION['nombre_rol'] == "SIAC" && $_SESSION['nombre_rol'] == "administrador"){
+                        echo $this->location;
+                    }
 
                 }else{
-                echo "<script> window.location.href =  '../vista/login.php';</script>";
+                echo $this->locationLogin;
                 }
             }else{
-                echo "<script> window.location.href =  '../vista/login.php';</script>";
+                echo $this->locationLogin;
             }
         }    
     }
