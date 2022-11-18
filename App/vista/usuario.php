@@ -6,6 +6,8 @@ use App\Controlador\UsuarioControlador;
 
 $consulta = new UsuarioControlador;
 $usuarios = $consulta->index();
+$roles = $consulta->mostrarRol();
+$consulta->consulta();
 ?>
 <!-- HEADER -->
 <?php

@@ -19,7 +19,7 @@
 
 <body class="app sidebar-mini">
   <!-- Navbar-->
-  <header class="app-header"><a class="app-header__logo" href="./">Cond. Sevilla</a>
+  <header class="app-header"><a class="app-header__logo" href="./inicio">Cond. Sevilla</a>
     <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <ul class="app-nav">
       <li class="app-search">

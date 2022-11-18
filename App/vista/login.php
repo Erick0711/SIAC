@@ -27,11 +27,11 @@
                     <img src="../../assets/img/logo-nuevo.png" alt="Logo-SIAC" class="logo-siac">
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Usuario:</label>
+                    <label class="control-label"><i class="fa fa-user"></i> Usuario:</label>
                     <input class="form-control" name="usuario" type="text" placeholder="ejemplo0541@gmail.com">
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Contraseña:</label>
+                    <label class="control-label"><i class="fa fa-key"></i> Contraseña:</label>
                     <input class="form-control" name="contrasenia" type="password" placeholder="•••••••••">
                 </div>
 

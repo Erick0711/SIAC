@@ -1,30 +1,24 @@
 <?php 
 namespace App\Controlador;
 use App\Modelo\Gasto;
-
-class GastoControlador extends Gasto{
-    protected   $gasto,
-                $nombre,
-                $descripcion,
-                $monto,
-                $location = "<script> window.location.href =  '../vista/gasto.php';</script>",
-                $alertCompletar = "<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Alerta!</strong> Debes completar los campos de correctamente.<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
-
-    public function index(){
+class GastoControlador extends Gasto
+{
+    public function index()
+    {
         $this->gasto = new Gasto();
         $resultados = $this->gasto->mostrarTabla("tipo_gasto");
         return $resultados;
     }
-    public function mostrar_gasto(){
+    public function mostrar_gasto()
+    {
         $this->gasto = new Gasto();
         $resultados = $this->gasto->mostrarTablaGasto("gasto","tipo_gasto");
         return $resultados;
     }
-
-
-    public function consulta(){
-        switch (isset($_REQUEST)) {
-
+    public function consulta()
+    {
+        switch (isset($_REQUEST)) 
+        {
             case isset($_POST['guardarTipo']):
                     $this->nombre = $_POST['nombre'];
                 if(strlen($this->nombre) > 1){
@@ -73,9 +67,7 @@ class GastoControlador extends Gasto{
                 break;
 
             default:
-            //
                 break;
         }
     }
-
 }

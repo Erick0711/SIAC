@@ -2,7 +2,6 @@
 namespace App\config;
 use PDO;
 use PDOException;
-
 class Conexion{
     protected $server = "127.0.0.1";
     protected $user = "root";

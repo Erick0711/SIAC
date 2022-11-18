@@ -12,20 +12,44 @@
     <div class="modal-body">
         <div class="container">
             <!-- FORMULARIO -->
-            <form action="./Gasto.php" method="POST" id="form1">
-            <div class="row  mt-2">
+            <form action="./usuario.php" method="POST">
+            <div class="row  mt-4">
                 <div class="col-md-4">
-                    <select class="custom-select" name="tipo_gasto">
-                    <?php foreach($usuarios as $usuario){ ?>
-                    <option value="<?php echo $usuario['id'];?>"><?php echo $usuario['nombre_rol'];?></option>
+                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+                </div>
+                <div class="col-md-4">
+                <input type="number" name="ci" class="form-control" placeholder="CI">
+                </div>
+            </div>
+            <div class="row  mt-4">
+                <div class="col-md-4">
+                <input type="text" name="complemento_ci" class="form-control" placeholder="Complemento CI">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="correo" class="form-control" placeholder="Correo">
+                </div>
+                <div class="col-md-4">
+                <input type="number" name="telefono" class="form-control" placeholder="Teléfono">
+                </div>
+            </div>
+
+            <div class="row  mt-4">
+                <div class="col-md-4">
+                    <select class="custom-select" name="rol">
+                    <option value="0">Seleccionar</option>
+                    <?php foreach($roles as $rol){ ?>
+                    <option value="<?php echo $rol['id'];?>"><?php echo $rol['nombre_rol'];?></option>
                     <?php }; ?>
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="descripcion" class="form-control" placeholder="Descripción">
+                    <input type="text" name="usuario" class="form-control" placeholder="Usuario">
                 </div>
                 <div class="col-md-4">
-                <input type="number" name="monto" class="form-control" placeholder="Monto">
+                <input type="password" name="contrasenia" class="form-control" placeholder="Contrasenia">
                 </div>
             </div>
 
@@ -34,7 +58,7 @@
                 <div class="col-md-5"></div>
                 <div class="col-md-3">
                 <div class="modal-footer">
-                    <button type="submit" name="guardarGasto" class="btn btn-primary">Registrar</button>
+                    <button type="submit" name="guardarUsuario" class="btn btn-primary">Registrar</button>
                 </div>
                 </div>
             </div>
