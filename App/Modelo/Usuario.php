@@ -1,12 +1,17 @@
 <?php
 namespace App\Modelo;
+use App\Modelo\Alerta;
+use App\Modelo\Persona;
 use App\config\Conexion;
 use PDO;
 class Usuario extends Conexion
 {
+    use Alerta,Persona;
     protected   $usuario,
-                $contrasenia;
-
+                $campo_usuario,
+                $contrasenia,
+                $rol,
+                $redireccionar = "<script> window.location.href =  '../vista/usuario.php';</script>";
     public function Usuario()
     {
         parent::__construct();
@@ -46,17 +51,21 @@ class Usuario extends Conexion
                             VALUES (NULL, '$nombre' , '$apellido', '$ci', '$complemento_ci', '$correo', '$telefono', '1', 
                             current_timestamp(), current_timestamp());";
         $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $id_persona = $this->conexion->lastInsertId();
-        echo $id_persona;
-        $sql = "INSERT INTO $tabla2 (`id`, `id_persona`, `id_rol`, `usuario`, 
-                            `contrasenia`, `estado`, `created_at`, `updated_at`) 
-                            VALUES (NULL, '$id_persona', '$rol', '$usuario', '$contrasenia', '1', 
-                            current_timestamp(), current_timestamp());";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-        return $registros;                    
-    }
+        if($sentencia->execute()){
+            $id_persona = $this->conexion->lastInsertId();
+            $sql = "INSERT INTO $tabla2 (`id`, `id_persona`, `id_rol`, `usuario`, 
+                                `contrasenia`, `estado`, `created_at`, `updated_at`) 
+                                VALUES (NULL, '$id_persona', '$rol', '$usuario', '$contrasenia', '1', 
+                                current_timestamp(), current_timestamp());";
+            $sentencia = $this->conexion->prepare($sql);
+            if($sentencia->execute()){
+            $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            return $registros;   
+            }else{
+                echo $this->alerta_fallo;
+            }
+        } 
+    } 
 }
+
 ?>

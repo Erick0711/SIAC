@@ -7,7 +7,7 @@ use App\Controlador\UsuarioControlador;
 $consulta = new UsuarioControlador;
 $usuarios = $consulta->index();
 $roles = $consulta->mostrarRol();
-$consulta->consulta();
+
 ?>
 <!-- HEADER -->
 <?php
@@ -21,6 +21,7 @@ include("./plantilla/aside.php");
     <div class="app-title">
         <div>
             <h1><i class="fa fa-th-list"></i> Usuario</h1>
+            <p><?php $consulta->consulta(); ?></p>
         </div>
     </div>
     <p></p>

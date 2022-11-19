@@ -19,20 +19,25 @@ class UsuarioControlador extends Usuario
     {
         switch (isset($_REQUEST)) {
             case isset($_POST['guardarUsuario']):
-                $nombre = $_POST['nombre'];
-                $apellido = $_POST['apellido'];
-                $ci = $_POST['ci'];
-                $complemento_ci = $_POST['complemento_ci'];
-                $correo = $_POST['correo'];
-                $telefono = $_POST['telefono'];
-                $usuario = $_POST['usuario'];
-                $contrasenia = $_POST['contrasenia'];
-                $rol = $_POST['rol'];
+                $this->nombre = $_POST['nombre'];
+                $this->apellido = $_POST['apellido'];
+                $this->ci = $_POST['ci'];
+                $this->complemento_ci = $_POST['complemento_ci'];
+                $this->correo = $_POST['correo'];
+                $this->telefono = $_POST['telefono'];
+                $this->campo_usuario = $_POST['usuario'];
+                $this->contrasenia = $_POST['contrasenia'];
+                $this->rol = $_POST['rol'];
+                if(strlen($this->nombre) > 2){
+                    $this->usuario = new Usuario();
+                    $resultados = $this->usuario->nuevoUsuario("persona", "usuario", $this->nombre, $this->apellido, $this->ci, 
+                                                            $this->complemento_ci, $this->correo, $this->telefono, $this->campo_usuario, 
+                                                            $this->contrasenia, $this->rol);
+                    echo $this->redireccionar;
+                }else{
+                    echo $this->alerta_advertencia;
+                }
 
-                $this->usuario = new Usuario();
-                $resultados = $this->usuario->nuevoUsuario("persona", "usuario",$nombre, $apellido, $ci, $complemento_ci, 
-                                                            $correo, $telefono, $usuario, $contrasenia, $rol);
-                echo "<script> window.location.href =  '../vista/usuario.php';</script>";
                 break;
             
             default:

@@ -1,6 +1,6 @@
 <?php
-
-class Persona{
+namespace App\Modelo;
+trait Persona{
     protected   $nombre,
                 $apellido,
                 $ci,
