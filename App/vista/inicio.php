@@ -3,9 +3,9 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 
-use App\Controlador\RolControlador;
-$consulta = new RolControlador;
-$consulta->validar();
+use App\Controlador\UsuarioControlador;
+$consulta = new UsuarioControlador;
+$consulta->consulta();
 ?>
 
 <?php include("./plantilla/header.php"); ?>
@@ -14,11 +14,6 @@ $consulta->validar();
 <!-- CONTENIDO -->
 <main class="app-content">
     <div class="app-title">
-        <!--   
-        <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-        </ul> -->
     </div>
     <div class="row">
         <div class="col-md-6 col-lg-3">
@@ -100,6 +95,9 @@ $consulta->validar();
         <div class="col-md-6">
             <div class="tile">
                 <h3 class="tile-title">Support Requests</h3>
+                <?php 
+         
+                ?>
                 <div class="embed-responsive embed-responsive-16by9">
                     <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
                 </div>

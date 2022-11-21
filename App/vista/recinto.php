@@ -12,7 +12,6 @@ $consulta->consulta();
 <?php
 include("./plantilla/header.php");
 include("./plantilla/aside.php");
-
 ?>
 
 <!-- CONTENIDO DE LA PAGINA -->

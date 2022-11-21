@@ -8,7 +8,6 @@ class RolControlador extends Rol
                 $contrasenia,
                 $location = "<script> window.location.href =  '../vista/inicio.php';</script>",
                 $locationLogin = "<script> window.location.href =  '../vista/login.php';</script>";
-
     public function validar()
     {
         if(isset($_POST['login']))
