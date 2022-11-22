@@ -1,7 +1,6 @@
-
 $(document).ready(function () {
     $('.editarbtn').on('click', function () {
-        $('#editarModalGasto').modal('show');
+        $('#editarModal').modal('show');
 
         $tr = $(this).closest('tr');
 
@@ -9,34 +8,28 @@ $(document).ready(function () {
             return $(this).text();
         }).get();
 
-        // console.log(data);
+            // console.log(data);
+            var idGasto = data[0],
+                descripcion = data[2],
+                monto = data[3];
 
-        $('#idGasto').val(data[0]);
-        $('#descripcion').val(data[2]);
-        $('#monto').val(data[3]);
+            $('#idGasto').val(idGasto);
+            $('#descripcion').val(descripcion);
+            $('#monto').val(monto);
+
+            var idPabellon = data[0],
+                numeroPabellon = data[1];
+                
+            $('#idPabellon').val(idPabellon);
+            $('#numeroPabellon').val(numeroPabellon);
+
+            var idDepartamento = data[0],
+                numeroDepartamento = data[1];
+            $('#idApartamento').val(idDepartamento);
+            $('#numeroApartamento').val(numeroDepartamento);
     });
-});
-
-
-$(document).ready(function () {
-    $('.editarPabellon').on('click', function () {
-        $('#editarModalPabellon').modal('show');
-
-        $tr = $(this).closest('tr');
-
-        var data = $tr.children("td").map(function () {
-            return $(this).text();
-        }).get();
-    //    console.log(data);
-        $('#idPabellon').val(data[0]);
-        $('#numeroPabellon').val(data[1]);
-    });
-});
-
-
-$(document).ready(function () {
-    $('.editarApartamento').on('click', function () {
-        $('#editarModalApartamento').modal('show');
+    $('.editarbtnTipo').on('click', function () {
+        $('#editarModalTipo').modal('show');
 
         $tr = $(this).closest('tr');
 
@@ -44,9 +37,11 @@ $(document).ready(function () {
             return $(this).text();
         }).get();
 
-        // console.log(data);
-
-        $('#idApartamento').val(data[0]);
-        $('#numeroApartamento').val(data[1]);
+            console.log(data);
+            var idtipoGasto = data[0];
+            var tipoGasto = data[1];
+            $('#idtipoGasto').val(idtipoGasto);
+            $('#tipoGasto').val(tipoGasto);
     });
 });
+
