@@ -1,5 +1,5 @@
 <?php 
-namespace App\Modelo;
+namespace App\config;
 
 trait Alerta
 {

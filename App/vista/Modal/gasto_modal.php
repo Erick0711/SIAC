@@ -4,7 +4,7 @@
 <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
-        <h2 class="modal-title text-center" id="gastoLabel">Formulario Gasto</h2>
+        <h2 class="modal-title text-center" id="gastoLabel"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Gasto</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -12,10 +12,11 @@
     <div class="modal-body">
         <div class="container">
             <!-- FORMULARIO -->
-            <form action="./Gasto.php" method="POST" id="form1">
+            <form action="./Gasto.php" method="POST">
             <div class="row  mt-2">
                 <div class="col-md-4">
                     <select class="custom-select" name="tipo_gasto">
+                    <option value="0">Seleccionar</option>
                     <?php foreach($tipos as $tipo){ ?>
                     <option value="<?php echo $tipo['id'] ?>"><?php echo $tipo['nombre'] ?></option>
                     <?php }; ?>
@@ -41,15 +42,12 @@
         </form>
         </div>
     <!-- FIN CONTENIDO DEL MODAL -->
-
     </div>
     </div>
 </div>
 </div>
-
-
 <!-- MODAL FORMULARIO EDITAR-->
-<div class="modal fade" id="editarModalGasto" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="EditarLabel" aria-hidden="true">
 <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">

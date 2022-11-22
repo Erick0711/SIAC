@@ -4,7 +4,7 @@
 <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
-        <h2 class="modal-title text-center" id="usuarioLabel">Formulario usuario</h2>
+        <h2 class="modal-title" id="usuarioLabel"><i class="fa fa-address-card"></i> Usuario</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -35,7 +35,6 @@
                 <input type="number" name="telefono" class="form-control" placeholder="Teléfono">
                 </div>
             </div>
-
             <div class="row  mt-4">
                 <div class="col-md-4">
                     <select class="custom-select" name="rol">
@@ -52,7 +51,6 @@
                 <input type="password" name="contrasenia" class="form-control" placeholder="Contrasenia">
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-5"></div>
@@ -65,12 +63,10 @@
         </form>
         </div>
     <!-- FIN CONTENIDO DEL MODAL -->
-
     </div>
     </div>
 </div>
 </div>
-
 
 <!-- MODAL FORMULARIO EDITAR-->
 <div class="modal fade" id="editarModalUsuario" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">

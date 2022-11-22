@@ -40,7 +40,7 @@
 
 <!-- MODAL FORMULARIO EDITAR-->
 
-<div class="modal fade" id="editarPabellonModal" tabindex="-1" aria-labelledby="recintoLabel" aria-hidden="true">
+<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="recintoLabel" aria-hidden="true">
 <div class="modal-dialog d-flex justify-content-center">
     <div class="modal-content w-75">
     <div class="modal-header">

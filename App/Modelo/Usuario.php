@@ -1,20 +1,19 @@
 <?php
 namespace App\Modelo;
-use App\Modelo\Alerta;
-use App\Modelo\Persona;
-use App\config\Conexion;
-use PDO;
+use App\config\Alerta,
+    App\Modelo\Persona,
+    App\config\Redireccion,
+    App\config\Conexion,
+    PDO;
 class Usuario extends Conexion
 {
-    use Alerta,Persona;
-    protected   $campo_usuario,
+    use Alerta,Redireccion,Persona;
+    protected   $usuario,
+                $campo_usuario,
                 $contrasenia,
-                $usuario,
-                $rol,
-                $redireccionar = "<script> window.location.href =  '../vista/usuario.php';</script>",
-                $locationLogin = "<script> window.location.href =  '../vista/login.php';</script>",
-                $location = "<script> window.location.href =  '../vista/inicio.php';</script>",
-                $contrasenia_hash;
+                $contrasenia_hash,
+                $rol;
+                
     public function Usuario()
     {
         parent::__construct();
@@ -69,7 +68,6 @@ class Usuario extends Conexion
             }
         } 
     } 
-
     public function buscar($usuario, $contrasenia)
     {
         $sql = "SELECT usuario.usuario, usuario.contrasenia, rol.nombre_rol
@@ -78,11 +76,10 @@ class Usuario extends Conexion
             $sentencia = $this->conexion->prepare($sql);
             $sentencia->execute();
             $registros = $sentencia->fetch(PDO::FETCH_ASSOC);
-                $pass = $registros['contrasenia'];
-                if(password_verify($contrasenia, $pass)){
-                    return $registros;
-                }
+            $pass = $registros['contrasenia'];
+            if(password_verify($contrasenia, $pass)){
+                return $registros;
+            }
     }
 }
-
 ?>

@@ -1,17 +1,17 @@
 <?php
 namespace App\Modelo;
-use App\config\Conexion;
-use PDO;
+use App\config\Conexion,
+    App\config\Redireccion,
+    App\config\Alerta,
+    PDO;
 class Gasto extends Conexion
 {
+    use Alerta,Redireccion;
     protected   $gasto,
+                $tipoGasto,
                 $nombre,
                 $descripcion,
-                $monto,
-                $location       = "<script> window.location.href =  '../vista/gasto.php';</script>",
-                $alertCompletar = "<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Alerta!</strong> 
-                                    Debes completar los campos de correctamente.<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                                    <span aria-hidden='true'>&times;</span></button></div>";
+                $monto;
 
     public function Gasto()
     {
@@ -64,6 +64,22 @@ class Gasto extends Conexion
     public function eliminarGasto($tabla, $idGasto)
     {
         $sql = "UPDATE $tabla SET estado=0 WHERE id=$idGasto";
+        $sentencia = $this->conexion->prepare($sql);
+        $sentencia->execute();
+        $registros = $sentencia->fetch();
+        return $registros;
+    }
+    public function actualizarTipoGasto($tabla, $idTipoGasto, $nombre)
+    {
+        $sql = "UPDATE $tabla SET `nombre` = '$nombre' WHERE `tipo_gasto`.`id` = $idTipoGasto;";
+        $sentencia = $this->conexion->prepare($sql);
+        $sentencia->execute();
+        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        return $registros;
+    }
+    public function eliminarTipoGasto($tabla, $idTipoGasto)
+    {
+        $sql = "UPDATE $tabla SET estado=0 WHERE id=$idTipoGasto";
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();
         $registros = $sentencia->fetch();

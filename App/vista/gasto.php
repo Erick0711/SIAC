@@ -3,21 +3,15 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 
 use App\Controlador\GastoControlador;
-
 $consulta = new GastoControlador;
 $gastos = $consulta->mostrar_gasto();
 $tipos = $consulta->index();
-
 ?>
 <!-- HEADER -->
 <?php
 include("./plantilla/header.php");
-
-// ASIDE
 include("./plantilla/aside.php");
-
 ?>
-
 <!-- CONTENIDO DE LA PAGINA -->
 <main class="app-content">
   <div class="app-title">
@@ -28,13 +22,12 @@ include("./plantilla/aside.php");
   <p><?php $consulta->consulta();?></p>
   <div class="row">
     <div class="clearfix"></div>
-    <div class="col-md-12">
+    <div class="col-md-8">
       <div class="tile">
         <div class="title-item">
 
           <div class="text-center">
-            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarModal"><i class="fa fa-plus"></i> Nuevo Gasto</a>
-            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarTipoModal"><i class="fa fa-plus"></i> Tipo de Gasto</a>
+            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarModal"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Nuevo Gasto</a>
           </div>
         </div>
         <div class="table-responsive">
@@ -45,7 +38,7 @@ include("./plantilla/aside.php");
                 <th>TIPO GASTO</th>
                 <th>DESCRIPCION</th>
                 <th>MONTO</th>
-                <th></th>
+                <th>MODEDA</th>
                 <th>ACCION</th>
               </tr>
             </thead>
@@ -60,7 +53,7 @@ include("./plantilla/aside.php");
                     <td><?php echo $gasto['monto_gasto'] ?></td>
                     <th>BS</th>
                     <td>
-                      <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModalGasto"><i class="fa fa-pencil-square"></i></a>
+                      <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                       <a href="./gasto.php?eliminar=<?php echo $gasto['id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                     </td>
                   </tr>
@@ -72,8 +65,43 @@ include("./plantilla/aside.php");
         </div>
       </div>
     </div>
+    <div class="col-md-4">
+      <div class="tile">
+        <div class="title-item">
+          <div class="text-center">
+            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarTipoModal"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Tipo Gasto</a>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered" id="tabla">
+            <thead class="text-center">
+              <tr>
+                <th>#</th>
+                <th>TIPO GASTO</th>
+                <th>ESTADO</th>
+                <th>ACCION</th>
+              </tr>
+            </thead>
+            <tbody>
+            <?php foreach($tipos as $tipo){ ?>
+            <tr>
+                <td><?php echo $tipo['id'] ?></td>
+                <td><?php echo $tipo['nombre'] ?></td>
+                <td><?php echo $tipo['estado'] ?></td>
+                <td>
+                      <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
+                      <a href="./gasto.php?eliminarTipo=<?php echo $tipo['id'];?>" class="btn btn-danger" name="eliminarTipo" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
+                    </td>
+            </tr>
+            <?php }; ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </main>
+
 
 <!-- VENTANA MODAL -->
 <?php

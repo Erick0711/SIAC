@@ -53,7 +53,7 @@ include("./plantilla/aside.php");
                                         <td><a href="" class="btn btn-danger">Inactivo</a></td>
                                         <?php };?>
                                         <td>
-                                            <a class="btn btn-warning-2 editarApartamento" data-toggle="modal" data-target="#editarApartamentoModal"><i class="fa fa-pencil-square"></i></a>
+                                            <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                                             <a href="./apartamento.php?eliminar=<?php echo $apartamento['id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                                         </td>
                                     </tr>

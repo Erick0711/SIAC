@@ -2,7 +2,7 @@
 <!-- MODAL FORMULARIO REGISTRAR-->
 <div class="modal fade" id="registrarApartamentoModal" tabindex="-1" aria-labelledby="apartamentoLabel" aria-hidden="true">
 <div class="modal-dialog d-flex justify-content-center">
-    <div class="modal-content w-75">
+    <div class="modal-content w-50">
     <div class="modal-header">
         <h2 class="modal-title" id="apartamentoLabel"><i class="fa fa-building"></i></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -41,9 +41,9 @@
 <!-- MODAL FORMULARIO EDITAR-->
 
 <!-- MODAL FORMULARIO REGISTRAR-->
-<div class="modal fade" id="editarApartamentoModal" tabindex="-1" aria-labelledby="editarApartamentoLabel" aria-hidden="true">
+<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarApartamentoLabel" aria-hidden="true">
 <div class="modal-dialog d-flex justify-content-center">
-    <div class="modal-content  w-75">
+    <div class="modal-content  w-50">
     <div class="modal-header">
         <h2 class="modal-title" id="editarApartamentoLabel"><i class="fa fa-building"></i></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

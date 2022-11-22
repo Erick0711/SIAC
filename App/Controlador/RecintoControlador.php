@@ -17,7 +17,7 @@ class RecintoControlador extends Recinto
                 $this->numeroPabellon = $_POST['numero_pabellon'];
                 if (strlen($this->numeroPabellon) > 1) {
                     $this->recinto = new recinto();
-                    $resultados = $this->recinto->registrarPabellon("pabellon", $this->numeroPabellon);
+                    $this->recinto->registrarPabellon("pabellon", $this->numeroPabellon);
                     echo $this->location;
                 }else {
                     echo $this->alertCompletar;
@@ -29,9 +29,8 @@ class RecintoControlador extends Recinto
                     $this->numeroPabellon = $_POST['numero_pabellon'];
                     if (strlen($this->numeroPabellon) > 1) {
                         $this->recinto = new Recinto();
-                        $resultados = $this->recinto->editarPabellon("pabellon", $this->numeroPabellon, $id);
+                        $this->recinto->editarPabellon("pabellon", $this->numeroPabellon, $id);
                         echo $this->location;
-                        return $resultados;
                     }else {
                         echo $this->alertCompletar;
                     }
@@ -40,7 +39,7 @@ class RecintoControlador extends Recinto
                 case isset($_GET['eliminar']):
                     $idAPabellon = $_GET['eliminar'];
                         $this->recinto = new Recinto();
-                        $resultados = $this->recinto->eliminarPabellon("pabellon", $idAPabellon);
+                        $this->recinto->eliminarPabellon("pabellon", $idAPabellon);
                         echo $this->location;
                     break;
             default:

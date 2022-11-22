@@ -3,34 +3,29 @@ namespace App\Controlador;
 use App\Modelo\Rol;
 class RolControlador extends Rol
 {
-    protected   $rol,
-                $usuario,
-                $contrasenia,
-                $location = "<script> window.location.href =  '../vista/inicio.php';</script>",
-                $locationLogin = "<script> window.location.href =  '../vista/login.php';</script>";
-    public function validar()
+    public function index()
     {
-        if(isset($_POST['login']))
-        {
-            $this->usuario = $_POST['usuario'];
-            $this->contrasenia = $_POST['contrasenia'];
-            if(strlen($this->usuario) && strlen($this->contrasenia)){
-                $this->rol = new Rol();
-                $resultados = $this->rol->buscar($this->usuario, $this->contrasenia);
-                if($resultados >= 1){
-                    session_start();
-                    $_SESSION['usuario'] = $resultados['usuario'];
-                    $_SESSION['nombre_rol'] = $resultados['nombre_rol'];
-                    
-                    if($_SESSION['nombre_rol'] == "SIAC" || $_SESSION['nombre_rol'] == "administrador"){
-                        echo $this->location;
-                    }
-                }else{
-                echo $this->locationLogin;
-                }
-            }else{
-                echo $this->locationLogin;
-            }
-        }    
+        $this->rol = new Rol();
+        $resultados = $this->rol->mostrar("rol");
+        return $resultados;
     }
+    public function consulta()
+    {
+        switch (isset($_REQUEST)) {
+            case isset($_POST['guardarRol']):
+                $this->nombreRol = $_POST['rol'];
+                $this->descripcion = $_POST['descripcion'];
+                if(strlen($this->nombreRol) > 2 && strlen($this->descripcion) > 2){
+                    $this->rol = new Rol();
+                    $this->rol->registrarRol("rol", $this->nombreRol, $this->descripcion);
+                    echo $this->redireccionarUsuario;
+                }else{
+                    echo $this->alerta_advertencia;
+                }
+                break;
+            default:
+                # code...
+                break;
+            }
+        }
 }
