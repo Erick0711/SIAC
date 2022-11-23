@@ -1,15 +1,14 @@
 <?php
 namespace App\Modelo;
-use App\config\Conexion;
-use PDO;
-class Recinto extends Conexion
+use App\config\Conexion,
+    App\config\Alerta,
+    App\config\Redireccion,
+    PDO;
+class Pabellon extends Conexion
 {
-    protected   $recinto,
-                $numeroPabellon,
-                $location       = "<script> window.location.href =  '../vista/recinto.php';</script>",
-                $alertCompletar = "<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Alerta!</strong> 
-                                    Debes completar los campos de correctamente.<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                                    <span aria-hidden='true'>&times;</span></button></div>";
+    use Alerta,Redireccion;
+    protected   $pabellon,
+                $numeroPabellon;
 
     public function Recinto()
     {
@@ -18,15 +17,6 @@ class Recinto extends Conexion
     public function mostrarTabla($tabla)
     {
         $sql = "SELECT * FROM $tabla";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-        return $registros;
-    }
-    public function mostrarTablaEstacionamiento($tabla, $tabla2)
-    {
-        $sql = "SELECT pabellon.*, estacionamiento.* FROM $tabla 
-                INNER JOIN $tabla2 ON pabellon.id = estacionamiento.id_pabellon";
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();
         $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -41,7 +31,7 @@ class Recinto extends Conexion
         $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
         return $registros;
     }
-    public function editarPabellon($tabla, $numeroPabellon,$id)
+    public function actualizarPabellon($tabla, $numeroPabellon,$id)
     {
         $sql = "UPDATE $tabla SET numero_pabellon = '$numeroPabellon' 
                 WHERE pabellon.id='$id'";

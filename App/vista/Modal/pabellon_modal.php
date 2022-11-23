@@ -2,9 +2,9 @@
 <!-- MODAL FORMULARIO REGISTRAR-->
 <div class="modal fade" id="registrarRecintoModal" tabindex="-1" aria-labelledby="recintoLabel" aria-hidden="true">
 <div class="modal-dialog d-flex justify-content-center">
-    <div class="modal-content w-75">
+    <div class="modal-content w-50">
     <div class="modal-header">
-        <h2 class="modal-title" id="recintoLabel"><i class="fa fa-braille"></i></h2>
+        <h2 class="modal-title" id="recintoLabel"><i class="fa fa-braille"></i> Pabellón</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -18,7 +18,6 @@
                     <input type="text" name="numero_pabellon" class="form-control" placeholder="Nro. Pabellon">
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-5"></div>
@@ -31,15 +30,11 @@
         </form>
         </div>
     <!-- FIN CONTENIDO DEL MODAL -->
-
     </div>
     </div>
 </div>
 </div>
-
-
 <!-- MODAL FORMULARIO EDITAR-->
-
 <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="recintoLabel" aria-hidden="true">
 <div class="modal-dialog d-flex justify-content-center">
     <div class="modal-content w-75">
@@ -61,7 +56,6 @@
                 <input type="text" name="idPabellon" id="idPabellon">
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-5"></div>
@@ -74,7 +68,6 @@
         </form>
         </div>
     <!-- FIN CONTENIDO DEL MODAL -->
-
     </div>
     </div>
 </div>

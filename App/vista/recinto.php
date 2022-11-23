@@ -2,11 +2,12 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 
-use App\Controlador\RecintoControlador;
-
-$consulta = new RecintoControlador;
+use App\Controlador\PabellonControlador;
+use App\Controlador\EstacionamientoControlador;
+$consulta = new PabellonControlador;
+$consultaEstacionamiento = new EstacionamientoControlador;
+$estacionamientos = $consultaEstacionamiento->index();
 $pabellones = $consulta->index();
-$consulta->consulta();
 ?>
 <!-- HEADER -->
 <?php
@@ -19,6 +20,10 @@ include("./plantilla/aside.php");
     <div class="app-title">
         <div>
             <h1><i class="fa fa-th-list"></i> Recinto</h1>
+            <p><?php 
+            $consulta->consulta();
+            $consultaEstacionamiento->consulta();
+            ?></p>
         </div>
     </div>
     <p></p>
@@ -27,10 +32,9 @@ include("./plantilla/aside.php");
 
     <div class="row">
         <div class="clearfix"></div>
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="tile">
                 <div class="title-item">
-
                     <div class="text-center">
                         <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarRecintoModal"><i class="fa fa-plus"></i> Nuevo Pabellon</a>
                     </div>
@@ -65,13 +69,55 @@ include("./plantilla/aside.php");
                 </div>
             </div>
         </div>
+
+        <div class="col-md-6">
+            <div class="tile">
+                <div class="title-item">
+
+                    <div class="text-center">
+                        <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarEstacionamientoModal"><i class="fa fa-plus"></i> Nuevo Estacionamiento</a>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="tabla2">
+                        <thead class="text-center">
+                            <tr>
+                                <th>#</th>
+                                <th>NRO PABELLON</th>
+                                <th>NRO ESTACIONAMIENTO</th>
+                                <th>ESTADO</th>
+                                <th>ACCION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($estacionamientos as $estacionamiento) {?>
+                                    <tr><td><?php echo $estacionamiento['estacionamiento_id'];?></td>
+                                        <td><?php echo $estacionamiento['numero_pabellon'];?></td>
+                                        <td><?php echo $estacionamiento['numero_estacionamiento'];?></td>
+                                        <?php if($estacionamiento['estado'] == 1) {?>
+                                        <td><a href="" class="btn btn-success">Activo</a></td>
+                                        <?php }elseif($estacionamiento['estado'] == 0){?>
+                                        <td><a href="" class="btn btn-danger">Inactivo</a></td>
+                                        <?php };?>
+                                        <td>
+                                            <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
+                                            <a href="./recinto.php?eliminarEstacionamiento=<?php echo $estacionamiento['estacionamiento_id'];?>" class="btn btn-danger" name="eliminarEstacionamiento" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
+                                        </td>
+                                    </tr>
+                            <?php  };?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
     </div>
 </main>
 
 <!-- VENTANA MODAL -->
 <?php
-include("./Modal/recinto_modal.php");
+include("./Modal/pabellon_modal.php");
+include("./Modal/estacionamiento_modal.php");
 //  FOOTER
 include("./plantilla/footer.php");
 ?>
