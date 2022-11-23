@@ -1,15 +1,14 @@
 <?php
 namespace App\Modelo;
-use App\config\Conexion;
-use PDO;
+use App\config\Conexion,
+    App\config\Redireccion,
+    App\config\Alerta,
+    PDO;
 class Apartamento extends Conexion
 {
+    use Alerta,Redireccion;
     protected   $apartamento,
-                $numeroApartamento,
-                $location       = "<script> window.location.href =  '../vista/apartamento.php';</script>",
-                $alertCompletar = "<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Alerta!</strong> 
-                                    Debes completar los campos de correctamente.<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                                    <span aria-hidden='true'>&times;</span></button></div>";
+                $numeroApartamento;
 
     public function Apartamento()
     {

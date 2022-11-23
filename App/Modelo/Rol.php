@@ -2,8 +2,8 @@
 namespace App\Modelo;
 use App\config\Conexion,
     App\config\Redireccion,
-    App\config\Alerta;
-use PDO;
+    App\config\Alerta,
+    PDO;
 class Rol extends Conexion
 {
     use Alerta,Redireccion;

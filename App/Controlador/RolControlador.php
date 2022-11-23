@@ -11,7 +11,8 @@ class RolControlador extends Rol
     }
     public function consulta()
     {
-        switch (isset($_REQUEST)) {
+        switch (isset($_REQUEST)) 
+        {
             case isset($_POST['guardarRol']):
                 $this->nombreRol = $_POST['rol'];
                 $this->descripcion = $_POST['descripcion'];
@@ -24,8 +25,7 @@ class RolControlador extends Rol
                 }
                 break;
             default:
-                # code...
                 break;
-            }
         }
+    }
 }

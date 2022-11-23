@@ -8,5 +8,4 @@ trait Persona{
                 $correo,
                 $telefono;
 }
-
 ?>

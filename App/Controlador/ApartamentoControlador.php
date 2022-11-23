@@ -17,10 +17,10 @@ class ApartamentoControlador extends Apartamento
                 $this->numeroApartamento = $_POST['numero_apartamento'];
                 if (strlen($this->numeroApartamento) > 1) {
                     $this->apartamento = new Apartamento();
-                    $resultados = $this->apartamento->registrarApartamento("apartamento", $this->numeroApartamento);
-                    echo $this->location;
+                    $this->apartamento->registrarApartamento("apartamento", $this->numeroApartamento);
+                    echo $this->redireccionarApartamento;
                 } else {
-                    echo $this->alertCompletar;
+                    echo $this->alerta_validacion;
                 }
                 break;
 
@@ -29,21 +29,19 @@ class ApartamentoControlador extends Apartamento
                 $this->numeroApartamento = $_POST['numero_apartamento'];
                 if (strlen($this->numeroApartamento) > 1) {
                     $this->apartamento = new Apartamento();
-                    $resultados = $this->apartamento->editarApartamento("apartamento", $this->numeroApartamento, $id);
-                    echo $this->location;
-                    return $resultados;
+                    $this->apartamento->editarApartamento("apartamento", $this->numeroApartamento, $id);
+                    echo $this->redireccionarApartamento;
                 } else {
-                    echo $this->alertCompletar;
+                    echo $this->alerta_validacion;
                 }
                 break;
 
             case isset($_GET['eliminar']):
                 $idApartamento = $_GET['eliminar'];
                 $this->apartamento = new Apartamento();
-                $resultados = $this->apartamento->eliminarApartamento("apartamento", $idApartamento);
-                echo $this->location;
+                $this->apartamento->eliminarApartamento("apartamento", $idApartamento);
+                echo $this->redireccionarApartamento;
                 break;
-
             default:
                 break;
         }

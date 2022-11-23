@@ -18,26 +18,27 @@ class EstacionamientoControlador extends Estacionamiento
                 $this->numeroEstacionamiento = $_POST['numeroEstacionamiento'];
                 if (strlen($this->numeroEstacionamiento) > 1) {
                     $this->estacionamiento = new Estacionamiento();
-                    $this->estacionamiento->registrarEstacionamiento("estacionamiento",$this->idPabellon ,$this->numeroEstacionamiento);
+                    $this->estacionamiento->registrarEstacionamiento("estacionamiento",$this->idPabellon, 
+                                                                    $this->numeroEstacionamiento);
                     echo $this->redireccionarRecinto;
                 }else {
                     echo $this->alerta_validacion;
                 }
                 break;
 
-                case isset($_POST['actualizarEstacionamiento']):
-                    $this->idPabellon = $_POST['idPabellon'];
-                    $this->numeroEstacionamiento = $_POST['numeroEstacionamiento'];
-                    $idEstacionamiento = $_POST['idEstacionamiento'];
-                    if (strlen($this->numeroEstacionamiento) > 1) {
-                        $this->estacionamiento = new Estacionamiento();
-                        $this->estacionamiento->actualizarEstacionamiento("estacionamiento", $this->idPabellon,
-                                                                        $this->numeroEstacionamiento, $idEstacionamiento);
-                        echo $this->redireccionarRecinto;
-                    }else {
-                        echo $this->alerta_validacion;
-                    }
-                    break;
+            case isset($_POST['actualizarEstacionamiento']):
+                $this->idPabellon = $_POST['idPabellon'];
+                $this->numeroEstacionamiento = $_POST['numeroEstacionamiento'];
+                $idEstacionamiento = $_POST['idEstacionamiento'];
+                if (strlen($this->numeroEstacionamiento) > 1) {
+                    $this->estacionamiento = new Estacionamiento();
+                    $this->estacionamiento->actualizarEstacionamiento("estacionamiento", $this->idPabellon,
+                                                                    $this->numeroEstacionamiento, $idEstacionamiento);
+                    echo $this->redireccionarRecinto;
+                }else {
+                    echo $this->alerta_validacion;
+                }
+                break;
 
                 case isset($_GET['eliminarEstacionamiento']):
                     $idEstacionamiento = $_GET['eliminarEstacionamiento'];

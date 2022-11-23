@@ -47,10 +47,10 @@ include("./plantilla/aside.php");
                 if ($gasto['estado'] == 1) {
               ?>
                   <tr>
-                    <td><?php echo $gasto['id'] ?></td>
-                    <td><?php echo $gasto['nombre'] ?></td>
-                    <td><?php echo $gasto['descripcion'] ?></td>
-                    <td><?php echo $gasto['monto_gasto'] ?></td>
+                    <td><?php echo $gasto['id'];?></td>
+                    <td><?php echo $gasto['nombre'];?></td>
+                    <td><?php echo $gasto['descripcion'];?></td>
+                    <td><?php echo $gasto['monto_gasto'];?></td>
                     <th>BS</th>
                     <td>
                       <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>

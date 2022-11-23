@@ -2,7 +2,8 @@
 namespace App\config;
 use PDO;
 use PDOException;
-class Conexion{
+class Conexion
+{
     protected $server = "127.0.0.1";
     protected $user = "root";
     protected $name = "siac_sevilla";
@@ -17,6 +18,5 @@ class Conexion{
             echo "FALLO EN LA CONEXION: ".$err;
         }
     }
-
 }
 ?>

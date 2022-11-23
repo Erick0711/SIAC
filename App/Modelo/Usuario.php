@@ -36,16 +36,7 @@ class Usuario extends Conexion
         $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
         return $registros;
     }
-    public function registrarTipoRol($tabla,$nombre)
-    {
-        $sql = "INSERT INTO $tabla (`id`, `nombre`, `estado`, `created_at`, `updated_at`) 
-                VALUES (NULL, '$nombre', '1', current_timestamp(), current_timestamp())";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-        return $registros;
-    }
-    public function nuevoUsuario($tabla, $tabla2,$nombre, $apellido, $ci, $complemento_ci, 
+    public function registrarUsuario($tabla, $tabla2,$nombre, $apellido, $ci, $complemento_ci, 
                                 $correo, $telefono, $usuario, $contrasenia, $rol)
     {
         $sql = "INSERT INTO $tabla (`id`, `nombre`, `apellido`, `ci`, `complemento_ci`, `correo`, 
@@ -68,6 +59,7 @@ class Usuario extends Conexion
             }
         } 
     } 
+    /********************************************** LOGIN ******************************************************/ 
     public function buscar($usuario, $contrasenia)
     {
         $sql = "SELECT usuario.usuario, usuario.contrasenia, rol.nombre_rol

@@ -24,24 +24,24 @@ class PabellonControlador extends Pabellon
                 }
                 break;
 
-                case isset($_POST['editarPabellon']):
-                    $id = $_POST['idPabellon'];
-                    $this->numeroPabellon = $_POST['numero_pabellon'];
-                    if (strlen($this->numeroPabellon) > 1) {
-                        $this->pabellon = new Pabellon();
-                        $this->pabellon->actualizarPabellon("pabellon", $this->numeroPabellon, $id);
-                        echo $this->redireccionarRecinto;
-                    }else {
-                        echo $this->alerta_validacion;
-                    }
-                    break;
+            case isset($_POST['editarPabellon']):
+                $id = $_POST['idPabellon'];
+                $this->numeroPabellon = $_POST['numero_pabellon'];
+                if (strlen($this->numeroPabellon) > 1) {
+                    $this->pabellon = new Pabellon();
+                    $this->pabellon->actualizarPabellon("pabellon", $this->numeroPabellon, $id);
+                    echo $this->redireccionarRecinto;
+                }else {
+                    echo $this->alerta_validacion;
+                }
+                break;
 
-                case isset($_GET['eliminar']):
-                    $idAPabellon = $_GET['eliminar'];
-                        $this->pabellon = new Pabellon();
-                        $this->pabellon->eliminarPabellon("pabellon", $idAPabellon);
-                        echo $this->redireccionarRecinto;
-                    break;
+            case isset($_GET['eliminar']):
+                $idAPabellon = $_GET['eliminar'];
+                    $this->pabellon = new Pabellon();
+                    $this->pabellon->eliminarPabellon("pabellon", $idAPabellon);
+                    echo $this->redireccionarRecinto;
+                break;
             default:
                 break;
         }
