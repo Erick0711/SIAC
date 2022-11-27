@@ -59,11 +59,9 @@
             <form action="./recinto.php" method="POST">
             <div class="row  mt-2">
             <div class="col-md-6">
-                    <select name="idPabellon" id="idPabellon" class="custom-select">
-                        <option value="0">Seleccionar Pabellon</option>
+                    <select name="idPabellon" id="idNumeroPabellon" class="custom-select pabellon">
                         <?php foreach($pabellones as $pabellon){;?>
-                        <option value="<?php echo $pabellon['id'];?>">
-                        <?php echo $pabellon['numero_pabellon'];?></option>
+                        <option value="<?php echo $pabellon['id'];?>"><?php echo $pabellon['numero_pabellon'];?></option>
                         <?php };?>
                     </select>
                 </div>

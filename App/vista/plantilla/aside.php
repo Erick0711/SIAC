@@ -17,12 +17,12 @@
                 <ul class="treeview-menu">
                     <?php if ($_SESSION['nombre_rol'] == "SIAC") { ?>
 
-                        <li><a class="treeview-item" href="./copropietario"><i class="icon fa fa-circle-o"></i> Copropietario</a></li>
-                        <li><a class="treeview-item" href="./funcionario"><i class="icon fa fa-circle-o"></i> Funcionario</a></li>
+                        <li><a class="treeview-item" href="./copropietario.php"><i class="icon fa fa-circle-o"></i> Copropietario</a></li>
+                        <li><a class="treeview-item" href="./funcionario.php"><i class="icon fa fa-circle-o"></i> Funcionario</a></li>
                         <li><a class="treeview-item" href="./usuario.php"><i class="icon fa fa-circle-o"></i> Usuario</a></li>
-                        <li><a class="treeview-item" href="./apartamento"><i class="icon fa fa-circle-o"></i> Apartamento</a></li>
+                        <li><a class="treeview-item" href="./apartamento.php"><i class="icon fa fa-circle-o"></i> Apartamento</a></li>
                     <?php } elseif ($_SESSION['nombre_rol'] == "Administrador") { ?>
-                        <li><a class="treeview-item" href="./copropietario"><i class="icon fa fa-circle-o"></i> Copropietario</a></li>
+                        <li><a class="treeview-item" href="./copropietario.php"><i class="icon fa fa-circle-o"></i> Copropietario</a></li>
                     <?php }; ?>
                 </ul>
             </li>

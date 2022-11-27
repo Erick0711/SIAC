@@ -8,12 +8,13 @@ $(document).ready(function () {
             return $(this).text();
         }).get();
 
-        // console.log(data);
+
         var idGasto = data[0],
             descripcion = data[2],
             monto = data[3];
 
         $('#idGasto').val(idGasto);
+        $("#idNumeroPabellon").prepend("<option value="+ idPabellon +" selected='selected'>"+ numeroPabellon +"</option>");
         $('#descripcion').val(descripcion);
         $('#monto').val(monto);
 
@@ -27,7 +28,18 @@ $(document).ready(function () {
             numeroDepartamento = data[1];
         $('#idApartamento').val(idDepartamento);
         $('#numeroApartamento').val(numeroDepartamento);
+
+        var idArticulo = data[0],
+            tipoArticulo = data[1],
+            descripcion = data[2],
+            monto = data[3];
+
+        $('#idArticulo').val(idArticulo);
+        $('#tipoArticulo').val(tipoArticulo);
+        $('#descripcion').val(descripcion);
+        $('#montoArticulo').val(monto);
     });
+
     $('.editarbtnTipo').on('click', function () {
         $('#editarModalTipo').modal('show');
 
@@ -37,18 +49,24 @@ $(document).ready(function () {
             return $(this).text();
         }).get();
 
-        console.log(data);
         var idtipoGasto = data[0],
             tipoGasto = data[1];
         $('#idtipoGasto').val(idtipoGasto);
         $('#tipoGasto').val(tipoGasto);
 
         var idEstacionamiento = data[0],
-            idPabellon = data[1],
-            numeroEstacionamiento = data[2];
+            numeroPabellon = data[1],
+            numeroEstacionamiento = data[2],
+            idPabellon = data[3];
+        $("#idNumeroPabellon").prepend("<option value="+ idPabellon +" selected='selected'>"+ numeroPabellon +"</option>");
         $('#idEstacionamiento').val(idEstacionamiento);
-        $('#idPabellon').val(idPabellon);
         $('#numeroEstacionamiento').val(numeroEstacionamiento);
+
+        console.log(data);
+        var idTipoArticulo = data[0],
+            tipoArticulo = data[1];
+        $('#idTipoArticulo').val(idTipoArticulo);
+        $('#tipoArticulo').val(tipoArticulo);
     });
 });
-
+$('.hidden').hide();

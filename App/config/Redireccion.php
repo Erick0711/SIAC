@@ -1,6 +1,5 @@
 <?php
 namespace App\config;
-
 trait Redireccion
 {
     public  $rediccionarInicio = "<script> window.location.href =  '../vista/inicio.php';</script>",

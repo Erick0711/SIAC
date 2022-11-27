@@ -1,4 +1,5 @@
 <?php
+include("./plantilla/header.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 
@@ -9,7 +10,6 @@ $tipos = $consulta->index();
 ?>
 <!-- HEADER -->
 <?php
-include("./plantilla/header.php");
 include("./plantilla/aside.php");
 ?>
 <!-- CONTENIDO DE LA PAGINA -->
@@ -25,7 +25,6 @@ include("./plantilla/aside.php");
     <div class="col-md-8">
       <div class="tile">
         <div class="title-item">
-
           <div class="text-center">
             <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarModal"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Nuevo Gasto</a>
           </div>
@@ -35,10 +34,11 @@ include("./plantilla/aside.php");
             <thead class="text-center">
               <tr>
                 <th>#</th>
-                <th>TIPO GASTO</th>
+                <th>TIPO</th>
                 <th>DESCRIPCION</th>
                 <th>MONTO</th>
                 <th>MODEDA</th>
+                <th class="hidden"></th>
                 <th>ACCION</th>
               </tr>
             </thead>
@@ -51,7 +51,8 @@ include("./plantilla/aside.php");
                     <td><?php echo $gasto['nombre'];?></td>
                     <td><?php echo $gasto['descripcion'];?></td>
                     <td><?php echo $gasto['monto_gasto'];?></td>
-                    <th>BS</th>
+                    <td>BS</td>
+                    <td class="hidden"><?php echo $gasto['tipo_gasto_id'];?></td>
                     <td>
                       <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                       <a href="./gasto.php?eliminar=<?php echo $gasto['id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
@@ -73,7 +74,7 @@ include("./plantilla/aside.php");
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-bordered" id="tabla">
+          <table class="table table-bordered" id="tabla2">
             <thead class="text-center">
               <tr>
                 <th>#</th>

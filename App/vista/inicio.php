@@ -5,7 +5,7 @@ require(AUTOLOAD);
 
 use App\Controlador\UsuarioControlador;
 $consulta = new UsuarioControlador;
-$consulta->consulta();
+$login = $consulta->consulta();
 ?>
 
 <?php include("./plantilla/header.php"); ?>
@@ -95,9 +95,6 @@ $consulta->consulta();
         <div class="col-md-6">
             <div class="tile">
                 <h3 class="tile-title">Support Requests</h3>
-                <?php 
-         
-                ?>
                 <div class="embed-responsive embed-responsive-16by9">
                     <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
                 </div>

@@ -10,8 +10,8 @@ $('#tabla').DataTable({
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="-1">All</option>
-                    </select> ` + 
-                    "registros por página",
+                    </select> ` ,
+                    // "registros por página",
                     "ZeroRecords": "Nada encontrado",
                     "info": "Página _PAGE_ de _PAGES_",
                     "infoEmpty": "Ningun dato encontrado",
@@ -37,8 +37,8 @@ $('#tabla2').DataTable({
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="-1">All</option>
-                    </select> ` + 
-                    "registros por página",
+                    </select> `, 
+                    // "registros por página",
                     "ZeroRecords": "Nada encontrado",
                     "info": "Página _PAGE_ de _PAGES_",
                     "infoEmpty": "Ningun dato encontrado",

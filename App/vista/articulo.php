@@ -1,4 +1,5 @@
 <?php
+include("./plantilla/header.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 use App\Controlador\ArticuloControlador;
@@ -8,7 +9,6 @@ $articulos = $consulta->indexArticulo()
 ?>
 <!-- HEADER -->
 <?php
-include("./plantilla/header.php");
 include("./plantilla/aside.php");
 ?>
 <!-- CONTENIDO DE LA PAGINA -->

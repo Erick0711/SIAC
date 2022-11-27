@@ -1,7 +1,7 @@
 <?php
 session_start();
 $rol = $_SESSION['nombre_rol'];
-if(!isset($rol)){
-    header("location: ./login.php");
+if(empty($rol) && !isset($rol)){
+    header("Location: ./login.php");
 }
 ?>

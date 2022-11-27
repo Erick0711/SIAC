@@ -1,4 +1,5 @@
 <?php
+include("./plantilla/header.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 use App\Controlador\UsuarioControlador;
@@ -10,7 +11,6 @@ $usuarios = $consulta->index();
 ?>
 <!-- HEADER -->
 <?php
-include("./plantilla/header.php");
 include("./plantilla/aside.php");
 ?>
 <!-- CONTENIDO DE LA PAGINA -->
@@ -106,8 +106,8 @@ include("./plantilla/aside.php");
 <td>
 <!-- VENTANA MODAL -->
 <?php
+include("./plantilla/footer.php");
 include("./Modal/usuario_modal.php");
 include("./Modal/rol_modal.php");
 //  FOOTER
-include("./plantilla/footer.php");
 ?>

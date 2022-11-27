@@ -27,7 +27,7 @@ class Gasto extends Conexion
     }
     public function mostrarTablaGasto($tabla,$tabla2)
     {
-        $sql = "SELECT tipo_gasto.nombre, gasto.id, gasto.descripcion, gasto.monto_gasto, gasto.estado 
+        $sql = "SELECT tipo_gasto.id AS tipo_gasto_id, tipo_gasto.nombre, gasto.id, gasto.descripcion, gasto.monto_gasto, gasto.estado 
                 FROM $tabla2 INNER JOIN $tabla on tipo_gasto.id = gasto.id_tipo_gasto";
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();

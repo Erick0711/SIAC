@@ -18,5 +18,6 @@ class Conexion
             echo "FALLO EN LA CONEXION: ".$err;
         }
     }
+    
 }
 ?>

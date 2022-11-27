@@ -1,6 +1,5 @@
 <?php 
 namespace App\config;
-
 trait Alerta
 {
     public  $alerta_fallo = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>

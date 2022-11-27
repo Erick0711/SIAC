@@ -3,10 +3,11 @@ namespace App\Modelo;
 use App\config\Conexion,
     App\config\Redireccion,
     App\config\Alerta,
+    App\config\Integral,
     PDO;
 class Apartamento extends Conexion
 {
-    use Alerta,Redireccion;
+    use Alerta,Redireccion,Integral;
     protected   $apartamento,
                 $numeroApartamento;
 
@@ -14,15 +15,13 @@ class Apartamento extends Conexion
     {
         parent::__construct();
     }
-    public function mostrarTabla($tabla)
+
+    public function mostrar($tabla)
     {
-        $sql = "SELECT * FROM $tabla";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("SELECT * FROM $tabla");
         return $registros;
     }
-    public function registrarApartamento($tabla, $numeroApartamento)
+    public function registrar($tabla, $numeroApartamento)
     {
         $sql = "INSERT INTO $tabla (`id`, `numero_apartamento`, `estado`, `created_at`, `updated_at`) 
                 VALUES (NULL, '$numeroApartamento', '1', current_timestamp(), current_timestamp())";
@@ -31,7 +30,7 @@ class Apartamento extends Conexion
         $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
         return $registros;
     }
-    public function editarApartamento($tabla, $numeroApartamento,$id)
+    public function actualizar($tabla, $numeroApartamento,$id)
     {
         $sql = "UPDATE $tabla SET numero_apartamento = '$numeroApartamento' 
                 WHERE apartamento.id='$id'";
@@ -40,7 +39,7 @@ class Apartamento extends Conexion
         $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
         return $registros;
     }
-    public function eliminarApartamento($tabla, $idApartamento){
+    public function eliminar($tabla, $idApartamento){
         $sql = "UPDATE $tabla SET estado=0 WHERE id=$idApartamento";
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();

@@ -1,3 +1,4 @@
+
 <!-- SCRIPT JS ESENCIALES -->
 <script src="../../assets/js/jquery-3.3.1.min.js"></script>
 <script src="../../assets/js/popper.min.js"></script>
@@ -13,8 +14,4 @@
 <script type="text/javascript" src="../../assets/sweetalert2/sweetalert2.all.min.js"></script>
 <script type="text/javascript" src="../../assets/js/alert.js"></script>
 </body>
-
-
-</body>
-
 </html>

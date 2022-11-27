@@ -6,7 +6,7 @@ class ApartamentoControlador extends Apartamento
     public function index()
     {
         $this->apartamento = new Apartamento();
-        $resultados = $this->apartamento->mostrarTabla("apartamento");
+        $resultados = $this->apartamento->mostrar("apartamento");
         return $resultados;
     }
     public function consulta()
@@ -17,7 +17,7 @@ class ApartamentoControlador extends Apartamento
                 $this->numeroApartamento = $_POST['numero_apartamento'];
                 if (strlen($this->numeroApartamento) > 1) {
                     $this->apartamento = new Apartamento();
-                    $this->apartamento->registrarApartamento("apartamento", $this->numeroApartamento);
+                    $this->apartamento->registrar("apartamento", $this->numeroApartamento);
                     echo $this->redireccionarApartamento;
                 } else {
                     echo $this->alerta_validacion;
@@ -29,7 +29,7 @@ class ApartamentoControlador extends Apartamento
                 $this->numeroApartamento = $_POST['numero_apartamento'];
                 if (strlen($this->numeroApartamento) > 1) {
                     $this->apartamento = new Apartamento();
-                    $this->apartamento->editarApartamento("apartamento", $this->numeroApartamento, $id);
+                    $this->apartamento->actualizar("apartamento", $this->numeroApartamento, $id);
                     echo $this->redireccionarApartamento;
                 } else {
                     echo $this->alerta_validacion;
@@ -39,7 +39,7 @@ class ApartamentoControlador extends Apartamento
             case isset($_GET['eliminar']):
                 $idApartamento = $_GET['eliminar'];
                 $this->apartamento = new Apartamento();
-                $this->apartamento->eliminarApartamento("apartamento", $idApartamento);
+                $this->apartamento->eliminar("apartamento", $idApartamento);
                 echo $this->redireccionarApartamento;
                 break;
             default:

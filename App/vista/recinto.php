@@ -1,4 +1,6 @@
 <?php
+include("./plantilla/header.php");
+
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 
@@ -11,7 +13,6 @@ $pabellones = $consulta->index();
 ?>
 <!-- HEADER -->
 <?php
-include("./plantilla/header.php");
 include("./plantilla/aside.php");
 ?>
 
@@ -32,7 +33,7 @@ include("./plantilla/aside.php");
 
     <div class="row">
         <div class="clearfix"></div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div class="tile">
                 <div class="title-item">
                     <div class="text-center">
@@ -70,7 +71,7 @@ include("./plantilla/aside.php");
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-7">
             <div class="tile">
                 <div class="title-item">
 
@@ -85,6 +86,7 @@ include("./plantilla/aside.php");
                                 <th>#</th>
                                 <th>NRO PABELLON</th>
                                 <th>NRO ESTACIONAMIENTO</th>
+                                <th class="hidden"></th>
                                 <th>ESTADO</th>
                                 <th>ACCION</th>
                             </tr>
@@ -94,6 +96,7 @@ include("./plantilla/aside.php");
                                     <tr><td><?php echo $estacionamiento['estacionamiento_id'];?></td>
                                         <td><?php echo $estacionamiento['numero_pabellon'];?></td>
                                         <td><?php echo $estacionamiento['numero_estacionamiento'];?></td>
+                                        <td class="hidden"><?php echo $estacionamiento['id'];?></td>
                                         <?php if($estacionamiento['estado'] == 1) {?>
                                         <td><a href="" class="btn btn-success">Activo</a></td>
                                         <?php }elseif($estacionamiento['estado'] == 0){?>
