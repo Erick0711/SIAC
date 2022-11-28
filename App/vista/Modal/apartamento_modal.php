@@ -12,10 +12,10 @@
     <div class="modal-body ">
         <div class="container">
             <!-- FORMULARIO -->
-            <form action="./apartamento.php" method="POST">
+            <form action="./apartamento.php" method="POST" autocomplete="off">
             <div class="row  mt-2">
                 <div class="col-md-12">
-                    <input type="text" name="numero_apartamento" class="form-control" placeholder="Nro. Apartamento">
+                    <input type="text" name="numero_apartamento" class="form-control" placeholder="Nro. Apartamento" required="required">
                 </div>
             </div>
 
@@ -53,13 +53,13 @@
     <div class="modal-body ">
         <div class="container">
             <!-- FORMULARIO -->
-            <form action="./apartamento.php" method="POST">
+            <form action="./apartamento.php" method="POST" autocomplete="off">
             <div class="row mt-2">
                 <div class="col-md-12">
-                    <input type="text" name="numero_apartamento" id="numeroApartamento" class="form-control" placeholder="Nro. Apartamento">
+                    <input type="text" name="numero_apartamento" id="numeroApartamento" class="form-control" placeholder="Nro. Apartamento" required="required">
                 </div>
                 <div class="col-md-1">
-                <input type="text" name="idApartamento" id="idApartamento">
+                <input type="text" class="hidden" name="idApartamento" id="idApartamento">
                 </div>
             </div>
 

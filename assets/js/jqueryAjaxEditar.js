@@ -69,4 +69,4 @@ $(document).ready(function () {
         $('#tipoArticulo').val(tipoArticulo);
     });
 });
-$('.hidden').hide();
+$('.hidden').hide().attr("disabled", true);
