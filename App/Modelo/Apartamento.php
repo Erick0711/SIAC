@@ -3,11 +3,11 @@ namespace App\Modelo;
 use App\config\Conexion,
     App\config\Redireccion,
     App\config\Alerta,
-    App\config\Integral,
-    PDO;
+    App\config\Complemento;
+
 class Apartamento extends Conexion
 {
-    use Alerta,Redireccion,Integral;
+    use Alerta,Redireccion,Complemento;
     protected   $apartamento,
                 $numeroApartamento;
 
@@ -23,27 +23,24 @@ class Apartamento extends Conexion
     }
     public function registrar($tabla, $numeroApartamento)
     {
-        $sql = "INSERT INTO $tabla (`id`, `numero_apartamento`, `estado`, `created_at`, `updated_at`) 
-                VALUES (NULL, '$numeroApartamento', '1', current_timestamp(), current_timestamp())";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("INSERT INTO $tabla (`id`, `numero_apartamento`, `estado`, `created_at`, `updated_at`) 
+                                            VALUES (NULL, '$numeroApartamento', '1', current_timestamp(), current_timestamp())");
         return $registros;
     }
     public function actualizar($tabla, $numeroApartamento,$id)
     {
-        $sql = "UPDATE $tabla SET numero_apartamento = '$numeroApartamento' 
-                WHERE apartamento.id='$id'";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("UPDATE $tabla SET numero_apartamento = '$numeroApartamento' 
+                                            WHERE apartamento.id='$id'");
         return $registros;
     }
     public function eliminar($tabla, $idApartamento){
-        $sql = "UPDATE $tabla SET estado=0 WHERE id=$idApartamento";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetch(PDO::FETCH_LAZY);
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=0 WHERE id=$idApartamento");
+        return $registros;
+    }
+    public function comparar($tabla, $numeroApartamento)
+    {
+        $registros = $this->ejecutarFetch("SELECT numero_apartamento FROM $tabla 
+                                            WHERE numero_apartamento='$numeroApartamento'");
         return $registros;
     }
 }

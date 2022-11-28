@@ -14,12 +14,17 @@ class ApartamentoControlador extends Apartamento
         switch (isset($_REQUEST)) 
         {
             case isset($_POST['guardarApartamento']):
+                $this->apartamento = new Apartamento();
                 $this->numeroApartamento = $_POST['numero_apartamento'];
-                if (strlen($this->numeroApartamento) > 1) {
-                    $this->apartamento = new Apartamento();
-                    $this->apartamento->registrar("apartamento", $this->numeroApartamento);
-                    echo $this->redireccionarApartamento;
-                } else {
+                $dato = $this->apartamento->comparar('apartamento', $this->numeroApartamento);
+                if(mb_strlen($this->numeroApartamento) >= 2 && preg_match($this->cadena, $this->numeroApartamento)){
+                    if($dato['numero_apartamento'] == $this->numeroApartamento){
+                        echo $this->alerta_igualdad;
+                    }else{
+                        $this->apartamento->registrar("apartamento", $this->numeroApartamento);
+                        echo $this->redireccionarApartamento;
+                    }
+                }else{
                     echo $this->alerta_validacion;
                 }
                 break;

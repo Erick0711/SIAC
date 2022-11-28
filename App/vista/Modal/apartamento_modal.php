@@ -68,7 +68,7 @@
                 <div class="col-md-5"></div>
                 <div class="col-md-3">
                 <div class="modal-footer">
-                    <button type="submit" name="editarApartamento" class="btn btn-primary">Guardar</button>
+                    <button type="submit" name="editarApartamento" onclick="guardar(event)" class="btn btn-primary">Guardar</button>
                 </div>
                 </div>
             </div>

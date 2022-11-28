@@ -15,6 +15,11 @@ trait Alerta
             $alerta_validacion = "<div class='alert alert-info alert-dismissible fade show' role='alert'>
                                     <strong>¡Alerta!</strong> Completa cada campo correctamente!
                                     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                    <span aria-hidden='true'>&times;</span></button></div>",
+            
+            $alerta_igualdad =     "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                                    <strong>¡Alerta!</strong> Dato existente dentro del sistema.
+                                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                                     <span aria-hidden='true'>&times;</span></button></div>";
 }
 

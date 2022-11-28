@@ -2,7 +2,9 @@
 namespace App\config;
 use PDO;
 
-trait Integral{
+trait Complemento{
+    protected $cadena = "/[a-z]|[A-Z]|[0-9999]/";
+
     public function ejecutarFetchAll($sql){
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();
