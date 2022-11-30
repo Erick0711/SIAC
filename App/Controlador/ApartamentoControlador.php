@@ -54,6 +54,13 @@ class ApartamentoControlador extends Apartamento
                 $this->apartamento->eliminar("apartamento", $idApartamento);
                 echo $this->redireccionarApartamento;
                 break;
+
+            case isset($_GET['activar']):
+                $idApartamento = $_GET['activar'];
+                $this->apartamento = new Apartamento();
+                $this->apartamento->activar("apartamento", $idApartamento);
+                echo $this->redireccionarApartamento;
+                break;
             default:
                 break;
         }

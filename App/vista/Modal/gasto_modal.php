@@ -23,10 +23,12 @@
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="descripcion" class="form-control" placeholder="Descripción">
+                    <input type="text" name="descripcion" class="form-control" onkeypress="return soloLetras(event) 
+                    " placeholder="Descripción">
                 </div>
                 <div class="col-md-4">
-                <input type="number" name="monto" class="form-control" placeholder="Monto">
+                <input type="number" name="monto" class="form-control" onkeypress="return valideKey(event) 
+                    " placeholder="Monto">
                 </div>
             </div>
 
@@ -62,24 +64,26 @@
             <form action="./Gasto.php" method="POST">
             <div class="row  mt-2">
                 <div class="col-md-4">
-                <select class="custom-select" name="tipo_gasto">
-                    <option value="0">Seleccionar</option>
+                <select class="custom-select" name="tipo_gasto" id="tipoGastoSelect">
                     <?php foreach($tipos as $tipo){ ?>
                     <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
                     <?php }; ?>
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripción">
+                    <input type="text" name="descripcion" id="descripcion" class="form-control" onkeypress="return soloLetras(event) 
+                    " placeholder="Descripción">
                 </div>
                 <div class="col-md-4">
-                <input type="number" name="monto" id="monto" class="form-control" placeholder="Monto" step="0.1">
+                <input type="number" name="monto" id="monto" class="form-control" onkeypress="return valideKey(event) 
+                    " placeholder="Monto" step="0.1">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-4">
-                    <input type="hidden" name="idGasto" id="idGasto">
+                    <input type="hidden" name="idGasto" onkeypress="return valideKey(event) 
+                    " id="idGasto">
             </div>
                 <div class="col-md-5"></div>
                 <div class="col-md-3">

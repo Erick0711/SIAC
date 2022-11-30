@@ -43,5 +43,10 @@ class Apartamento extends Conexion
                                             WHERE numero_apartamento='$numeroApartamento'");
         return $registros;
     }
+    public function activar($tabla, $idApartamento)
+    {
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=1 WHERE id=$idApartamento");
+        return $registros;
+    }
 }
 ?>

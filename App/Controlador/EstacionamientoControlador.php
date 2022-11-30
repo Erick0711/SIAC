@@ -56,6 +56,13 @@ class EstacionamientoControlador extends Estacionamiento
                         $this->estacionamiento->eliminarEstacionamiento("estacionamiento", $idEstacionamiento);
                         echo $this->redireccionarRecinto;
                     break;
+
+                case isset($_GET['activar']):
+                    $idEstacionamiento = $_GET['activar'];
+                        $this->estacionamiento = new Estacionamiento();
+                        $this->estacionamiento->activar("estacionamiento", $idEstacionamiento);
+                        echo $this->redireccionarRecinto;
+                    break;
             default:
                 break;
         }

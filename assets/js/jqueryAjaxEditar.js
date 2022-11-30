@@ -10,11 +10,13 @@ $(document).ready(function () {
 
 
         var idGasto = data[0],
+            $tipoGastoSelect = data[1],
             descripcion = data[2],
-            monto = data[3];
+            monto = data[3],
+            ideTipoGasto = data[5];
 
         $('#idGasto').val(idGasto);
-        $("#idNumeroPabellon").prepend("<option value="+ idPabellon +" selected='selected'>"+ numeroPabellon +"</option>");
+        $("#tipoGastoSelect").prepend("<option value="+ ideTipoGasto +" selected='selected'>"+ $tipoGastoSelect +"</option>");
         $('#descripcion').val(descripcion);
         $('#monto').val(monto);
 
@@ -36,11 +38,11 @@ $(document).ready(function () {
             monto = data[3];
         console.log(data);
         $('#idArticulo').val(idArticulo);
-        $("#tipoArticulo").prepend("<option value="+ idtipoarticulo +" selected='selected'>"+ tipoArticulo +"</option>");
+        $("#tipoArticuloSelect").prepend("<option value="+ idtipoarticulo +" selected='selected'>"+ tipoArticulo +"</option>");
         $('#descripcion').val(descripcion);
         $('#montoArticulo').val(monto);
     });
-
+// EDITAR TIPOS DE TIPOS
     $('.editarbtnTipo').on('click', function () {
         $('#editarModalTipo').modal('show');
 
@@ -50,9 +52,9 @@ $(document).ready(function () {
             return $(this).text();
         }).get();
 
-        var idtipoGasto = data[0],
+        var idTipoGasto = data[0],
             tipoGasto = data[1];
-        $('#idtipoGasto').val(idtipoGasto);
+        $('#idTipoGasto').val(idTipoGasto)
         $('#tipoGasto').val(tipoGasto);
 
         var idEstacionamiento = data[0],

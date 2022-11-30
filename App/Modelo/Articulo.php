@@ -41,6 +41,11 @@ class Articulo extends Conexion
                                             WHERE $columna='$numeroApartamento'");
         return $registros;
     }
+    public function activarTipo($tabla, $id)
+    {
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=1 WHERE id= $id");
+        return $registros;
+    }
     /********************************************** ARTICULO ******************************************************/ 
     public function mostrar($tabla, $tabla2)
     {
@@ -68,6 +73,10 @@ class Articulo extends Conexion
         $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=0 WHERE id=$id");
         return $registros;
     }
-
+    public function activar($tabla, $id)
+    {
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=1 WHERE id= $id");
+        return $registros;
+    }
 }
 ?>

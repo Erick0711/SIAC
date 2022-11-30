@@ -66,6 +66,13 @@ class ArticuloControlador extends Articulo
                 $this->articulo->eliminar("tipo_articulo", $idArticulo);
                 echo $this->redireccionarArticulo;
                 break;
+
+            case isset($_GET['activarTipo']):
+                $idArticulo = $_GET['activarTipo'];
+                $this->articulo = new Articulo();
+                $this->articulo->activarTipo("tipo_articulo", $idArticulo);
+                echo $this->redireccionarArticulo;
+                break;
     /**********************************************ARTICULOS******************************************************/ 
             case isset($_POST['registrarArticulo']):
                 $this->articulo = new Articulo();
@@ -107,6 +114,13 @@ class ArticuloControlador extends Articulo
                 $idArticulo = $_GET['eliminarArticulo'];
                 $this->articulo = new Articulo();
                 $this->articulo->eliminar("articulo", $idArticulo);
+                echo $this->redireccionarArticulo;
+                break;
+
+            case isset($_GET['activar']):
+                $idArticulo = $_GET['activar'];
+                $this->articulo = new Articulo();
+                $this->articulo->activar("articulo", $idArticulo);
                 echo $this->redireccionarArticulo;
                 break;
             default:

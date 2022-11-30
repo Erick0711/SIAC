@@ -25,7 +25,7 @@ include("./plantilla/aside.php");
     </p>
     <div class="row">
         <div class="clearfix"></div>
-        <div class="col-md-7">
+        <div class="col-md-8">
             <div class="tile">
                 <div class="title-item">
                     <div class="text-center">
@@ -42,6 +42,7 @@ include("./plantilla/aside.php");
                                 <th>MONTO</th>
                                 <th>MODENDA</th>
                                 <th class="ocult"></th>
+                                <th>ESTADO</th>
                                 <th>ACCION</th>
                             </tr>
                         </thead>
@@ -54,6 +55,13 @@ include("./plantilla/aside.php");
                                     <td><?php echo $articulo['monto_expensa'];?></td>
                                     <td>BS</td>
                                     <td class="ocult"><?php echo $articulo['id'];?></td>
+                                    <?php if($articulo['estado'] == 1) {?>
+                                    <td><button class="btn btn-success" disabled>Activo</button></td>
+                                    <?php }elseif($articulo['estado'] == 0){?>
+                                        <td>
+                                            <a href="./articulo.php?activar=<?php echo $articulo['articulo_id'];?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)">Inactivo</a>
+                                        </td>
+                                        <?php };?>
                                     <td>
                                         <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                                         <a href="./articulo.php?eliminarArticulo=<?php echo $articulo['articulo_id']; ?>" class="btn btn-danger" name="eliminarArticulo" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
@@ -66,7 +74,7 @@ include("./plantilla/aside.php");
             </div>
         </div>
         <!-- TIPO DE ARTICULO -->
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="tile">
                 <div class="title-item">
                     <div class="text-center">
@@ -84,20 +92,23 @@ include("./plantilla/aside.php");
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($tipos as $tipo) {
-                                if ($tipo['estado'] == 1) {
-                            ?>
+                            <?php foreach ($tipos as $tipo) {?>
                                     <tr>
                                         <td><?php echo $tipo['id'];?></td>
                                         <td><?php echo $tipo['nombre_articulo'];?></td>
-                                        <td><?php echo $tipo['estado'];?></td>
+                                        <?php if($tipo['estado'] == 1) {?>
+                                        <td><button class="btn btn-success" disabled>Activo</button></td>
+                                        <?php }elseif($tipo['estado'] == 0){?>
+                                        <td>
+                                            <a href="./articulo.php?activarTipo=<?php echo $tipo['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)">Inactivo</a>
+                                        </td>
+                                        <?php };?>
                                         <td>
                                             <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
                                             <a href="./articulo.php?eliminarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="eliminarTipo" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                                         </td>
                                     </tr>
                             <?php
-                                };
                             }; ?>
                         </tbody>
                     </table>

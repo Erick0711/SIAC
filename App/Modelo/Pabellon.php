@@ -17,41 +17,33 @@ class Pabellon extends Conexion
     }
     public function mostrarTabla($tabla)
     {
-        $sql = "SELECT * FROM $tabla";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("SELECT * FROM $tabla");
         return $registros;
     }
     public function registrarPabellon($tabla, $numeroPabellon)
     {
-        $sql = "INSERT INTO $tabla (`id`, `numero_pabellon`, `estado`, `created_at`, `updated_at`) 
-                VALUES (NULL, '$numeroPabellon', '1', current_timestamp(), current_timestamp())";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("INSERT INTO $tabla (`id`, `numero_pabellon`, `estado`, `created_at`, `updated_at`) 
+                                            VALUES (NULL, '$numeroPabellon', '1', current_timestamp(), current_timestamp())");
         return $registros;
     }
     public function actualizarPabellon($tabla, $numeroPabellon,$id)
     {
-        $sql = "UPDATE $tabla SET numero_pabellon = '$numeroPabellon' 
-                WHERE pabellon.id='$id'";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("UPDATE $tabla SET numero_pabellon = '$numeroPabellon' 
+                                            WHERE pabellon.id='$id'");
         return $registros;
     }
     public function eliminarPabellon($tabla, $idPabellon){
-        $sql = "UPDATE $tabla SET estado=0 WHERE id=$idPabellon";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetch(PDO::FETCH_LAZY);
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=0 WHERE id=$idPabellon");
         return $registros;
     }
     public function comparar($tabla, $numeroPabellon)
     {
         $registros = $this->ejecutarFetch("SELECT numero_pabellon FROM $tabla 
                                             WHERE numero_pabellon = '$numeroPabellon'");
+        return $registros;
+    }
+    public function activarTipo($tabla, $idPabellon){
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=1 WHERE id=$idPabellon");
         return $registros;
     }
 }

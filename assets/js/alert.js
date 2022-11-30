@@ -4,12 +4,13 @@ function advertencia(e) {
 
     Swal.fire({
         title: '¿Estas seguro?',
-        text: "Recuerda el dato se eliminara permanentemente!",
+        text: "Recuerda el dato se eliminara!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, Eliminar!'
+        confirmButtonText: 'Sí, Eliminar!',
+        cancelButtonText: 'Cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire({
@@ -26,17 +27,33 @@ function advertencia(e) {
     })
 };
 
-// function guardar(e) {
-//     e.preventDefault();
-//     var url = e.currentTarget.getAttribute('href');
-//     Swal.fire({
-//         position: 'top-end',
-//         icon: 'success',
-//         title: 'Guardado correctamente',
-//         showConfirmButton: false,
-//         timer: 1000
-//     })
-//     setTimeout(function() {
-//         window.location.href = url;
-//     }, 500);
-// };
+function advertenciaActivar(e) {
+    e.preventDefault();
+    var url = e.currentTarget.getAttribute('href');
+
+    Swal.fire({
+        title: '¿Estas seguro?',
+        text: "Recuerda el dato se activara nuevamente!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, Activar!',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Activado correctamente',
+                showConfirmButton: false,
+                timer: 1000,
+            })
+            setTimeout(function() {
+                window.location.href = url;
+            }, 500);
+        }
+    })
+};
+
+

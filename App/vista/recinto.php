@@ -52,14 +52,17 @@ include("./plantilla/aside.php");
                         </thead>
                         <tbody>
                             <?php foreach ($estacionamientos as $estacionamiento) {?>
-                                    <tr><td><?php echo $estacionamiento['estacionamiento_id'];?></td>
+                                    <tr>
+                                        <td><?php echo $estacionamiento['estacionamiento_id'];?></td>
                                         <td><?php echo $estacionamiento['numero_pabellon'];?></td>
                                         <td><?php echo $estacionamiento['numero_estacionamiento'];?></td>
                                         <td class="ocult"><?php echo $estacionamiento['id'];?></td>
                                         <?php if($estacionamiento['estado'] == 1) {?>
-                                        <td><a href="" class="btn btn-success">Activo</a></td>
+                                        <td><button class="btn btn-success" disabled>Activo</button></td>
                                         <?php }elseif($estacionamiento['estado'] == 0){?>
-                                        <td><a href="" class="btn btn-danger">Inactivo</a></td>
+                                        <td>
+                                            <a href="./recinto.php?activar=<?php echo $estacionamiento['estacionamiento_id'];?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)">Inactivo</a>
+                                        </td>
                                         <?php };?>
                                         <td>
                                             <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
@@ -91,12 +94,15 @@ include("./plantilla/aside.php");
                         </thead>
                         <tbody>
                             <?php foreach ($pabellones as $pabellon) {?>
-                                    <tr><td><?php echo $pabellon['id'];?></td>
+                                    <tr>
+                                        <td><?php echo $pabellon['id'];?></td>
                                         <td><?php echo $pabellon['numero_pabellon'];?></td>
                                         <?php if($pabellon['estado'] == 1) {?>
-                                        <td><a href="" class="btn btn-success">Activo</a></td>
+                                        <td><button class="btn btn-success" disabled>Activo</button></td>
                                         <?php }elseif($pabellon['estado'] == 0){?>
-                                        <td><a href="" class="btn btn-danger">Inactivo</a></td>
+                                        <td>
+                                            <a href="./recinto.php?activarTipo=<?php echo $pabellon['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)">Inactivo</a>
+                                        </td>
                                         <?php };?>
                                         <td>
                                             <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>

@@ -62,7 +62,7 @@
             <form action="./articulo.php" method="POST" autocomplete="off">
             <div class="row  mt-2">
             <div class="col-md-4">
-                <select class="custom-select" name="tipoArticulo" id="tipoArticulo">
+                <select class="custom-select" name="tipoArticulo" id="tipoArticuloSelect">
                     <?php foreach($tipos as $tipo){ ?>
                     <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre_articulo']; ?></option>
                     <?php }; ?>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="col-md-4">
                     <input type="text" name="montoArticulo" id="montoArticulo" class="form-control" onkeypress="return valideKey(event) 
-                    "placeholder="Tipo de Articulo..." required="required">
+                    " placeholder="Tipo de Articulo..." required="required">
                 </div>
             </div>
             <div class="row  mt-2">

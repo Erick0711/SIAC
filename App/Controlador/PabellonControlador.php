@@ -53,6 +53,13 @@ class PabellonControlador extends Pabellon
                     $this->pabellon->eliminarPabellon("pabellon", $idAPabellon);
                     echo $this->redireccionarRecinto;
                 break;
+
+            case isset($_GET['activarTipo']):
+                $idPabellon = $_GET['activarTipo'];
+                    $this->pabellon = new Pabellon();
+                    $this->pabellon->activarTipo("pabellon", $idPabellon);
+                    echo $this->redireccionarRecinto;
+                break;
             default:
                 break;
         }

@@ -61,7 +61,7 @@
                     <input type="text" id="tipoGasto" name="tipoGasto" class="form-control" onkeypress="return soloLetras(event)" placeholder="Tipo de gasto...">
                 </div>
                 <div class="col-md-12">
-                <input type="hidden" class="ocult" id="idtipoGasto" name="idTipoGasto">
+                <input type="hidden" class="ocult" id="idTipoGasto" name="idTipoGasto">
                 </div>
 
             </div>

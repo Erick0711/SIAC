@@ -18,80 +18,72 @@ class Gasto extends Conexion
     {
         parent::__construct();
     }
-    public function mostrarTabla($tabla)
+    public function mostrarTipo($tabla)
     {
-        $sql = "SELECT * FROM $tabla";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("SELECT * FROM $tabla");
         return $registros;
     }
-    public function mostrarTablaGasto($tabla,$tabla2)
+    public function mostrar($tabla,$tabla2)
     {
-        $sql = "SELECT tipo_gasto.id AS tipo_gasto_id, tipo_gasto.nombre, gasto.id, gasto.descripcion, gasto.monto_gasto, gasto.estado 
-                FROM $tabla2 INNER JOIN $tabla on tipo_gasto.id = gasto.id_tipo_gasto";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("SELECT tipo_gasto.id AS tipo_gasto_id, tipo_gasto.nombre, gasto.id, 
+                                            gasto.descripcion, gasto.monto_gasto, gasto.estado FROM $tabla2 
+                                            INNER JOIN $tabla on tipo_gasto.id = gasto.id_tipo_gasto");
         return $registros;
     }
     /********************************************** TIPO DE GASTO ******************************************************/ 
-    public function registrarTipoGasto($tabla,$nombre)
+    public function registrarTipo($tabla,$nombre)
     {
-        $sql = "INSERT INTO $tabla (`id`, `nombre`, `estado`, `created_at`, `updated_at`) 
-                VALUES (NULL, '$nombre', '1', current_timestamp(), current_timestamp())";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("INSERT INTO $tabla (`id`, `nombre`, `estado`, `created_at`, `updated_at`) 
+                                            VALUES (NULL, '$nombre', '1', current_timestamp(), current_timestamp())");
         return $registros;
     }
-    public function actualizarTipoGasto($tabla, $idTipoGasto, $nombre)
+    public function actualizarTipo($tabla, $idTipoGasto, $nombre)
     {
-        $sql = "UPDATE $tabla SET `nombre` = '$nombre' WHERE `tipo_gasto`.`id` = $idTipoGasto;";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("UPDATE $tabla SET `nombre` = '$nombre' WHERE `tipo_gasto`.`id` = $idTipoGasto;");
         return $registros;
     }
-    public function eliminarTipoGasto($tabla, $idTipoGasto)
+    public function eliminarTipo($tabla, $idTipoGasto)
     {
-        $sql = "UPDATE $tabla SET estado=0 WHERE id=$idTipoGasto";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetch();
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=0 WHERE id=$idTipoGasto");
+        return $registros;
+    }
+    public function compararTipo($tabla, $tipoGasto)
+    {
+        $registros = $this->ejecutarFetch("SELECT nombre FROM $tabla 
+                                            WHERE nombre = '$tipoGasto'");
+        return $registros;
+    }
+    public function activarTipo($tabla, $idTipoGasto)
+    {
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=1 WHERE id= $idTipoGasto");
         return $registros;
     }
     /********************************************** GASTO ******************************************************/ 
-    public function registrarGasto($tabla,$tipoGasto,$descripcion,$monto)
+    public function registrar($tabla,$tipoGasto,$descripcion,$monto)
     {
-        $sql = "INSERT INTO $tabla (`id`, `id_tipo_gasto`, `descripcion`, `monto_gasto`, `estado`, `created_at`, `updated_at`) 
-                VALUES (NULL, '$tipoGasto', '$descripcion', '$monto', '1', current_timestamp(), current_timestamp()) ";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("INSERT INTO $tabla (`id`, `id_tipo_gasto`, `descripcion`, `monto_gasto`, `estado`, `created_at`, `updated_at`) VALUES (NULL, '$tipoGasto', '$descripcion', '$monto', '1', current_timestamp(), current_timestamp()) ");
         return $registros;
     }
-    public function actualizarGasto($tabla,$tipoGasto,$descripcion,$monto,$id)
+    public function actualizar($tabla,$tipoGasto,$descripcion,$monto,$id)
     {
-        $sql = "UPDATE $tabla SET `id_tipo_gasto` = '$tipoGasto', `descripcion` = '$descripcion', `monto_gasto` = '$monto' 
-                WHERE `gasto`.`id` = $id";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        $registros = $this->ejecutarFetchAll("UPDATE $tabla SET `id_tipo_gasto` = '$tipoGasto', `descripcion` = '$descripcion', 
+                                            `monto_gasto` = '$monto' WHERE `gasto`.`id` = $id");
         return $registros;
     }
     public function eliminarGasto($tabla, $idGasto)
     {
-        $sql = "UPDATE $tabla SET estado=0 WHERE id=$idGasto";
-        $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute();
-        $registros = $sentencia->fetch();
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=0 WHERE id=$idGasto");
         return $registros;
     }
-    public function comparar($tabla, $tipoGasto)
+    public function comparar($tabla, $descripcion, $monto)
     {
-        $registros = $this->ejecutarFetch("SELECT nombre FROM $tabla 
-                                            WHERE nombre = '$tipoGasto'");
+        $registros = $this->ejecutarFetch("SELECT * FROM $tabla WHERE descripcion = '$descripcion' 
+                                            AND monto_gasto = '$monto'");
+        return $registros;
+    }
+    public function activar($tabla, $idGasto)
+    {
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=1 WHERE id= $idGasto");
         return $registros;
     }
 }
