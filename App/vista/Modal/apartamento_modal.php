@@ -15,7 +15,7 @@
             <form action="./apartamento.php" method="POST" autocomplete="off">
             <div class="row  mt-2">
                 <div class="col-md-12">
-                    <input type="text" name="numero_apartamento" class="form-control" placeholder="Nro. Apartamento" required="required">
+                    <input type="text" name="numero_apartamento" class="form-control transfor-lowercase" onkeypress="return soloLetraNumero(event)" placeholder="Nro. Apartamento" required="required">
                 </div>
             </div>
 
@@ -56,10 +56,10 @@
             <form action="./apartamento.php" method="POST" autocomplete="off">
             <div class="row mt-2">
                 <div class="col-md-12">
-                    <input type="text" name="numero_apartamento" id="numeroApartamento" class="form-control" placeholder="Nro. Apartamento" required="required">
+                    <input type="text" name="numero_apartamento"  id="numeroApartamento" class="form-control" onkeypress="return mixto(event)" placeholder="Nro. Apartamento" required="required">
                 </div>
                 <div class="col-md-1">
-                <input type="text" class="hidden" name="idApartamento" id="idApartamento">
+                <input type="hidden" class="ocult" name="idApartamento" id="idApartamento" require="required">
                 </div>
             </div>
 

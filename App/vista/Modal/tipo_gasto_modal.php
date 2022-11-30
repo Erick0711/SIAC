@@ -16,7 +16,7 @@
             <div class="row  mt-2">
 
                 <div class="col-md-12">
-                    <input type="text" name="tipoGasto" class="form-control" placeholder="Tipo de gasto...">
+                    <input type="text" name="tipoGasto" class="form-control" onkeypress="return soloLetras(event)" placeholder="Tipo de gasto...">
                 </div>
                 <div class="col-md-12">
                 </div>
@@ -58,10 +58,10 @@
             <div class="row  mt-2">
 
                 <div class="col-md-12">
-                    <input type="text" id="tipoGasto" name="tipoGasto" class="form-control" placeholder="Tipo de gasto...">
+                    <input type="text" id="tipoGasto" name="tipoGasto" class="form-control" onkeypress="return soloLetras(event)" placeholder="Tipo de gasto...">
                 </div>
                 <div class="col-md-12">
-                <input type="text" id="idtipoGasto" name="idTipoGasto">
+                <input type="hidden" class="ocult" id="idtipoGasto" name="idTipoGasto">
                 </div>
 
             </div>

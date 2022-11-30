@@ -3,10 +3,11 @@ namespace App\Modelo;
 use App\config\Conexion,
     App\config\Alerta,
     App\config\Redireccion,
+    App\config\Complemento,
     PDO;
 class Estacionamiento extends Conexion
 {
-    use Alerta,Redireccion;
+    use Alerta,Redireccion,Complemento;
     protected   $estacionamiento,  
                 $numeroEstacionamiento,
                 $idPabellon;
@@ -48,6 +49,12 @@ class Estacionamiento extends Conexion
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();
         $registros = $sentencia->fetch(PDO::FETCH_LAZY);
+        return $registros;
+    }
+    public function comparar($tabla, $numeroEstaciomiento, $idPabellon)
+    {
+        $registros = $this->ejecutarFetch("SELECT * FROM $tabla WHERE numero_estacionamiento = '$numeroEstaciomiento' 
+                                            AND  id_pabellon = $idPabellon");
         return $registros;
     }
 }

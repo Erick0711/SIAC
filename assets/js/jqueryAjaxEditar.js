@@ -31,11 +31,12 @@ $(document).ready(function () {
 
         var idArticulo = data[0],
             tipoArticulo = data[1],
+            idtipoarticulo = data[5],
             descripcion = data[2],
             monto = data[3];
-
+        console.log(data);
         $('#idArticulo').val(idArticulo);
-        $('#tipoArticulo').val(tipoArticulo);
+        $("#tipoArticulo").prepend("<option value="+ idtipoarticulo +" selected='selected'>"+ tipoArticulo +"</option>");
         $('#descripcion').val(descripcion);
         $('#montoArticulo').val(monto);
     });
@@ -69,4 +70,5 @@ $(document).ready(function () {
         $('#tipoArticulo').val(tipoArticulo);
     });
 });
-$('.hidden').hide().attr("disabled", true);
+$('.ocult').hide();
+$('.desactivar').attr("disabled", true);

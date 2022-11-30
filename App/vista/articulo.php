@@ -25,7 +25,7 @@ include("./plantilla/aside.php");
     </p>
     <div class="row">
         <div class="clearfix"></div>
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="tile">
                 <div class="title-item">
                     <div class="text-center">
@@ -41,17 +41,19 @@ include("./plantilla/aside.php");
                                 <th>DESCRIPCION</th>
                                 <th>MONTO</th>
                                 <th>MODENDA</th>
+                                <th class="ocult"></th>
                                 <th>ACCION</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($articulos as $articulo) { ?>
                                 <tr>
-                                    <td><?php echo $articulo['articulo_id'] ?></td>
-                                    <td><?php echo $articulo['nombre_articulo'] ?></td>
-                                    <td><?php echo $articulo['descripcion'] ?></td>
-                                    <td><?php echo $articulo['monto_expensa'] ?></td>
+                                    <td><?php echo $articulo['articulo_id'];?></td>
+                                    <td><?php echo $articulo['nombre_articulo'];?></td>
+                                    <td><?php echo $articulo['descripcion'];?></td>
+                                    <td><?php echo $articulo['monto_expensa'];?></td>
                                     <td>BS</td>
+                                    <td class="ocult"><?php echo $articulo['id'];?></td>
                                     <td>
                                         <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                                         <a href="./articulo.php?eliminarArticulo=<?php echo $articulo['articulo_id']; ?>" class="btn btn-danger" name="eliminarArticulo" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
@@ -64,7 +66,7 @@ include("./plantilla/aside.php");
             </div>
         </div>
         <!-- TIPO DE ARTICULO -->
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="tile">
                 <div class="title-item">
                     <div class="text-center">
@@ -72,7 +74,7 @@ include("./plantilla/aside.php");
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="tabla">
+                    <table class="table table-bordered" id="tabla2">
                         <thead class="text-center">
                             <tr>
                                 <th>#</th>

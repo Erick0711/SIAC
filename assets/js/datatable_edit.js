@@ -20,7 +20,7 @@ $('#tabla').DataTable({
                     'paginate':{
                     'next': 'Siguente',
                     'previous': 'Anterior'
-                    }
+                    },
 
     }
 });

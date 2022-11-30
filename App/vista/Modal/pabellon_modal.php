@@ -15,7 +15,7 @@
             <form action="./recinto.php" method="POST">
             <div class="row  mt-2">
                 <div class="col-md-12">
-                    <input type="text" name="numero_pabellon" class="form-control" placeholder="Nro. Pabellon">
+                    <input type="text" name="numero_pabellon" class="form-control" onkeypress="return valideKey(event)" placeholder="Nro. Pabellon">
                 </div>
             </div>
             <div class="row">
@@ -37,7 +37,7 @@
 <!-- MODAL FORMULARIO EDITAR-->
 <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="recintoLabel" aria-hidden="true">
 <div class="modal-dialog d-flex justify-content-center">
-    <div class="modal-content w-75">
+    <div class="modal-content w-50">
     <div class="modal-header">
         <h2 class="modal-title" id="recintoLabel"><i class="fa fa-building"></i></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -50,10 +50,10 @@
             <form action="./recinto.php" method="POST">
             <div class="row  mt-2">
                 <div class="col-md-12">
-                    <input type="text" name="numero_pabellon" id="numeroPabellon" class="form-control" placeholder="Nro. Pabellon">
+                    <input type="text" name="numero_pabellon" id="numeroPabellon" class="form-control" onkeypress="return valideKey(event)" placeholder="Nro. Pabellon" required="required=">
                 </div>
                 <div class="col-md-1">
-                <input type="text" name="idPabellon" id="idPabellon">
+                <input type="text" class="ocult" name="idPabellon" id="idPabellon" required="required=">
                 </div>
             </div>
             <div class="row">

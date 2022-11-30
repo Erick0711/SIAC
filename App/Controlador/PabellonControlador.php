@@ -14,23 +14,34 @@ class PabellonControlador extends Pabellon
         switch (isset($_REQUEST))
         {
             case isset($_POST['guardarPabellon']):
+                $this->pabellon = new Pabellon();
                 $this->numeroPabellon = $_POST['numero_pabellon'];
-                if (strlen($this->numeroPabellon) > 1) {
-                    $this->pabellon = new Pabellon();
-                    $this->pabellon->registrarPabellon("pabellon", $this->numeroPabellon);
-                    echo $this->redireccionarRecinto;
+                if($this->numeroPabellon >= 1 && preg_match($this->numeros, $this->numeroPabellon)){
+                    $dato = $this->pabellon->comparar('pabellon', $this->numeroPabellon);
+                    if(isset($dato['numero_pabellon']) && $dato['numero_pabellon'] == $this->numeroPabellon){
+                        echo $this->alerta_igualdad;
+                    }else{
+                        $this->pabellon->registrarPabellon("pabellon", $this->numeroPabellon);
+                        echo $this->redireccionarRecinto;
+                    }
                 }else {
                     echo $this->alerta_validacion;
+                    echo $this->alerta_numero;
                 }
                 break;
 
             case isset($_POST['editarPabellon']):
+                $this->pabellon = new Pabellon();
                 $id = $_POST['idPabellon'];
                 $this->numeroPabellon = $_POST['numero_pabellon'];
-                if (strlen($this->numeroPabellon) > 1) {
-                    $this->pabellon = new Pabellon();
-                    $this->pabellon->actualizarPabellon("pabellon", $this->numeroPabellon, $id);
-                    echo $this->redireccionarRecinto;
+                $dato = $this->pabellon->comparar('pabellon', $this->numeroPabellon);
+                if($this->numeroPabellon >= 1 && preg_match($this->numeros, $this->numeroPabellon)){
+                    if(isset($dato['numero_pabellon']) && $dato['numero_pabellon'] == $this->numeroPabellon){
+                        echo $this->alerta_igualdad;
+                    }else{
+                        $this->pabellon->actualizarPabellon("pabellon", $this->numeroPabellon, $id);
+                        echo $this->redireccionarRecinto;
+                    }
                 }else {
                     echo $this->alerta_validacion;
                 }

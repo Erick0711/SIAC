@@ -12,10 +12,10 @@
     <div class="modal-body">
         <div class="container">
             <!-- FORMULARIO -->
-            <form action="./articulo.php" method="POST">
+            <form action="./articulo.php" method="POST" autocomplete="off">
             <div class="row  mt-2">
                 <div class="col-md-12">
-                    <input type="text" name="tipoArticulo" class="form-control" placeholder="Tipo de Articulo...">
+                    <input type="text" name="tipoArticulo" class="form-control" onkeypress="return soloLetras(event)" placeholder="Tipo de Articulo...">
                 </div>
                 <div class="col-md-12">
                 </div>
@@ -50,14 +50,14 @@
     <div class="modal-body">
         <div class="container">
             <!-- FORMULARIO -->
-            <form action="./articulo.php" method="POST">
+            <form action="./articulo.php" method="POST" autocomplete="off">
             <div class="row  mt-2">
 
                 <div class="col-md-12">
-                    <input type="text" id="tipoArticulo" name="tipoArticulo" class="form-control" placeholder="Tipo de Articulo...">
+                    <input type="text" id="tipoArticulo" name="tipoArticulo" class="form-control" onkeypress="return soloLetras(event)" placeholder="Tipo de Articulo...">
                 </div>
                 <div class="col-md-12">
-                <input type="text" id="idTipoArticulo" name="idTipoArticulo">
+                <input type="hidden" class="ocult" id="idTipoArticulo" name="idTipoArticulo" required="required">
                 </div>
             </div>
             <div class="row  mt-2">

@@ -16,12 +16,13 @@ class ApartamentoControlador extends Apartamento
             case isset($_POST['guardarApartamento']):
                 $this->apartamento = new Apartamento();
                 $this->numeroApartamento = $_POST['numero_apartamento'];
-                $dato = $this->apartamento->comparar('apartamento', $this->numeroApartamento);
-                if(mb_strlen($this->numeroApartamento) >= 2 && preg_match($this->cadena, $this->numeroApartamento)){
-                    if($dato['numero_apartamento'] == $this->numeroApartamento){
+                if(mb_strlen($this->numeroApartamento) >= 2 && preg_match($this->cadenaMixta, $this->numeroApartamento)){
+                $convertir = ucfirst($this->numeroApartamento);
+                $dato = $this->apartamento->comparar('apartamento',  $convertir);
+                    if(isset($dato['numero_apartamento']) && $dato['numero_apartamento'] ==  $convertir){
                         echo $this->alerta_igualdad;
                     }else{
-                        $this->apartamento->registrar("apartamento", $this->numeroApartamento);
+                        $this->apartamento->registrar("apartamento", $convertir);
                         echo $this->redireccionarApartamento;
                     }
                 }else{
@@ -30,12 +31,18 @@ class ApartamentoControlador extends Apartamento
                 break;
 
             case isset($_POST['editarApartamento']):
+                $this->apartamento = new Apartamento();
                 $id = $_POST['idApartamento'];
                 $this->numeroApartamento = $_POST['numero_apartamento'];
-                if (strlen($this->numeroApartamento) > 1) {
-                    $this->apartamento = new Apartamento();
-                    $this->apartamento->actualizar("apartamento", $this->numeroApartamento, $id);
-                    echo $this->redireccionarApartamento;
+                if(mb_strlen($this->numeroApartamento) >= 2 && preg_match($this->cadenaMixta, $this->numeroApartamento)){
+                    $convertir = ucfirst($this->numeroApartamento);
+                    $dato = $this->apartamento->comparar('apartamento', $convertir);
+                    if(isset($dato['numero_apartamento']) && $dato['numero_apartamento'] == $convertir){
+                        echo $this->alerta_igualdad;
+                    }else{
+                        $this->apartamento->actualizar("apartamento", $convertir, $id);
+                        echo $this->redireccionarApartamento;
+                    }
                 } else {
                     echo $this->alerta_validacion;
                 }

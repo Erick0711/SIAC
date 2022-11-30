@@ -3,10 +3,11 @@ namespace App\Modelo;
 use App\config\Conexion,
     App\config\Alerta,
     App\config\Redireccion,
+    App\config\Complemento,
     PDO;
 class Pabellon extends Conexion
 {
-    use Alerta,Redireccion;
+    use Alerta,Redireccion,Complemento;
     protected   $pabellon,
                 $numeroPabellon;
 
@@ -45,6 +46,12 @@ class Pabellon extends Conexion
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();
         $registros = $sentencia->fetch(PDO::FETCH_LAZY);
+        return $registros;
+    }
+    public function comparar($tabla, $numeroPabellon)
+    {
+        $registros = $this->ejecutarFetch("SELECT numero_pabellon FROM $tabla 
+                                            WHERE numero_pabellon = '$numeroPabellon'");
         return $registros;
     }
 }

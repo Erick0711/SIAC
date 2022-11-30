@@ -30,6 +30,12 @@ include("./plantilla/aside.php");
 
                     <div class="text-center">
                         <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarApartamentoModal"><i class="fa fa-plus"></i> Nuevo Apartamento</a>
+                        <p><?php
+                        $cadena = "ASDAC";
+                        $cadena2 = "abasd";    
+                        $result = mb_strlen($cadena);
+                        echo $result;
+                        ?></p>
                     </div>
                 </div>
                 <div class="table-responsive">

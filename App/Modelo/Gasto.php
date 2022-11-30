@@ -3,10 +3,11 @@ namespace App\Modelo;
 use App\config\Conexion,
     App\config\Redireccion,
     App\config\Alerta,
+    App\config\Complemento,
     PDO;
 class Gasto extends Conexion
 {
-    use Alerta,Redireccion;
+    use Alerta,Redireccion,Complemento;
     protected   $gasto,
                 $tipoGasto,
                 $nombre,
@@ -85,6 +86,12 @@ class Gasto extends Conexion
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();
         $registros = $sentencia->fetch();
+        return $registros;
+    }
+    public function comparar($tabla, $tipoGasto)
+    {
+        $registros = $this->ejecutarFetch("SELECT nombre FROM $tabla 
+                                            WHERE nombre = '$tipoGasto'");
         return $registros;
     }
 }

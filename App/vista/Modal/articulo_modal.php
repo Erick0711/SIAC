@@ -12,7 +12,7 @@
     <div class="modal-body">
         <div class="container">
             <!-- FORMULARIO -->
-            <form action="./articulo.php" method="POST">
+            <form action="./articulo.php" method="POST" autocomplete="off">
             <div class="row  mt-2">
             <div class="col-md-4">
                 <select class="custom-select" name="tipoArticulo">
@@ -23,10 +23,10 @@
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="descripcion" class="form-control" placeholder="Descripción...">
+                    <input type="text" name="descripcion" class="form-control" onkeypress="return soloLetras(event) "placeholder="Descripción..." required="required">
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="montoArticulo" class="form-control" placeholder="Monto...">
+                    <input type="text" name="montoArticulo" class="form-control" onkeypress="return valideKey(event) "placeholder="Monto..." required="required">
                 </div>
             </div>
             <div class="row  mt-2">
@@ -59,25 +59,25 @@
     <div class="modal-body">
     <div class="container">
             <!-- FORMULARIO -->
-            <form action="./articulo.php" method="POST">
+            <form action="./articulo.php" method="POST" autocomplete="off">
             <div class="row  mt-2">
             <div class="col-md-4">
-                <select class="custom-select" name="tipoArticulo">
-                    <option value="0">Seleccionar</option>
+                <select class="custom-select" name="tipoArticulo" id="tipoArticulo">
                     <?php foreach($tipos as $tipo){ ?>
                     <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre_articulo']; ?></option>
                     <?php }; ?>
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Tipo de Articulo...">
+                    <input type="text" name="descripcion" id="descripcion" class="form-control" onkeypress="return soloLetras(event)" placeholder="Tipo de Articulo..." required="required">
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="montoArticulo" id="montoArticulo" class="form-control" placeholder="Tipo de Articulo...">
+                    <input type="text" name="montoArticulo" id="montoArticulo" class="form-control" onkeypress="return valideKey(event) 
+                    "placeholder="Tipo de Articulo..." required="required">
                 </div>
             </div>
             <div class="row  mt-2">
-                <div class="col-md-4"><input type="text" name="idArticulo" id="idArticulo"></div>
+                <div class="col-md-4"><input type="text" class="ocult" name="idArticulo" id="idArticulo"></div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <button type="submit" name="actualizarArticulo" class="btn btn-primary btn-block">Registrar</button>

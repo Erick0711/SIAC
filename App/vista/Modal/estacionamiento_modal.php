@@ -24,7 +24,7 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" name="numeroEstacionamiento" class="form-control" placeholder="Nro. Estacionamiento">
+                    <input type="text" name="numeroEstacionamiento" class="form-control" onkeypress="return valideKey(event)" placeholder="Nro. Estacionamiento">
                 </div>
             </div>
             <div class="row">
@@ -66,11 +66,11 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" name="numeroEstacionamiento" id="numeroEstacionamiento" class="form-control" placeholder="Nro. Estacionamiento">
+                    <input type="text" name="numeroEstacionamiento" id="numeroEstacionamiento" onkeypress="return valideKey(event)" class="form-control" placeholder="Nro. Estacionamiento">
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4"><input type="text" name="idEstacionamiento" id="idEstacionamiento"></div>
+                <div class="col-md-4"><input type="hidden" class="ocult" name="idEstacionamiento" onkeypress="return valideKey(event)" id="idEstacionamiento"></div>
                 <div class="col-md-5"></div>
                 <div class="col-md-3">
                 <div class="modal-footer">

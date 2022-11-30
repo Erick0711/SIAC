@@ -15,30 +15,45 @@ class GastoControlador extends Gasto
         $resultados = $this->gasto->mostrarTablaGasto("gasto", "tipo_gasto");
         return $resultados;
     }
+    /********************************************** TIPO GASTO ******************************************************/ 
     public function consulta()
     {
         switch (isset($_REQUEST)) 
         {
             case isset($_POST['guardarTipo']):
-                $this->nombre = $_POST['tipoGasto'];
-                if (strlen($this->nombre) > 1) {
-                    $this->gasto = new Gasto();
-                    $this->gasto->registrarTipoGasto("tipo_gasto", $this->nombre);
-                    echo $this->redireccionarGasto;
+                $this->gasto = new Gasto();
+                $this->tipoGasto = $_POST['tipoGasto'];
+                if(mb_strlen($this->tipoGasto) >= 4 && is_string($this->tipoGasto) && preg_match($this->minuscula, $this->tipoGasto)){
+                    $convertir = ucfirst($this->tipoGasto);
+                    $dato = $this->gasto->comparar('tipo_gasto',  $convertir);
+                    if(isset($dato['nombre']) && $dato['nombre'] == $convertir){
+                        echo $this->alerta_igualdad;
+                    }else{
+                        $this->gasto->registrarTipoGasto("tipo_gasto", $convertir);
+                        echo $this->redireccionarGasto;
+                    }
                 } else {
                     echo $this->alerta_validacion;
+                    echo $this->alerta_solo_minuscula;
                 }
                 break;
 
             case isset($_POST['actualizarTipo']):
+                $this->gasto = new Gasto();
                 $this->idTipoGasto = $_POST['idTipoGasto'];
-                $this->nombre = $_POST['tipoGasto'];
-                if (strlen($this->nombre) > 1) {
-                    $this->gasto = new Gasto();
-                    $this->gasto->actualizarTipoGasto("tipo_gasto", $this->idTipoGasto, $this->nombre);
+                $this->tipoGasto = $_POST['tipoGasto'];
+                if(mb_strlen($this->tipoGasto) >= 4 && is_string($this->tipoGasto) && preg_match($this->minuscula, $this->tipoGasto)){
+                    $convertir = ucfirst($this->tipoGasto);
+                    $dato = $this->gasto->comparar('tipo_gasto',  $convertir);
+                    if(isset($dato['nombre']) && $dato['nombre'] == $convertir){
+                        echo $this->alerta_igualdad;
+                    }else{
+                    $this->gasto->actualizarTipoGasto("tipo_gasto", $this->idTipoGasto, $convertir);
                     echo $this->redireccionarGasto;
+                }
                 } else {
                     echo $this->alerta_validacion;
+                    echo $this->alerta_solo_minuscula;
                 }
                 break;
 
@@ -48,7 +63,7 @@ class GastoControlador extends Gasto
                 $this->gasto->eliminarGasto("tipo_gasto", $idTipoGasto);
                 echo $this->redireccionarGasto;
                 break;
-
+    /********************************************** GASTO ******************************************************/ 
             case isset($_POST['guardarGasto']):
                 $tipoGasto = $_POST['tipo_gasto'];
                 $this->descripcion = $_POST['descripcion'];
