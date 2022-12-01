@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label"><i class="fa fa-key"></i> Contraseña:</label>
-                    <input class="form-control" name="contrasenia" type="text" placeholder="•••••••••">
+                    <input class="form-control" name="contrasenia" type="password" placeholder="•••••••••">
                 </div>
 
                 <div class="form-group btn-container">

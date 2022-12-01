@@ -78,10 +78,10 @@ class GastoControlador extends Gasto
                 $this->tipoGasto = $_POST['tipo_gasto'];
                 $this->descripcion = $_POST['descripcion'];
                 $this->monto = $_POST['monto'];
-                if ($this->tipoGasto >= 1 && is_string($this->descripcion) && mb_strlen($this->monto) >= 1 && preg_match($this->minuscula, $this->descripcion)) {
+                if ($this->tipoGasto >= 1 && is_string($this->descripcion) && $this->monto > 0 && mb_strlen($this->monto) >= 1 && preg_match($this->minuscula, $this->descripcion)) {
                     $convertir = ucfirst($this->descripcion);
-                    $dato = $this->gasto->comparar('gasto',  $convertir, $this->monto);
-                    if (isset($dato['descripcion']) && $dato['descripcion'] == $convertir && $dato['monto_gasto'] == $this->monto) {
+                    $dato = $this->gasto->comparar('gasto',  $convertir);
+                    if (isset($dato['descripcion']) && $dato['descripcion'] == $convertir) {
                         echo $this->alerta_igualdad;
                     } else {
                         $this->gasto->registrar("gasto", $this->tipoGasto, $convertir, $this->monto);
@@ -99,9 +99,9 @@ class GastoControlador extends Gasto
                 $this->tipoGasto = $_POST['tipo_gasto'];
                 $this->descripcion = $_POST['descripcion'];
                 $this->monto = $_POST['monto'];
-                if ($this->tipoGasto >= 1 && is_string($this->descripcion) && mb_strlen($this->monto) >= 1 && preg_match($this->minuscula, $this->descripcion)) {
+                if ($this->tipoGasto >= 1 && is_string($this->descripcion) && $this->monto > 0 && mb_strlen($this->monto) >= 1 && preg_match($this->minuscula, $this->descripcion)) {
                     $convertir = ucfirst($this->descripcion);
-                    $dato = $this->gasto->comparar('gasto',  $convertir, $this->monto);
+                    $dato = $this->gasto->compararTodo('gasto',  $convertir, $this->monto);
                     if (isset($dato['descripcion']) && $dato['descripcion'] == $convertir && $dato['monto_gasto'] == $this->monto) {
                         echo $this->alerta_igualdad;
                     } else {

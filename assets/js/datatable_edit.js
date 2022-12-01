@@ -2,12 +2,12 @@ $('#tabla').DataTable({
     responsive: true,
     autoWidh: false,
     "order": [[0, "desc" ]],
-    "pageLength": 3,
+    "pageLength": 6,
     "language":{
         "lengthMenu": "Mostrar " +
                     `<select class="custom-select custom-select-sm form-control form-control-sm">
-                    <option value="3">3</option>
-                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
                     <option value="10">10</option>
                     <option value="-1">All</option>
                     </select> ` ,
@@ -29,12 +29,12 @@ $('#tabla2').DataTable({
     responsive: true,
     autoWidh: false,
     "order": [[0, "desc" ]],
-    "pageLength": 3,
+    "pageLength": 6,
     "language":{
         "lengthMenu": "Mostrar " +
                     `<select class="custom-select custom-select-sm form-control form-control-sm">
-                    <option value="3">3</option>
-                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
                     <option value="10">10</option>
                     <option value="-1">All</option>
                     </select> `, 

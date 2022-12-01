@@ -17,14 +17,16 @@
             <div class="col-md-6">
                     <select name="idPabellon" id="idPabellon" class="custom-select">
                         <option value="0">Seleccionar Pabellon</option>
-                        <?php foreach($pabellones as $pabellon){;?>
-                        <option value="<?php echo $pabellon['id'];?>">
-                        <?php echo $pabellon['numero_pabellon'];?></option>
+                        <?php foreach($pabellones as $pabellon){;
+                            if($pabellon['estado'] == 1){
+                            ?>
+                        <option value="<?php echo $pabellon['id'];?>"><?php echo $pabellon['numero_pabellon'];?></option>
+                            <?php }?>
                         <?php };?>
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" name="numeroEstacionamiento" class="form-control" onkeypress="return valideKey(event)" placeholder="Nro. Estacionamiento">
+                    <input type="number" name="numeroEstacionamiento" class="form-control" onkeypress="return valideKey(event)" placeholder="Nro. Estacionamiento" required>
                 </div>
             </div>
             <div class="row">
@@ -60,13 +62,16 @@
             <div class="row  mt-2">
             <div class="col-md-6">
                     <select name="idPabellon" id="idNumeroPabellon" class="custom-select pabellon">
-                        <?php foreach($pabellones as $pabellon){;?>
+                        <?php foreach($pabellones as $pabellon){;
+                            if($pabellon['estado'] == 1){
+                            ?>
                         <option value="<?php echo $pabellon['id'];?>"><?php echo $pabellon['numero_pabellon'];?></option>
+                            <?php }?>
                         <?php };?>
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" name="numeroEstacionamiento" id="numeroEstacionamiento" onkeypress="return valideKey(event)" class="form-control" placeholder="Nro. Estacionamiento">
+                    <input type="number" name="numeroEstacionamiento" id="numeroEstacionamiento" onkeypress="return valideKey(event)" class="form-control" placeholder="Nro. Estacionamiento">
                 </div>
             </div>
             <div class="row">

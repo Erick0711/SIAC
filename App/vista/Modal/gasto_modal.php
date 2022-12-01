@@ -17,8 +17,11 @@
                 <div class="col-md-4">
                     <select class="custom-select" name="tipo_gasto">
                     <option value="0">Seleccionar</option>
-                    <?php foreach($tipos as $tipo){ ?>
+                    <?php foreach($tipos as $tipo){ 
+                        if($tipo['estado'] == 1){
+                        ?>
                     <option value="<?php echo $tipo['id'] ?>"><?php echo $tipo['nombre'] ?></option>
+                        <?php } ?>
                     <?php }; ?>
                     </select>
                 </div>
@@ -65,9 +68,12 @@
             <div class="row  mt-2">
                 <div class="col-md-4">
                 <select class="custom-select" name="tipo_gasto" id="tipoGastoSelect">
-                    <?php foreach($tipos as $tipo){ ?>
+                    <?php foreach($tipos as $tipo){ 
+                        if($tipo['estado'] == 1){
+                        ?>
                     <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
-                    <?php }; ?>
+                    <?php } ?>
+                <?php }; ?>
                     </select>
                 </div>
                 <div class="col-md-4">

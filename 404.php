@@ -76,7 +76,7 @@
       <h3>Oops... Pagina no encontrada!</h3>
       <p>Es posible que haya escrito mal la dirección o que la página se haya movido.</p>
       <div class="btn">
-      <a href="http://localhost/SIAC/App/vista/inicio.php" class="error_btn">Volver al inicio</a>
+      <a href="http://localhost:90/SIAC/App/vista/inicio.php" class="error_btn">Volver al inicio</a>
       </div>
     </div>
   </div>

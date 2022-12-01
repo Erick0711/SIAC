@@ -59,15 +59,19 @@ include("./plantilla/aside.php");
                                         <td class="ocult"><?php echo $estacionamiento['id'];?></td>
                                         <?php if($estacionamiento['estado'] == 1) {?>
                                         <td><button class="btn btn-success" disabled>Activo</button></td>
-                                        <?php }elseif($estacionamiento['estado'] == 0){?>
-                                        <td>
-                                            <a href="./recinto.php?activar=<?php echo $estacionamiento['estacionamiento_id'];?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)">Inactivo</a>
-                                        </td>
-                                        <?php };?>
                                         <td>
                                             <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
                                             <a href="./recinto.php?eliminarEstacionamiento=<?php echo $estacionamiento['estacionamiento_id'];?>" class="btn btn-danger" name="eliminarEstacionamiento" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                                         </td>
+                                        <?php }elseif($estacionamiento['estado'] == 0){?>
+                                        <td>
+                                            <a href="./recinto.php?activar=<?php echo $estacionamiento['estacionamiento_id'];?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)">Inactivo</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
+                                            <a class="btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
+                                        </td>
+                                        <?php };?>
                                     </tr>
                             <?php  };?>
                         </tbody>
@@ -99,15 +103,19 @@ include("./plantilla/aside.php");
                                         <td><?php echo $pabellon['numero_pabellon'];?></td>
                                         <?php if($pabellon['estado'] == 1) {?>
                                         <td><button class="btn btn-success" disabled>Activo</button></td>
-                                        <?php }elseif($pabellon['estado'] == 0){?>
-                                        <td>
-                                            <a href="./recinto.php?activarTipo=<?php echo $pabellon['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)">Inactivo</a>
-                                        </td>
-                                        <?php };?>
                                         <td>
                                             <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                                             <a href="./recinto.php?eliminar=<?php echo $pabellon['id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                                         </td>
+                                        <?php }elseif($pabellon['estado'] == 0){?>
+                                        <td>
+                                            <a href="./recinto.php?activarTipo=<?php echo $pabellon['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)">Inactivo</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
+                                            <a class="btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
+                                        </td>
+                                        <?php };?>
                                     </tr>
                             <?php  };?>
                         </tbody>

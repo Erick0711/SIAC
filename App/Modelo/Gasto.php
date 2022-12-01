@@ -75,10 +75,14 @@ class Gasto extends Conexion
         $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=0 WHERE id=$idGasto");
         return $registros;
     }
-    public function comparar($tabla, $descripcion, $monto)
+    public function comparar($tabla, $descripcion)
     {
-        $registros = $this->ejecutarFetch("SELECT * FROM $tabla WHERE descripcion = '$descripcion' 
-                                            AND monto_gasto = '$monto'");
+        $registros = $this->ejecutarFetch("SELECT * FROM $tabla WHERE descripcion = '$descripcion'");
+        return $registros;
+    }
+    public function compararTodo($tabla, $descripcion,$monto)
+    {
+        $registros = $this->ejecutarFetch("SELECT * FROM $tabla WHERE descripcion = '$descripcion' AND monto_gasto = '$monto'");
         return $registros;
     }
     public function activar($tabla, $idGasto)
@@ -86,5 +90,6 @@ class Gasto extends Conexion
         $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=1 WHERE id= $idGasto");
         return $registros;
     }
+    
 }
 ?>

@@ -24,28 +24,7 @@ include("./plantilla/aside.php");
     <div class="content">
     <div class="row">
         <div class="clearfix"></div>
-        <div class="col-md-8">
-            <div class="tile">
-                <div class="title-item">
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="tabla">
-                        <thead class="text-center">
-                            <tr>
-                                <th>#</th>
-                                <th>NRO APARTAMENTO</th>
-                                <th>ESTADO</th>
-                                <th>ACCION</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
+        <div class="col-md-12">
             <div class="tile">
                 <div class="title-item">
 
@@ -69,14 +48,19 @@ include("./plantilla/aside.php");
                                         <td><?php echo $apartamento['numero_apartamento'];?></td>
                                         <?php if($apartamento['estado'] == 1) {?>
                                         <td><button class="btn btn-success" disabled>Activo</button></td>
-                                        <?php }elseif($apartamento['estado'] == 0){?>
-                                        <td>
-                                            <a href="./apartamento.php?activar=<?php echo $apartamento['id'];?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)">Inactivo</a></td>
-                                        <?php };?>
                                         <td>
                                             <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                                             <a href="./apartamento.php?eliminar=<?php echo $apartamento['id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                                         </td>
+                                        <?php }elseif($apartamento['estado'] == 0){?>
+                                        <td>
+                                            <a href="./apartamento.php?activar=<?php echo $apartamento['id'];?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)">Inactivo</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
+                                            <a class="btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
+                                        </td>
+                                        <?php };?>
                                     </tr>
                             <?php  };?>
                         </tbody>

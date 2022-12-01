@@ -53,18 +53,22 @@ include("./plantilla/aside.php");
                     <td><?php echo $gasto['descripcion']; ?></td>
                     <td><?php echo $gasto['monto_gasto']; ?></td>
                     <td>BS</td>
+                    <td class="ocult"><?php echo $gasto['tipo_gasto_id']; ?></td>
                     <?php if ($gasto['estado'] == 1) { ?>
                     <td><button class="btn btn-success" disabled>Activo</button></td>
-                    <?php } elseif ($gasto['estado'] == 0) { ?>
-                      <td>
-                      <a href="./gasto.php?activar=<?php echo $gasto['id']; ?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)">Inactivo</a>
-                    </td>
-                  <?php }; ?>
-                    <td class="ocult"><?php echo $gasto['tipo_gasto_id']; ?></td>
                     <td>
                       <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                       <a href="./gasto.php?eliminar=<?php echo $gasto['id']; ?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                     </td>
+                    <?php } elseif ($gasto['estado'] == 0) { ?>
+                      <td>
+                      <a href="./gasto.php?activar=<?php echo $gasto['id']; ?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)">Inactivo</a>
+                    </td>
+                    <td>
+                      <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
+                      <a  class="btn btn-light2"  disabled><i class="fa fa-trash fa-3x"></i></a>
+                    </td>
+                  <?php }; ?>
                   </tr>
               <?php
               }; ?>
@@ -97,15 +101,19 @@ include("./plantilla/aside.php");
                   <td><?php echo $tipo['nombre'] ?></td>
                   <?php if ($tipo['estado'] == 1) { ?>
                     <td><button class="btn btn-success" disabled>Activo</button></td>
-                  <?php } elseif ($tipo['estado'] == 0) { ?>
                     <td>
-                      <a href="./gasto.php?activarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)">Inactivo</a>
-                    </td>
-                  <?php }; ?>
-                  <td>
                     <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
                     <a href="./gasto.php?eliminarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="eliminarTipo" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                   </td>
+                  <?php } elseif ($tipo['estado'] == 0) { ?>
+                    <td>
+                      <a href="./gasto.php?activarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)">Inactivo</a>
+                      <td>
+                    <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
+                    <a class="btn btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
+                  </td>
+                    </td>
+                  <?php }; ?>
                 </tr>
               <?php }; ?>
             </tbody>

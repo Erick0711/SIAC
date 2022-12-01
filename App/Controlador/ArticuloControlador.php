@@ -79,13 +79,17 @@ class ArticuloControlador extends Articulo
                 $this->tipoArticulo = $_POST['tipoArticulo'];
                 $this->descripcion = $_POST['descripcion'];
                 $this->monto = $_POST['montoArticulo'];
-                if($this->tipoArticulo >= 1 && mb_strlen($this->descripcion) >= 1 && is_string($this->descripcion) && 
+                if($this->tipoArticulo >= 1 && mb_strlen($this->descripcion) >= 1 && is_string($this->descripcion) && $this->monto > 0 && 
                     mb_strlen($this->monto) >= 1 && preg_match($this->minuscula, $this->descripcion)){
                     $convertir = ucfirst($this->descripcion);
-                    $this->articulo->registrar("articulo", $this->tipoArticulo,
-                                                $convertir, $this->monto);
-                    echo $this->redireccionarArticulo;
-                    echo $this->tipoArticulo;
+                    $dato = $this->articulo->comparar('articulo',  $convertir);
+                    if (isset($dato['descripcion']) && $dato['descripcion'] == $convertir) {
+                        echo $this->alerta_igualdad;
+                    } else {
+                        $this->articulo->registrar("articulo", $this->tipoArticulo,
+                        $convertir, $this->monto);
+                        echo $this->redireccionarArticulo;
+                    }
                 } else {
                     echo $this->alerta_validacion;
                     echo $this->alerta_solo_minuscula;
@@ -98,12 +102,17 @@ class ArticuloControlador extends Articulo
                 $this->tipoArticulo = $_POST['tipoArticulo'];
                 $this->descripcion = $_POST['descripcion'];
                 $this->monto = $_POST['montoArticulo'];
-                if($this->tipoArticulo >= 1 && mb_strlen($this->descripcion) >= 1 && is_string($this->descripcion) && 
+                if($this->tipoArticulo >= 1 && mb_strlen($this->descripcion) >= 1 && is_string($this->descripcion) && $this->monto > 0  && 
                     mb_strlen($this->monto) >= 1 && preg_match($this->minuscula, $this->descripcion)){
                     $convertir = ucfirst($this->descripcion);
+                    $dato = $this->articulo->compararTodo('articulo',  $convertir, $this->monto);
+                    if (isset($dato['descripcion']) && $dato['descripcion'] == $convertir && $dato['monto_expensa'] == $this->monto) {
+                        echo $this->alerta_igualdad;
+                    } else {
                     $this->articulo->actualizar("articulo", $this->tipoArticulo,
                                                 $convertir, $this->monto, $id);
                     echo $this->redireccionarArticulo;
+                }
                 } else {
                     echo $this->alerta_validacion;
                     echo $this->alerta_solo_minuscula;

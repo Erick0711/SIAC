@@ -4,7 +4,7 @@
 <div class="modal-dialog d-flex justify-content-center">
     <div class="modal-content w-50">
     <div class="modal-header">
-        <h2 class="modal-title text-center" id="articuloTipoLabel"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Tipo Articulo</h2>
+        <h2 class="modal-title text-center" id="articuloTipoLabel"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Tipo artículo</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -42,7 +42,7 @@
 <div class="modal-dialog d-flex justify-content-center">
     <div class="modal-content w-50">
     <div class="modal-header">
-        <h2 class="modal-title text-center" id="articuloTipoLabel"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Tipo Articulo</h2>
+        <h2 class="modal-title text-center" id="articuloTipoLabel"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Tipo artículo</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>

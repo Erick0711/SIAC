@@ -1,5 +1,6 @@
 <?php
 include("./plantilla/header.php");
+include("./plantilla/session_siac.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 use App\Controlador\UsuarioControlador;
@@ -77,7 +78,7 @@ include("./plantilla/aside.php");
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="tabla2">
                         <thead class="text-center">
                             <tr>
                                 <th>ROL</th>

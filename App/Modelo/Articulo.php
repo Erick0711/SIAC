@@ -73,6 +73,17 @@ class Articulo extends Conexion
         $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=0 WHERE id=$id");
         return $registros;
     }
+    public function comparar($tabla, $descripcion)
+    {
+        $registros = $this->ejecutarFetch("SELECT * FROM $tabla WHERE descripcion = '$descripcion'");
+        return $registros;
+    }
+    public function compararTodo($tabla, $descripcion, $monto)
+    {
+        $registros = $this->ejecutarFetch("SELECT * FROM $tabla WHERE descripcion = '$descripcion' 
+                                            AND monto_expensa = '$monto'");
+        return $registros;
+    }
     public function activar($tabla, $id)
     {
         $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=1 WHERE id= $id");

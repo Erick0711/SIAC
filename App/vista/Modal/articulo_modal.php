@@ -17,8 +17,11 @@
             <div class="col-md-4">
                 <select class="custom-select" name="tipoArticulo">
                     <option value="0">Seleccionar</option>
-                    <?php foreach($tipos as $tipo){ ?>
+                    <?php foreach($tipos as $tipo){ 
+                        if($tipo['estado'] == 1){
+                        ?>
                     <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre_articulo']; ?></option>
+                    <?php   }?>
                     <?php }; ?>
                     </select>
                 </div>
@@ -26,7 +29,7 @@
                     <input type="text" name="descripcion" class="form-control" onkeypress="return soloLetras(event) "placeholder="Descripción..." required="required">
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="montoArticulo" class="form-control" onkeypress="return valideKey(event) "placeholder="Monto..." required="required">
+                    <input type="number" name="montoArticulo" class="form-control" onkeypress="return valideKey(event) "placeholder="Monto..." required="required">
                 </div>
             </div>
             <div class="row  mt-2">
@@ -63,16 +66,19 @@
             <div class="row  mt-2">
             <div class="col-md-4">
                 <select class="custom-select" name="tipoArticulo" id="tipoArticuloSelect">
-                    <?php foreach($tipos as $tipo){ ?>
+                <?php foreach($tipos as $tipo){ 
+                        if($tipo['estado'] == 1){
+                        ?>
                     <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre_articulo']; ?></option>
-                    <?php }; ?>
+                    <?php  }?>
+                <?php }; ?>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <input type="text" name="descripcion" id="descripcion" class="form-control" onkeypress="return soloLetras(event)" placeholder="Tipo de Articulo..." required="required">
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="montoArticulo" id="montoArticulo" class="form-control" onkeypress="return valideKey(event) 
+                    <input type="number" name="montoArticulo" id="montoArticulo" class="form-control" onkeypress="return valideKey(event) 
                     " placeholder="Tipo de Articulo..." required="required">
                 </div>
             </div>

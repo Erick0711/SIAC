@@ -28,12 +28,12 @@ trait Alerta
                                     <span aria-hidden='true'>&times;</span></button></div>",
 
             $alerta_solo_minuscula = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-                                    <strong>¡Alerta!</strong> Solo se permite carácteres en minúscula!
+                                    <strong>¡Alerta!</strong> Solo se permite caracteres en minúscula!
                                     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                                     <span aria-hidden='true'>&times;</span></button></div>",
 
             $alerta_numero =    "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-                                <strong>¡Alerta!</strong> Solo se permite número!
+                                <strong>¡Alerta!</strong> Solo se permite número positivo!
                                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                                 <span aria-hidden='true'>&times;</span></button></div>";
-}
+        }

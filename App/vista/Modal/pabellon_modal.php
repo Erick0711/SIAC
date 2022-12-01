@@ -15,7 +15,7 @@
             <form action="./recinto.php" method="POST">
             <div class="row  mt-2">
                 <div class="col-md-12">
-                    <input type="text" name="numero_pabellon" class="form-control" onkeypress="return valideKey(event)" placeholder="Nro. Pabellon">
+                    <input type="number" name="numero_pabellon" class="form-control" onkeypress="return valideKey(event)" placeholder="Nro. Pabellon">
                 </div>
             </div>
             <div class="row">
@@ -50,7 +50,7 @@
             <form action="./recinto.php" method="POST">
             <div class="row  mt-2">
                 <div class="col-md-12">
-                    <input type="text" name="numero_pabellon" id="numeroPabellon" class="form-control" onkeypress="return valideKey(event)" placeholder="Nro. Pabellon" required="required=">
+                    <input type="number" name="numero_pabellon" id="numeroPabellon" class="form-control" onkeypress="return valideKey(event)" placeholder="Nro. Pabellon" required="required=">
                 </div>
                 <div class="col-md-1">
                 <input type="text" class="ocult" name="idPabellon" id="idPabellon" required="required=">

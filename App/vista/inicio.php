@@ -1,9 +1,9 @@
-
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 
 use App\Controlador\UsuarioControlador;
+
 $consulta = new UsuarioControlador;
 $login = $consulta->consulta();
 ?>
@@ -75,7 +75,7 @@ $login = $consulta->consulta();
             </div>
         </div>
         <div class="col-md-6 col-lg-3">
-            <div class="widget-small danger coloured-icon"><i class="icon fa fa-thumbs-down fa-3x"></i>
+            <div class="widget-small danger coloured-icon"><i class="icon fa fa-male"></i>
                 <div class="info">
                     <h4>Recidentes totales</h4>
                     <p><b>305</b></p>
@@ -86,21 +86,74 @@ $login = $consulta->consulta();
     <div class="row">
         <div class="col-md-6">
             <div class="tile">
-                <h3 class="tile-title">Monthly Sales</h3>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
-                </div>
+                <h3 class="tile-title text-center">Gráfico de egreso</h3>
+                <div id="curve_chart2" style="height: 500px"></div>  
             </div>
         </div>
         <div class="col-md-6">
             <div class="tile">
-                <h3 class="tile-title">Support Requests</h3>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
-                </div>
+                <h3 class="tile-title text-center">Gráfico de pago</h3>
+                <div id="curve_chart" style="height: 500px"></div>
             </div>
         </div>
     </div>
+    </div>
 </main>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-<?php include("./plantilla/footer.php"); ?> 
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Mes', 'Saldo', 'Expensa'],
+            ['Enero', 1000, 400],
+            ['Febrero', 1170, 460],
+            ['Marzo', 660, 1120],
+            ['Abril', 1030, 540]
+        ]);
+
+        var options = {
+            title: 'Pagos por periodo',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+    }
+</script>
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Mes', 'Saldo', 'Egreso'],
+            ['Enero', 1000, 400],
+            ['Febrero', 1170, 460],
+            ['Marzo', 660, 1120],
+            ['Abril', 1030, 540]
+        ]);
+
+        var options = {
+            title: 'Egreso por periodo',
+            curveType: 'function',
+            legend: {
+                position: 'bottom'
+            }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+
+        chart.draw(data, options);
+    }
+</script>
+<?php include("./plantilla/footer.php"); ?>

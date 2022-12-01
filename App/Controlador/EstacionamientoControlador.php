@@ -18,7 +18,7 @@ class EstacionamientoControlador extends Estacionamiento
                 $this->idPabellon = $_POST['idPabellon'];
                 $this->numeroEstacionamiento = $_POST['numeroEstacionamiento'];
                 $dato = $this->estacionamiento->comparar('estacionamiento', $this->numeroEstacionamiento, $this->idPabellon);
-                if($this->numeroEstacionamiento >= 1 && preg_match($this->numeros, $this->numeroEstacionamiento)){
+                if($this->idPabellon >= 1 && $this->numeroEstacionamiento >= 1 && preg_match($this->numeros, $this->numeroEstacionamiento)){
                     if(isset($dato['numero_estacionamiento']) && $dato['numero_estacionamiento'] == $this->numeroEstacionamiento){
                         echo $this->alerta_igualdad;
                     }else{
@@ -28,6 +28,7 @@ class EstacionamientoControlador extends Estacionamiento
                     }
                 }else {
                     echo $this->alerta_validacion;
+                    echo $this->alerta_numero;
                 }
                 break;
 
@@ -37,7 +38,7 @@ class EstacionamientoControlador extends Estacionamiento
                 $this->numeroEstacionamiento = $_POST['numeroEstacionamiento'];
                 $idEstacionamiento = $_POST['idEstacionamiento'];
                 $dato = $this->estacionamiento->comparar('estacionamiento', $this->numeroEstacionamiento, $this->idPabellon);
-                if($this->numeroEstacionamiento >= 1 && preg_match($this->numeros, $this->numeroEstacionamiento)){
+                if(isset($this->numeroEstacionamiento) && $this->numeroEstacionamiento >= 1 && preg_match($this->numeros, $this->numeroEstacionamiento)){
                     if(isset($dato['numero_estacionamiento']) && $dato['numero_estacionamiento'] == $this->numeroEstacionamiento){
                     echo $this->alerta_igualdad;
                 }else{
@@ -47,6 +48,7 @@ class EstacionamientoControlador extends Estacionamiento
                 }
                 }else {
                     echo $this->alerta_validacion;
+                    echo $this->alerta_numero;
                 }
                 break;
 
