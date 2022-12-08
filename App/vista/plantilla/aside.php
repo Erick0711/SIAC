@@ -17,10 +17,10 @@
                 <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-users"></i>
                         <span class="app-menu__label">Persona</span><i class="treeview-indicator fa fa-angle-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Persona</a></li>
-                        <li><a class="treeview-item" href="./funcionario.php"><i class="icon fa fa-circle-o"></i> Funcionario</a></li>
+                        <!-- <li><a class="treeview-item" href="./persona.php"><i class="icon fa fa-circle-o"></i> Persona</a></li>
+                        <li><a class="treeview-item" href="./funcionario.php"><i class="icon fa fa-circle-o"></i> Funcionario</a></li> -->
                         <li><a class="treeview-item" href="./usuario.php"><i class="icon fa fa-circle-o"></i> Usuario</a></li>
-                        <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Copropietario</a></li>
+                        <!-- <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Copropietario</a></li> -->
                     </ul>
                 </li>
                 <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-clipboard"></i><span class="app-menu__label">Expensa</span><i class="treeview-indicator fa fa-angle-right"></i></a>
@@ -35,13 +35,13 @@
                         <li><a class="treeview-item" href="./apartamento.php"><i class="icon fa fa-circle-o"></i> Apartamento</a></li>
                     </ul>
                 </li>
-                <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-usd"></i><span class="app-menu__label">Reporte</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                <!-- <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-usd"></i><span class="app-menu__label">Reporte</span><i class="treeview-indicator fa fa-angle-right"></i></a>
                     <ul class="treeview-menu">
                         <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Pagos</a></li>
                         <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Cuenta Nominal</a></li>
                     </ul>
-                </li>
-                <li><a class="app-menu__item" target="_blank" href="./manual"><i class="app-menu__icon fa fa-book"></i><span class="app-menu__label">Manual</span></a></li>
+                </li> -->
+                <!-- <li><a class="app-menu__item" target="_blank" href="./manual"><i class="app-menu__icon fa fa-book"></i><span class="app-menu__label">Manual</span></a></li> -->
         </ul>
     <?php } elseif ($_SESSION['nombre_rol'] == "Administrador") { ?>
         <li><a class="app-menu__item active" href="./inicio"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Inicio</span></a></li>

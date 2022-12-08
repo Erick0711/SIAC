@@ -1,5 +1,5 @@
 <?php
-include("./plantilla/header.php");
+include("./plantilla/session_start.php");
 include("./plantilla/session_siac.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
@@ -12,19 +12,22 @@ $usuarios = $consulta->index();
 ?>
 <!-- HEADER -->
 <?php
-include("./plantilla/aside.php");
+include(HEADER);
+include(ASIDE);
 ?>
 <!-- CONTENIDO DE LA PAGINA -->
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-th-list"></i> Usuario</h1>
-            <p><?php 
-            $consulta->consulta();
-            $consultaRol->consulta();
-            ?></p>
+            <h1 class="font-italic"><i class="fa fa-th-list"></i> Usuario</h1>
         </div>
     </div>
+    <p>
+        <?php 
+        $consulta->consulta();
+        $consultaRol->consulta();
+        ?>
+    </p>
     <p></p>
     <div class="row">
         <div class="clearfix"></div>
@@ -32,19 +35,20 @@ include("./plantilla/aside.php");
             <div class="tile">
                 <div class="title-item">
                     <div class="text-center">
-                        <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarUsuarioModal"><i class="fa fa-user-plus"></i> Usuario</a>
+                        <button type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarUsuarioModal"><i class="fa fa-user-plus"></i> Usuario</button>
+                        <!-- <button  type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#buscarPersonaModal"><i class="fa fa-user-plus"></i> Buscar Persona</button> -->
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="tabla">
-                        <thead class="text-center">
+                    <table class="table table-bordered table-opacity table-hover" id="tabla">
+                        <thead class="text-center table-blue text-light">
                             <tr>
                                 <th>NOMBRE</th>
                                 <th>APELLIDO</th>
                                 <th>TELEFONO</th>
                                 <th>CORREO</th>
                                 <th>USUARIO</th>
-                                <th>ACCION</th>
+                                <!-- <th>ACCION</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -57,10 +61,10 @@ include("./plantilla/aside.php");
                                         <td><?php echo $usuario['telefono'] ?></td>
                                         <td><?php echo $usuario['correo'] ?></td>
                                         <td><?php echo $usuario['usuario'] ?></td>
-                                        <td>
+                                        <!-- <td>
                                             <a class="btn btn-warning-2" data-toggle="modal" data-target=""><i class="fa fa-pencil-square"></i></a>
                                             <a href="" class="btn btn-danger btnEliminar" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
-                                        </td>
+                                        </td> -->
                                     </tr>
                             <?php
                                 };
@@ -78,24 +82,36 @@ include("./plantilla/aside.php");
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="tabla2">
-                        <thead class="text-center">
+                    <table class="table table-bordered table-opacity table-hover" id="tabla2">
+                        <thead class="text-center table-blue text-light">
                             <tr>
+                                <th>#</th>
                                 <th>ROL</th>
-                                <th>DESCRIPCION</th>
+                                <th>ESTADO</th>
                                 <th>ACCION</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php foreach ($roles as $rol) { ?>
                             <tr>
-                                <td><?php echo $rol['nombre_rol'] ?></td>
-                                <td><?php echo $rol['descripcion'] ?></td>
-                                <td>
-                                <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target=""><i class="fa fa-pencil-square"></i></a>
-                                <a href="" class="btn btn-danger btnEliminar" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
-                                </td>
-                            </tr>
+                                        <td><?php echo $rol['id'];?></td>
+                                        <td><?php echo $rol['nombre_rol'];?></td>
+                                        <?php if($rol['estado'] == 1) {?>
+                                        <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
+                                        <td>
+                                            <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square" name="actualizarRol"></i></a>
+                                            <a href="./usuario.php?eliminarRol=<?php echo $rol['id'];?>" class="btn btn-danger" name="eliminarRol" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
+                                        </td>
+                                        <?php }elseif($rol['estado'] == 0){?>
+                                        <td class="text-center">
+                                            <a href="./usuario.php?activarTipo=<?php echo $rol['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
+                                            <a class="btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
+                                        </td>
+                                        <?php };?>
+                                    </tr>
                         <?php }; ?>
                         </tbody>
                     </table>
@@ -103,12 +119,12 @@ include("./plantilla/aside.php");
             </div>
         </div>
     </div>
-</main>
-<td>
-<!-- VENTANA MODAL -->
+
 <?php
-include("./plantilla/footer.php");
+//  FOOTER
+include(FOOTER);
+// MODAL
 include("./Modal/usuario_modal.php");
 include("./Modal/rol_modal.php");
-//  FOOTER
+include("./Modal/buscar_persona_modal.php");
 ?>

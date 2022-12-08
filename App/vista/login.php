@@ -27,11 +27,11 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label"><i class="fa fa-user"></i> Usuario:</label>
-                    <input class="form-control" name="usuario" type="text" placeholder="ejemplo0541@gmail.com">
+                    <input class="form-control" name="usuario" type="text" placeholder="maicolarteaga0711" required="required" minlength="5">
                 </div>
                 <div class="form-group">
                     <label class="control-label"><i class="fa fa-key"></i> Contraseña:</label>
-                    <input class="form-control" name="contrasenia" type="password" placeholder="•••••••••">
+                    <input class="form-control" name="contrasenia" type="password" placeholder="123" required="required" minlength="1">
                 </div>
 
                 <div class="form-group btn-container">
@@ -47,14 +47,8 @@
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
-    <script src="./assets/js/plugins/pace.min.js"></script>
-    <script type="text/javascript">
-        // Login Page Flipbox control
-        $('.login-content [data-toggle="flip"]').click(function() {
-            $('.login-box').toggleClass('flipped');
-            return false;
-        });
-    </script>
+    <script src="../../assets/js/plugins/pace.min.js"></script>
+
 </body>
 
 </html>

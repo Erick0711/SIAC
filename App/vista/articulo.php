@@ -1,5 +1,5 @@
 <?php
-include("./plantilla/header.php");
+include("./plantilla/session_start.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 use App\Controlador\ArticuloControlador;
@@ -9,13 +9,14 @@ $articulos = $consulta->indexArticulo()
 ?>
 <!-- HEADER -->
 <?php
-include("./plantilla/aside.php");
+include(HEADER);
+include(ASIDE);
 ?>
 <!-- CONTENIDO DE LA PAGINA -->
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-th-list"></i> Articulo</h1>
+            <h1 class="font-italic"><i class="fa fa-th-list"></i> Articulo</h1>
         </div>
     </div>
     <p>
@@ -33,8 +34,8 @@ include("./plantilla/aside.php");
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="tabla">
-                        <thead class="text-center">
+                    <table class="table table-bordered table-opacity table-hover" id="tabla">
+                        <thead class="text-center table-blue text-light">
                             <tr>
                                 <th>#</th>
                                 <th>TIPO ARTICULO</th>
@@ -56,14 +57,14 @@ include("./plantilla/aside.php");
                                     <td>BS</td>
                                     <td class="ocult"><?php echo $articulo['id'];?></td>
                                     <?php if($articulo['estado'] == 1) {?>
-                                    <td><button class="btn btn-success" disabled>Activo</button></td>
+                                        <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
                                     <td>
                                         <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                                         <a href="./articulo.php?eliminarArticulo=<?php echo $articulo['articulo_id']; ?>" class="btn btn-danger" name="eliminarArticulo" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                                     </td>
                                     <?php }elseif($articulo['estado'] == 0){?>
-                                        <td>
-                                            <a href="./articulo.php?activar=<?php echo $articulo['articulo_id'];?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)">Inactivo</a>
+                                        <td class="text-center">
+                                            <a href="./articulo.php?activar=<?php echo $articulo['articulo_id'];?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
                                         </td>
                                         <td>
                                         <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
@@ -86,8 +87,8 @@ include("./plantilla/aside.php");
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="tabla2">
-                        <thead class="text-center">
+                    <table class="table table-bordered table-opacity table-hover" id="tabla2">
+                        <thead class="text-center table-blue text-light">
                             <tr>
                                 <th>#</th>
                                 <th>TIPO ARTICULO</th>
@@ -101,14 +102,14 @@ include("./plantilla/aside.php");
                                         <td><?php echo $tipo['id'];?></td>
                                         <td><?php echo $tipo['nombre_articulo'];?></td>
                                         <?php if($tipo['estado'] == 1) {?>
-                                        <td><button class="btn btn-success" disabled>Activo</button></td>
+                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
                                         <td>
                                             <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
                                             <a href="./articulo.php?eliminarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="eliminarTipo" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                                         </td>
                                         <?php }elseif($tipo['estado'] == 0){?>
-                                        <td>
-                                            <a href="./articulo.php?activarTipo=<?php echo $tipo['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)">Inactivo</a>
+                                        <td class="text-center">
+                                            <a href="./articulo.php?activarTipo=<?php echo $tipo['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
                                         </td>
                                         <td>
                                             <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
@@ -125,7 +126,7 @@ include("./plantilla/aside.php");
             </div>
         </div>
     </div>
-</main>
+
 
 
 <!-- VENTANA MODAL -->

@@ -1,6 +1,5 @@
 <?php
-include("./plantilla/header.php");
-
+include("./plantilla/session_start.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 
@@ -13,14 +12,15 @@ $pabellones = $consulta->index();
 ?>
 <!-- HEADER -->
 <?php
-include("./plantilla/aside.php");
+include(HEADER);
+include(ASIDE);
 ?>
 
 <!-- CONTENIDO DE LA PAGINA -->
 <main class="app-content ">
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-th-list"></i> Recinto</h1>
+            <h1 class="font-italic"><i class="fa fa-th-list"></i> Recinto</h1>
         </div>
     </div>
     <p>
@@ -39,8 +39,8 @@ include("./plantilla/aside.php");
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="tabla">
-                        <thead class="text-center">
+                    <table class="table table-bordered table-opacity table-hover" id="tabla">
+                        <thead class="text-center table-blue text-light">
                             <tr>
                                 <th>#</th>
                                 <th>NRO PABELLON</th>
@@ -58,14 +58,14 @@ include("./plantilla/aside.php");
                                         <td><?php echo $estacionamiento['numero_estacionamiento'];?></td>
                                         <td class="ocult"><?php echo $estacionamiento['id'];?></td>
                                         <?php if($estacionamiento['estado'] == 1) {?>
-                                        <td><button class="btn btn-success" disabled>Activo</button></td>
+                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
                                         <td>
                                             <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
                                             <a href="./recinto.php?eliminarEstacionamiento=<?php echo $estacionamiento['estacionamiento_id'];?>" class="btn btn-danger" name="eliminarEstacionamiento" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                                         </td>
                                         <?php }elseif($estacionamiento['estado'] == 0){?>
-                                        <td>
-                                            <a href="./recinto.php?activar=<?php echo $estacionamiento['estacionamiento_id'];?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)">Inactivo</a>
+                                        <td class="text-center">
+                                            <a href="./recinto.php?activar=<?php echo $estacionamiento['estacionamiento_id'];?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
                                         </td>
                                         <td>
                                             <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
@@ -87,8 +87,8 @@ include("./plantilla/aside.php");
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="tabla2">
-                        <thead class="text-center">
+                    <table class="table table-bordered table-opacity table-hover" id="tabla2">
+                        <thead class="text-center table-blue text-light">
                             <tr>
                                 <th>#</th>
                                 <th>NRO PABELLON</th>
@@ -102,14 +102,14 @@ include("./plantilla/aside.php");
                                         <td><?php echo $pabellon['id'];?></td>
                                         <td><?php echo $pabellon['numero_pabellon'];?></td>
                                         <?php if($pabellon['estado'] == 1) {?>
-                                        <td><button class="btn btn-success" disabled>Activo</button></td>
+                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
                                         <td>
                                             <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                                             <a href="./recinto.php?eliminar=<?php echo $pabellon['id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                                         </td>
                                         <?php }elseif($pabellon['estado'] == 0){?>
-                                        <td>
-                                            <a href="./recinto.php?activarTipo=<?php echo $pabellon['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)">Inactivo</a>
+                                        <td class="text-center">
+                                            <a href="./recinto.php?activarTipo=<?php echo $pabellon['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
                                         </td>
                                         <td>
                                             <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
@@ -124,13 +124,13 @@ include("./plantilla/aside.php");
             </div>
         </div>
     </div>
-</main>
+
 
 <!-- VENTANA MODAL -->
 <?php
 include("./Modal/pabellon_modal.php");
 include("./Modal/estacionamiento_modal.php");
 //  FOOTER
-include("./plantilla/footer.php");
+include(FOOTER);
 ?>
 

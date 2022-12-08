@@ -1,5 +1,5 @@
 <?php
-include("./plantilla/header.php");
+include(HEADER);
 include("./plantilla/session_siac.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);

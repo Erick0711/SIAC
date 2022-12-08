@@ -70,6 +70,12 @@ $(document).ready(function () {
             tipoArticulo = data[1];
         $('#idTipoArticulo').val(idTipoArticulo);
         $('#tipoArticulo').val(tipoArticulo);
+
+
+        var idRol = data[0],
+            rol = data[1];
+        $('#idRol').val(idRol);
+        $('#nombreRol').val(rol);
     });
 });
 $('.ocult').hide();

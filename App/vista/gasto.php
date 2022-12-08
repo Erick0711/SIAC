@@ -1,23 +1,23 @@
 <?php
-include("./plantilla/header.php");
+include("./plantilla/session_start.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
 
 use App\Controlador\GastoControlador;
-
 $consulta = new GastoControlador;
 $gastos = $consulta->mostrar_gasto();
 $tipos = $consulta->index();
 ?>
 <!-- HEADER -->
 <?php
-include("./plantilla/aside.php");
+include(HEADER);
+include(ASIDE);
 ?>
 <!-- CONTENIDO DE LA PAGINA -->
 <main class="app-content">
   <div class="app-title">
     <div>
-      <h1><i class="fa fa-th-list"></i> Gasto</h1>
+      <h1 class="font-italic"><i class="fa fa-th-list"></i> Gasto</h1>
     </div>
   </div>
   <p><?php $consulta->consulta(); ?></p>
@@ -31,8 +31,8 @@ include("./plantilla/aside.php");
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-bordered" id="tabla">
-            <thead class="text-center">
+          <table class="table table-bordered table-opacity table-hover" id="tabla">
+            <thead class="text-center table-blue text-light">
               <tr>
                 <th>#</th>
                 <th>TIPO</th>
@@ -47,29 +47,29 @@ include("./plantilla/aside.php");
             <tbody>
               <?php foreach ($gastos as $gasto) {
               ?>
-                  <tr>
-                    <td><?php echo $gasto['id']; ?></td>
-                    <td><?php echo $gasto['nombre']; ?></td>
-                    <td><?php echo $gasto['descripcion']; ?></td>
-                    <td><?php echo $gasto['monto_gasto']; ?></td>
-                    <td>BS</td>
-                    <td class="ocult"><?php echo $gasto['tipo_gasto_id']; ?></td>
-                    <?php if ($gasto['estado'] == 1) { ?>
-                    <td><button class="btn btn-success" disabled>Activo</button></td>
+                <tr>
+                  <td><?php echo $gasto['id']; ?></td>
+                  <td><?php echo $gasto['nombre']; ?></td>
+                  <td><?php echo $gasto['descripcion']; ?></td>
+                  <td><?php echo $gasto['monto_gasto']; ?></td>
+                  <td>BS</td>
+                  <td class="ocult"><?php echo $gasto['tipo_gasto_id']; ?></td>
+                  <?php if ($gasto['estado'] == 1) { ?>
+                    <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
                     <td>
                       <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                       <a href="./gasto.php?eliminar=<?php echo $gasto['id']; ?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                     </td>
-                    <?php } elseif ($gasto['estado'] == 0) { ?>
-                      <td>
-                      <a href="./gasto.php?activar=<?php echo $gasto['id']; ?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)">Inactivo</a>
+                  <?php } elseif ($gasto['estado'] == 0) { ?>
+                    <td class="text-center">
+                      <a href="./gasto.php?activar=<?php echo $gasto['id']; ?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
                     </td>
                     <td>
                       <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
-                      <a  class="btn btn-light2"  disabled><i class="fa fa-trash fa-3x"></i></a>
+                      <a class="btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
                     </td>
                   <?php }; ?>
-                  </tr>
+                </tr>
               <?php
               }; ?>
             </tbody>
@@ -85,8 +85,8 @@ include("./plantilla/aside.php");
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-bordered" id="tabla2">
-            <thead class="text-center">
+          <table class="table table-bordered table-opacity table-hover" id="tabla2">
+            <thead class="text-center table-blue text-light">
               <tr>
                 <th>#</th>
                 <th>TIPO GASTO</th>
@@ -100,18 +100,18 @@ include("./plantilla/aside.php");
                   <td><?php echo $tipo['id'] ?></td>
                   <td><?php echo $tipo['nombre'] ?></td>
                   <?php if ($tipo['estado'] == 1) { ?>
-                    <td><button class="btn btn-success" disabled>Activo</button></td>
+                    <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
                     <td>
-                    <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
-                    <a href="./gasto.php?eliminarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="eliminarTipo" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
-                  </td>
+                      <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
+                      <a href="./gasto.php?eliminarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="eliminarTipo" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
+                    </td>
                   <?php } elseif ($tipo['estado'] == 0) { ?>
+                    <td class="text-center">
+                      <a href="./gasto.php?activarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
+                    </td>
                     <td>
-                      <a href="./gasto.php?activarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)">Inactivo</a>
-                      <td>
-                    <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
-                    <a class="btn btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
-                  </td>
+                      <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
+                      <a class="btn btn btn-light2" disabled><i class="fa fa-trash"></i></a>
                     </td>
                   <?php }; ?>
                 </tr>
@@ -122,7 +122,6 @@ include("./plantilla/aside.php");
       </div>
     </div>
   </div>
-</main>
 <!-- VENTANA MODAL -->
 <?php
 include("./Modal/gasto_modal.php");

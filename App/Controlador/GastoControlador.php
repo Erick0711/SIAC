@@ -80,7 +80,7 @@ class GastoControlador extends Gasto
                 $this->monto = $_POST['monto'];
                 if ($this->tipoGasto >= 1 && is_string($this->descripcion) && $this->monto > 0 && mb_strlen($this->monto) >= 1 && preg_match($this->minuscula, $this->descripcion)) {
                     $convertir = ucfirst($this->descripcion);
-                    $dato = $this->gasto->comparar('gasto',  $convertir);
+                    $dato = $this->gasto->comparar('gasto',  $convertir, $this->monto);
                     if (isset($dato['descripcion']) && $dato['descripcion'] == $convertir) {
                         echo $this->alerta_igualdad;
                     } else {

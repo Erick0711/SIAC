@@ -1,14 +1,20 @@
 <?php
 namespace App\Modelo;
 use App\config\Alerta,
-    App\Modelo\Persona,
     App\config\Redireccion,
     App\config\Conexion,
     PDO;
 class Usuario extends Conexion
 {
-    use Alerta,Redireccion,Persona;
-    protected   $usuario,
+    use Alerta,Redireccion;
+    protected   
+                $nombre,
+                $apellido,
+                $ci,
+                $complemento_ci,
+                $correo,
+                $telefono,
+                $usuario,
                 $campo_usuario,
                 $contrasenia,
                 $contrasenia_hash,

@@ -1,15 +1,15 @@
 <?php
+include("./plantilla/session_start.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/SIAC/App/config/url.php');
 require(AUTOLOAD);
-
 use App\Controlador\UsuarioControlador;
-
 $consulta = new UsuarioControlador;
 $login = $consulta->consulta();
 ?>
-
-<?php include("./plantilla/header.php"); ?>
-<?php include("./plantilla/aside.php"); ?>
+<?php 
+include(HEADER);
+include(ASIDE); 
+?>
 
 <!-- CONTENIDO -->
 <main class="app-content">
@@ -98,7 +98,7 @@ $login = $consulta->consulta();
         </div>
     </div>
     </div>
-</main>
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     google.charts.load('current', {
@@ -156,4 +156,4 @@ $login = $consulta->consulta();
         chart.draw(data, options);
     }
 </script>
-<?php include("./plantilla/footer.php"); ?>
+<?php include(FOOTER); ?>

@@ -29,10 +29,6 @@ class UsuarioControlador extends Usuario
                 $this->contrasenia = $_POST['contrasenia'];
                 $this->rol = $_POST['rol'];
                 $this->contrasenia_hash = password_hash($this->contrasenia, PASSWORD_DEFAULT, ['cost' => 10]);
-                $this->usuario->registrarUsuario("persona", "usuario", $this->nombre, $this->apellido, 
-                                                $this->ci, $this->complemento_ci, $this->correo, $this->telefono, 
-                                                $this->campo_usuario, $this->contrasenia_hash, $this->rol);
-                echo $this->redireccionarUsuario;
                 if(strlen($this->nombre) > 2){
                     $this->usuario = new Usuario();
                     $this->usuario->registrarUsuario("persona", "usuario", $this->nombre, $this->apellido, 
@@ -45,21 +41,35 @@ class UsuarioControlador extends Usuario
                 break;
 
             case isset($_POST['login']):
+                $this->usuario = new Usuario();
                 $this->campo_usuario = $_POST['usuario'];
                 $this->contrasenia = $_POST['contrasenia'];
-                    $this->usuario = new Usuario();
-                    $resultados = $this->usuario->buscar($this->campo_usuario, $this->contrasenia);
+                $resultados = $this->usuario->buscar($this->campo_usuario, $this->contrasenia);
                     if($resultados >= 1){
                         session_start();
                         $_SESSION['usuario'] = $resultados['usuario'];
                         $_SESSION['nombre_rol'] = $resultados['nombre_rol'];
                         $rol = $_SESSION['nombre_rol'];
-                        echo match(empty($rol) && isset($rol)){
-                            $rol == "SIAC" => header("location: ./inicio.php"),
-                            $rol == "Administrador" => header("location: ./inicio.php"),
-                            $rol == "Copropietario" => header("location: ./copropietario.php"),
-                            default => header("location: ./login.php")
-                        };
+                        switch (empty($rol) && isset($rol)) {
+                            case $rol == "SIAC":
+                                header("location: ./inicio.php");
+                                break;
+                            case $rol == "Administrador":
+                                header("location: ./inicio.php");
+                                break;
+                            case $rol == "Copropietario":
+                                header("location: ./copropietario.php");
+                                break;
+                            default:
+                            header("location: ./login.php");
+                                break;
+                        }
+                        // echo match(empty($rol) && isset($rol)){
+                        //     $rol == "SIAC" => header("location: ./inicio.php"),
+                        //     $rol == "Administrador" => header("location: ./inicio.php"),
+                        //     $rol == "Copropietario" => header("location: ./copropietario.php"),
+                        //     default => header("location: ./login.php")
+                        // };
                     }
             default:
                 break;
