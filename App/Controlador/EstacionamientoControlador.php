@@ -20,15 +20,14 @@ class EstacionamientoControlador extends Estacionamiento
                 $dato = $this->estacionamiento->comparar('estacionamiento', $this->numeroEstacionamiento, $this->idPabellon);
                 if($this->idPabellon >= 1 && $this->numeroEstacionamiento >= 1 && preg_match($this->numeros, $this->numeroEstacionamiento)){
                     if(isset($dato['numero_estacionamiento']) && $dato['numero_estacionamiento'] == $this->numeroEstacionamiento){
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     }else{
                         $this->estacionamiento->registrarEstacionamiento("estacionamiento",$this->idPabellon, 
                         $this->numeroEstacionamiento);
-                        echo $this->redireccionarRecinto;
+                        echo $this->redirectVista("recinto");
                     }
                 }else {
-                    echo $this->alerta_validacion;
-                    echo $this->alerta_numero;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos, solo números");
                 }
                 break;
 
@@ -40,15 +39,14 @@ class EstacionamientoControlador extends Estacionamiento
                 $dato = $this->estacionamiento->comparar('estacionamiento', $this->numeroEstacionamiento, $this->idPabellon);
                 if(isset($this->numeroEstacionamiento) && $this->numeroEstacionamiento >= 1 && preg_match($this->numeros, $this->numeroEstacionamiento)){
                     if(isset($dato['numero_estacionamiento']) && $dato['numero_estacionamiento'] == $this->numeroEstacionamiento){
-                    echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                 }else{
                     $this->estacionamiento->actualizarEstacionamiento("estacionamiento", $this->idPabellon,
                                                                     $this->numeroEstacionamiento, $idEstacionamiento);
-                    echo $this->redireccionarRecinto;
+                    echo $this->redirectVista("recinto");
                 }
                 }else {
-                    echo $this->alerta_validacion;
-                    echo $this->alerta_numero;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos, solo números");
                 }
                 break;
 
@@ -56,14 +54,14 @@ class EstacionamientoControlador extends Estacionamiento
                     $idEstacionamiento = $_GET['eliminarEstacionamiento'];
                         $this->estacionamiento = new Estacionamiento();
                         $this->estacionamiento->eliminarEstacionamiento("estacionamiento", $idEstacionamiento);
-                        echo $this->redireccionarRecinto;
+                        echo $this->redirectVista("recinto");
                     break;
 
                 case isset($_GET['activar']):
                     $idEstacionamiento = $_GET['activar'];
                         $this->estacionamiento = new Estacionamiento();
                         $this->estacionamiento->activar("estacionamiento", $idEstacionamiento);
-                        echo $this->redireccionarRecinto;
+                        echo $this->redirectVista("recinto");
                     break;
             default:
                 break;

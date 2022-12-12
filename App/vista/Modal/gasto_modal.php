@@ -17,7 +17,7 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./Gasto.php" method="POST">
+                    <form action="./gasto.php" method="POST">
                         <div class="row  mt-2">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Tipo de gasto:</strong></label>
@@ -76,7 +76,7 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./Gasto.php" method="POST">
+                    <form action="./gasto.php" method="POST">
                         <div class="row  mt-2">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Tipo de gasto:</strong></label>

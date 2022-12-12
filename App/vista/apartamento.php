@@ -14,7 +14,7 @@ include(HEADER);
 include(ASIDE);
 ?>
 <!-- CONTENIDO DE LA PAGINA -->
-<main class="app-content ">
+<main class="app-content">
     <div class="app-title">
         <div>
             <h1 class="font-italic"><i class="fa fa-th-list font-italic"></i> Apartamento</h1>

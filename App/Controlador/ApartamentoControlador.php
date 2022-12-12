@@ -1,8 +1,10 @@
 <?php
 namespace App\Controlador;
-use App\Modelo\Apartamento;
+use App\Modelo\Apartamento,
+    App\libs\Modelo;
 class ApartamentoControlador extends Apartamento
 {
+
     public function index()
     {
         $this->apartamento = new Apartamento();
@@ -20,13 +22,13 @@ class ApartamentoControlador extends Apartamento
                 $convertir = ucfirst($this->numeroApartamento);
                 $dato = $this->apartamento->comparar('apartamento',  $convertir);
                     if(isset($dato['numero_apartamento']) && $dato['numero_apartamento'] ==  $convertir){
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     }else{
                         $this->apartamento->registrar("apartamento", $convertir);
-                        echo $this->redireccionarApartamento;
+                        echo $this->redirectVista("apartamento");
                     }
                 }else{
-                    echo $this->alerta_validacion;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -38,13 +40,13 @@ class ApartamentoControlador extends Apartamento
                     $convertir = ucfirst($this->numeroApartamento);
                     $dato = $this->apartamento->comparar('apartamento', $convertir);
                     if(isset($dato['numero_apartamento']) && $dato['numero_apartamento'] == $convertir){
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     }else{
                         $this->apartamento->actualizar("apartamento", $convertir, $id);
-                        echo $this->redireccionarApartamento;
+                        echo $this->redirectVista("apartamento");
                     }
                 } else {
-                    echo $this->alerta_validacion;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -52,14 +54,14 @@ class ApartamentoControlador extends Apartamento
                 $idApartamento = $_GET['eliminar'];
                 $this->apartamento = new Apartamento();
                 $this->apartamento->eliminar("apartamento", $idApartamento);
-                echo $this->redireccionarApartamento;
+                echo $this->redirectVista("apartamento");
                 break;
 
             case isset($_GET['activar']):
                 $idApartamento = $_GET['activar'];
                 $this->apartamento = new Apartamento();
                 $this->apartamento->activar("apartamento", $idApartamento);
-                echo $this->redireccionarApartamento;
+                echo $this->redirectVista("apartamento");
                 break;
             default:
                 break;

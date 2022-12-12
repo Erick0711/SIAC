@@ -1,6 +1,7 @@
-<?php require("./plantilla/session_start.php");?>
+<?php require("./plantilla/session_start.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>.:: SIAC ::.</title>
   <meta charset="utf-8">
@@ -17,6 +18,18 @@
 </head>
 
 <body class="app sidebar-mini">
+<!-- <div class="centrado" id="carga">
+    <div class="lds-roller">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+</div> -->
   <!-- Navbar-->
   <header class="app-header"><a class="app-header__logo" href="./inicio">Cond. Sevilla</a>
     <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
@@ -28,8 +41,6 @@
       <!-- MENU USUARIO-->
       <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
         <ul class="dropdown-menu settings-menu dropdown-menu-right">
-          <!-- <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li> -->
-          <!-- <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Perfil</a></li> -->
           <li><a class="dropdown-item" href="./plantilla/session_destroy.php"><i class="fa fa-sign-out fa-lg"></i> Cerrar Sesión</a></li>
         </ul>
       </li>

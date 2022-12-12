@@ -36,11 +36,30 @@ $(document).ready(function () {
             idtipoarticulo = data[5],
             descripcion = data[2],
             monto = data[3];
-        console.log(data);
+
         $('#idArticulo').val(idArticulo);
         $("#tipoArticuloSelect").prepend("<option value="+ idtipoarticulo +" selected='selected'>"+ tipoArticulo +"</option>");
         $('#descripcion').val(descripcion);
         $('#montoArticulo').val(monto);
+
+        var idFuncionario = data[0],
+        cargo = data[7],
+        salario = data[8];
+
+        $('#idFuncionario').val(idFuncionario);
+        $('#cargo').val(cargo);
+        $('#salario').val(salario);
+
+        var idCopropietario = data[0],
+        apartamentoID = data[10],
+        apartamento = data[7],
+        residente = data[8],
+        mascota = data[9];
+        console.log(data);
+        $('#idCopropietario').val(idCopropietario);
+        $("#apartamento").prepend("<option value="+ apartamentoID +" selected='selected'>"+ apartamento +"</option>");
+        $('#residente').val(residente);
+        $('#mascota').val(mascota);
     });
 // EDITAR TIPOS DE TIPOS
     $('.editarbtnTipo').on('click', function () {

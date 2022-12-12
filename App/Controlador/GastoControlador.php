@@ -29,14 +29,13 @@ class GastoControlador extends Gasto
                     $convertir = ucfirst($this->tipoGasto);
                     $dato = $this->gasto->compararTipo('tipo_gasto',  $convertir);
                     if (isset($dato['nombre']) && $dato['nombre'] == $convertir) {
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     } else {
                         $this->gasto->registrarTipo("tipo_gasto", $convertir);
-                        echo $this->redireccionarGasto;
+                        echo $this->redirectVista("gasto");
                     }
                 } else {
-                    echo $this->alerta_validacion;
-                    echo $this->alerta_solo_minuscula;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -48,14 +47,13 @@ class GastoControlador extends Gasto
                     $convertir = ucfirst($this->tipoGasto);
                     $dato = $this->gasto->compararTipo('tipo_gasto',  $convertir);
                     if (isset($dato['nombre']) && $dato['nombre'] == $convertir) {
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     } else {
                         $this->gasto->actualizarTipo("tipo_gasto", $this->idTipoGasto, $convertir);
-                        echo $this->redireccionarGasto;
+                        echo $this->redirectVista("gasto");
                     }
                 } else {
-                    echo $this->alerta_validacion;
-                    echo $this->alerta_solo_minuscula;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -63,14 +61,14 @@ class GastoControlador extends Gasto
                 $idTipoGasto = $_GET['eliminarTipo'];
                 $this->gasto = new Gasto();
                 $this->gasto->eliminarTipo("tipo_gasto", $idTipoGasto);
-                echo $this->redireccionarGasto;
+                echo $this->redirectVista("gasto");
                 break;
 
             case isset($_GET['activarTipo']):
                 $idGasto = $_GET['activarTipo'];
                 $this->gasto = new Gasto();
                 $this->gasto->activarTipo("tipo_gasto", $idGasto);
-                echo $this->redireccionarGasto;
+                echo $this->redirectVista("gasto");
                 break;
                 /********************************************** GASTO ******************************************************/
             case isset($_POST['guardarGasto']):
@@ -82,14 +80,13 @@ class GastoControlador extends Gasto
                     $convertir = ucfirst($this->descripcion);
                     $dato = $this->gasto->comparar('gasto',  $convertir, $this->monto);
                     if (isset($dato['descripcion']) && $dato['descripcion'] == $convertir) {
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     } else {
                         $this->gasto->registrar("gasto", $this->tipoGasto, $convertir, $this->monto);
-                        echo $this->redireccionarGasto;
+                        echo $this->redirectVista("gasto");
                     }
                 } else {
-                    echo $this->alerta_validacion;
-                    echo $this->alerta_solo_minuscula;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -103,14 +100,13 @@ class GastoControlador extends Gasto
                     $convertir = ucfirst($this->descripcion);
                     $dato = $this->gasto->compararTodo('gasto',  $convertir, $this->monto);
                     if (isset($dato['descripcion']) && $dato['descripcion'] == $convertir && $dato['monto_gasto'] == $this->monto) {
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     } else {
                         $this->gasto->actualizar("gasto", $this->tipoGasto, $convertir, $this->monto, $idGasto);
-                        echo $this->redireccionarGasto;
+                        echo $this->redirectVista("gasto");
                     }
                 } else {
-                    echo $this->alerta_validacion;
-                    echo $this->alerta_solo_minuscula;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -118,14 +114,14 @@ class GastoControlador extends Gasto
                 $idGasto = $_GET['eliminar'];
                 $this->gasto = new Gasto();
                 $this->gasto->eliminarGasto("gasto", $idGasto);
-                echo $this->redireccionarGasto;
+                echo $this->redirectVista("gasto");
                 break;
 
             case isset($_GET['activar']):
                 $idGasto = $_GET['activar'];
                 $this->gasto = new Gasto();
                 $this->gasto->activar("gasto", $idGasto);
-                echo $this->redireccionarGasto;
+                echo $this->redirectVista("gasto");
                 break;
             default:
                 break;

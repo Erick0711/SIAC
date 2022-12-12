@@ -13,7 +13,7 @@ class Usuario extends Conexion
                 $ci,
                 $complemento_ci,
                 $correo,
-                $telefono,
+                $telefono,                  // AREGLAR LAS CLASES QUE SE EXTIENDEN PARA COLOCAR UN SOLO MODELO DE LIBS MODELO
                 $usuario,
                 $campo_usuario,
                 $contrasenia,

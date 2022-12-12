@@ -34,9 +34,9 @@ class UsuarioControlador extends Usuario
                     $this->usuario->registrarUsuario("persona", "usuario", $this->nombre, $this->apellido, 
                                                     $this->ci, $this->complemento_ci, $this->correo, $this->telefono, 
                                                     $this->campo_usuario, $this->contrasenia_hash, $this->rol);
-                    echo $this->redireccionarUsuario;
+                echo $this->redirectVista("usuario");
                 }else{
-                    echo $this->alerta_advertencia;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 

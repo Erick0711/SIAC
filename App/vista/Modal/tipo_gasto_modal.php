@@ -17,7 +17,7 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./Gasto.php" method="POST">
+                    <form action="./gasto.php" method="POST">
                         <div class="row  mt-2">
 
                             <div class="col-md-12">
@@ -63,7 +63,7 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./Gasto.php" method="POST">
+                    <form action="./gasto.php" method="POST">
                         <div class="row  mt-2">
 
                             <div class="col-md-12">

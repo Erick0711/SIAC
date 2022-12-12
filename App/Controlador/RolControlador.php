@@ -22,13 +22,13 @@ class RolControlador extends Rol
                     $dato = $this->rol->comparar('rol', $this->nombreRol);
                     $convertir = ucfirst($this->nombreRol);
                     if(isset($dato['nombre_rol']) && $dato['nombre_rol'] == $convertir){
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     }else{
                         $this->rol->registrarRol("rol", $convertir, $this->descripcion);
-                        echo $this->redireccionarUsuario;
+                        echo $this->redirectVista("usuario");
                     }
                 }else{
-                    echo $this->alerta_validacion;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -42,13 +42,13 @@ class RolControlador extends Rol
                         $dato = $this->rol->comparar('rol', $this->nombreRol);
                         $convertir = ucfirst($this->nombreRol);
                         if(isset($dato['nombre_rol']) && $dato['nombre_rol'] == $convertir){
-                            echo $this->alerta_igualdad;
+                            echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     }else{
                         $this->rol->actualizarRol("rol", $this->nombreRol, $this->descripcion, $id);
-                        echo $this->redireccionarUsuario;
+                        echo $this->redirectVista("usuario");
                     }
                     }else{
-                        echo $this->alerta_validacion;
+                        echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                     }
                     break;
 
@@ -56,14 +56,14 @@ class RolControlador extends Rol
                         $id = $_GET['eliminarRol'];
                             $this->rol = new Rol();
                             $this->rol->eliminarRol("rol", $id);
-                            echo $this->redireccionarUsuario;
+                            echo $this->redirectVista("usuario");
                         break;
         
                     case isset($_GET['activarTipo']):
                         $id = $_GET['activarTipo'];
                             $this->rol = new Rol();
                             $this->rol->activarRol("rol", $id);
-                            echo $this->redireccionarUsuario;
+                            echo $this->redirectVista("usuario");
                         break;
             default:
                 break;

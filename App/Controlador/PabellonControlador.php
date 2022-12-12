@@ -19,14 +19,13 @@ class PabellonControlador extends Pabellon
                 if($this->numeroPabellon >= 1 && preg_match($this->numeros, $this->numeroPabellon)){
                     $dato = $this->pabellon->comparar('pabellon', $this->numeroPabellon);
                     if(isset($dato['numero_pabellon']) && $dato['numero_pabellon'] == $this->numeroPabellon){
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     }else{
                         $this->pabellon->registrarPabellon("pabellon", $this->numeroPabellon);
-                        echo $this->redireccionarRecinto;
+                        echo $this->redirectVista("recinto");
                     }
                 }else {
-                    echo $this->alerta_validacion;
-                    echo $this->alerta_numero;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -37,13 +36,13 @@ class PabellonControlador extends Pabellon
                 $dato = $this->pabellon->comparar('pabellon', $this->numeroPabellon);
                 if($this->numeroPabellon >= 1 && preg_match($this->numeros, $this->numeroPabellon)){
                     if(isset($dato['numero_pabellon']) && $dato['numero_pabellon'] == $this->numeroPabellon){
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     }else{
                         $this->pabellon->actualizarPabellon("pabellon", $this->numeroPabellon, $id);
-                        echo $this->redireccionarRecinto;
+                        echo $this->redirectVista("recinto");
                     }
                 }else {
-                    echo $this->alerta_validacion;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -51,14 +50,14 @@ class PabellonControlador extends Pabellon
                 $idAPabellon = $_GET['eliminar'];
                     $this->pabellon = new Pabellon();
                     $this->pabellon->eliminarPabellon("pabellon", $idAPabellon);
-                    echo $this->redireccionarRecinto;
+                    echo $this->redirectVista("recinto");
                 break;
 
             case isset($_GET['activarTipo']):
                 $idPabellon = $_GET['activarTipo'];
                     $this->pabellon = new Pabellon();
                     $this->pabellon->activarTipo("pabellon", $idPabellon);
-                    echo $this->redireccionarRecinto;
+                    echo $this->redirectVista("recinto");
                 break;
             default:
                 break;

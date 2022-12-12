@@ -28,14 +28,13 @@ class ArticuloControlador extends Articulo
                     $convertir = ucfirst($this->tipoArticulo);
                     $dato = $this->compararTipo("tipo_articulo",$convertir, "nombre_articulo");
                     if(isset($dato['nombre_articulo']) && $dato['nombre_articulo'] == $convertir){
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     }else{
                         $this->articulo->registrarTipo("tipo_articulo", $convertir);
-                        echo $this->redireccionarArticulo;
+                        echo $this->redirectVista("articulo");
                     }
                 }else{
-                    echo $this->alerta_solo_texto;
-                    echo $this->alerta_solo_minuscula;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -48,15 +47,14 @@ class ArticuloControlador extends Articulo
                     $convertir = ucfirst($this->tipoArticulo);
                     $dato = $this->compararTipo("tipo_articulo", $convertir, "nombre_articulo");
                     if(isset($dato['nombre_articulo']) && $dato['nombre_articulo'] == $convertir){
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     }else{
                         $this->articulo->actualizarTipo("tipo_articulo", $convertir, 
                                                         $this->idTipoArticulo);
-                        echo $this->redireccionarArticulo;
+                        echo $this->redirectVista("articulo");
                     }
                 } else {
-                    echo $this->alerta_solo_texto;
-                    echo $this->alerta_solo_minuscula;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
             
@@ -64,14 +62,14 @@ class ArticuloControlador extends Articulo
                 $idArticulo = $_GET['eliminarTipo'];
                 $this->articulo = new Articulo();
                 $this->articulo->eliminar("tipo_articulo", $idArticulo);
-                echo $this->redireccionarArticulo;
+                echo $this->redirectVista("articulo");
                 break;
 
             case isset($_GET['activarTipo']):
                 $idArticulo = $_GET['activarTipo'];
                 $this->articulo = new Articulo();
                 $this->articulo->activarTipo("tipo_articulo", $idArticulo);
-                echo $this->redireccionarArticulo;
+                echo $this->redirectVista("articulo");
                 break;
     /**********************************************ARTICULOS******************************************************/ 
             case isset($_POST['registrarArticulo']):
@@ -84,14 +82,13 @@ class ArticuloControlador extends Articulo
                     $convertir = ucfirst($this->descripcion);
                     $dato = $this->articulo->comparar('articulo',  $convertir, $this->monto);
                     if (isset($dato['descripcion']) && $dato['descripcion'] == $convertir) {
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     } else {
                         $this->articulo->registrar("articulo", $this->tipoArticulo, $convertir, $this->monto);
-                        echo $this->redireccionarArticulo;
+                        echo $this->redirectVista("articulo");
                     }
                 } else {
-                    echo $this->alerta_validacion;
-                    echo $this->alerta_solo_minuscula;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -106,14 +103,13 @@ class ArticuloControlador extends Articulo
                     $convertir = ucfirst($this->descripcion);
                     $dato = $this->articulo->comparar('articulo',  $convertir, $this->monto);
                     if (isset($dato['descripcion']) && $dato['descripcion'] == $convertir) {
-                        echo $this->alerta_igualdad;
+                        echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     } else {
                     $this->articulo->actualizar("articulo", $this->tipoArticulo, $convertir, $this->monto, $id);
-                    echo $this->redireccionarArticulo;
+                    echo $this->redirectVista("articulo");
                 }
                 } else {
-                    echo $this->alerta_validacion;
-                    echo $this->alerta_solo_minuscula;
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
                 break;
 
@@ -121,14 +117,14 @@ class ArticuloControlador extends Articulo
                 $idArticulo = $_GET['eliminarArticulo'];
                 $this->articulo = new Articulo();
                 $this->articulo->eliminar("articulo", $idArticulo);
-                echo $this->redireccionarArticulo;
+                echo $this->redirectVista("articulo");
                 break;
 
             case isset($_GET['activar']):
                 $idArticulo = $_GET['activar'];
                 $this->articulo = new Articulo();
                 $this->articulo->activar("articulo", $idArticulo);
-                echo $this->redireccionarArticulo;
+                echo $this->redirectVista("articulo");
                 break;
             default:
                 break;

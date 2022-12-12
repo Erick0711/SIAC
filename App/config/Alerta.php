@@ -2,38 +2,12 @@
 namespace App\config;
 trait Alerta
 {
-        public   $alerta_fallo  =   "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-                                    <strong>Alerta!</strong> Algo sucedio en el registro vuelve a intentarlo.
-                                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                                    <span aria-hidden='true'>&times;</span></button></div>",
-
-            $alerta_advertencia =   "<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>
-                                    ¡Alerta!</strong> Completa todos los campos correctamente!
-                                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                                    <span aria-hidden='true'>&times;</span></button></div>",
-
-            $alerta_validacion =    "<div class='alert alert-info alert-dismissible fade show' role='alert'>
-                                    <strong>¡Alerta!</strong> Completa cada campo correctamente!
-                                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                                    <span aria-hidden='true'>&times;</span></button></div>",
-
-            $alerta_solo_texto =    "<div class='alert alert-info alert-dismissible fade show' role='alert'>
-                                    <strong>¡Advertencia!</strong> El campo debe ser solo texto nada de numeros o signos especiales!
-                                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                                    <span aria-hidden='true'>&times;</span></button></div>",
-            
-            $alerta_igualdad =     "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-                                    <strong>¡Alerta!</strong> Dato existente dentro del sistema.
-                                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                                    <span aria-hidden='true'>&times;</span></button></div>",
-
-            $alerta_solo_minuscula = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-                                    <strong>¡Alerta!</strong> Solo se permite caracteres en minúscula!
-                                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                                    <span aria-hidden='true'>&times;</span></button></div>",
-
-            $alerta_numero =    "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-                                <strong>¡Alerta!</strong> Solo se permite número positivo!
-                                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        function mensaje($bgColor,$txtColor,$tipo,$contenido){
+        $mensaje =   "<div class='alert alert-{$bgColor} text-{$txtColor} alert-dismissible fade show' role='alert'>
+                                <strong>{$tipo}! </strong> {$contenido} <button type='button' class='close' 
+                                data-dismiss='alert' aria-label='Close'>
                                 <span aria-hidden='true'>&times;</span></button></div>";
+        return $mensaje;
         }
+}
+?>

@@ -15,7 +15,6 @@ class Apartamento extends Conexion
     {
         parent::__construct();
     }
-
     public function mostrar($tabla)
     {
         $registros = $this->ejecutarFetchAll("SELECT * FROM $tabla");

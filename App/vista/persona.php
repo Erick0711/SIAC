@@ -71,3 +71,6 @@ include(ASIDE);
         })
     })
 </script>
+<?php
+include(FOOTER);
+?>
