@@ -3,10 +3,11 @@ namespace App\Modelo;
 use App\config\Alerta,
     App\config\Redireccion,
     App\config\Conexion,
+    App\config\Complemento,
     PDO;
 class Usuario extends Conexion
 {
-    use Alerta,Redireccion;
+    use Alerta,Redireccion,Complemento;
     protected   
                 $nombre,
                 $apellido,
@@ -32,11 +33,9 @@ class Usuario extends Conexion
         $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
         return $registros;
     }
-    public function mostrarTabla($tabla,$tabla2,$tabla3)
+    public function mostrarTabla($tabla)
     {
-        $sql = "SELECT persona.*, rol.*, usuario.* FROM $tabla 
-                INNER JOIN $tabla2 on persona.id = usuario.id_persona
-                INNER JOIN $tabla3 on rol.id = usuario.id_rol;";
+        $sql = "SELECT * FROM $tabla";
         $sentencia = $this->conexion->prepare($sql);
         $sentencia->execute();
         $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -65,6 +64,24 @@ class Usuario extends Conexion
             }
         } 
     } 
+    public function actualizarUsuario($tabla,$contrasenia_hash,$rol, $id) 
+    {
+            $sql = "UPDATE $tabla SET id_rol = '$rol', contrasenia = '$contrasenia_hash' WHERE usuario.id = $id";
+            $sentencia = $this->conexion->prepare($sql);
+            $sentencia->execute();
+            $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            return $registros;   
+    } 
+    public function eliminar($tabla, $id)
+    {
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=0 WHERE id=$id");
+        return $registros;
+    }
+    public function activar($tabla, $id)
+    {
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=1 WHERE id= $id");
+        return $registros;
+    }
     /********************************************** LOGIN ******************************************************/ 
     public function buscar($usuario, $contrasenia)
     {

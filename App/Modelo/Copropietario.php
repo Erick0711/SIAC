@@ -54,9 +54,9 @@ class Copropietario extends Conexion
             }
         } 
     } 
-    public function actualizar($tabla,$cargo, $salario,$id)
+    public function actualizar($tabla,$apartamento, $residente, $mascota, $id)
     {
-            $sql = "UPDATE $tabla SET `cargo` = '$cargo', `salario` = '$salario' WHERE `funcionario`.`id` = $id; ";
+            $sql = "UPDATE $tabla SET `id_departamento` = '$apartamento', `cant_residentes` = '$residente', `cant_mascotas` = '$mascota' WHERE `copropietario`.`id` = $id;";
             $sentencia = $this->conexion->prepare($sql);
             $sentencia->execute();
             $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);

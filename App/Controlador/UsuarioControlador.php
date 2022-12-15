@@ -6,7 +6,7 @@ class UsuarioControlador extends Usuario
     public function index()
     {
         $this->usuario = new Usuario();
-        $resultados = $this->usuario->mostrarTabla("usuario", "persona", "rol");
+        $resultados = $this->usuario->mostrarTabla("v_usuario");
         return $resultados;
     }
     public function mostrarRol()
@@ -38,6 +38,35 @@ class UsuarioControlador extends Usuario
                 }else{
                     echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                 }
+                break;
+
+            case isset($_POST['actualizar']):
+                $this->usuario = new Usuario();
+                $idUsuario = $_POST['idUsuario'];
+                $this->contrasenia = $_POST['contrasenia'];
+                $this->rol = $_POST['rol'];
+                if($this->rol > 0){
+                $this->contrasenia_hash = password_hash($this->contrasenia, PASSWORD_DEFAULT, ['cost' => 10]);
+                $datos = $this->usuario->actualizarUsuario("usuario", $this->contrasenia_hash, $this->rol, $idUsuario);
+                echo $datos;
+                echo $this->redirectVista("usuario");
+                }else{
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
+                }
+                break;
+
+            case isset($_GET['eliminar']):
+                $id = $_GET['eliminar'];
+                $this->usuario = new usuario();
+                $this->usuario->eliminar("usuario", $id);
+                echo $this->redirectVista("usuario");
+                break;
+
+            case isset($_GET['activar']):
+                $id = $_GET['activar'];
+                $this->usuario = new usuario();
+                $this->usuario->activar("usuario", $id);
+                echo $this->redirectVista("usuario");
                 break;
 
             case isset($_POST['login']):

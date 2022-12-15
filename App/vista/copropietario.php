@@ -67,7 +67,7 @@ include(ASIDE);
                                         <?php if ($copropietario['estado'] == 1) { ?>
                                             <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
                                             <td>
-                                                <!-- <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a> -->
+                                                <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
                                                 <a href="./copropietario.php?eliminar=<?php echo $copropietario['copropietario_id']; ?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                                             </td>
                                         <?php } elseif ($copropietario['estado'] == 0) { ?>

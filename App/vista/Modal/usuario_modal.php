@@ -85,44 +85,47 @@
 </div>
 
 <!-- MODAL FORMULARIO EDITAR-->
-<div class="modal fade" id="editarModalUsuario" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-warning text-dark">
-                <h2 class="modal-title text-center" id="modalEditarLabel">Formulario Editar</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <div class="row w-100">
+                    <div class="col-md-12 d-flex justify-content-end align-items-end">
+                        <button type="button" class="btn btn-danger p-2 close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <h2 class="modal-title font-italic" id="estacionamientoLabel"><i class="fa fa-user"></i> Usuario</h2>
+                    </div>
+                </div>
             </div>
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./Gasto.php" method="POST">
-                        <div class="row  mt-2">
-                            <div class="col-md-4">
-                                <select class="custom-select" name="tipo_gasto">
-                                    <option value="0">Seleccionar</option>
-                                    <?php foreach ($tipos as $tipo) { ?>
-                                        <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
+                    <form action="./usuario.php" method="POST">
+                        <div class="row  mt-4">
+                            <div class="col-md-6">
+                                <label class="form-label"><strong class="f-size-7">Rol:</strong></label>
+                                <select class="custom-select" name="rol" id="rolSelect">
+                                    <?php foreach ($roles as $rol) { ?>
+                                        <option value="<?php echo $rol['id']; ?>"><?php echo $rol['nombre_rol']; ?></option>
                                     <?php }; ?>
                                 </select>
                             </div>
-                            <div class="col-md-4">
-                                <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripción">
-                            </div>
-                            <div class="col-md-4">
-                                <input type="number" name="monto" id="monto" class="form-control" placeholder="Monto" step="0.1">
+                            <div class="col-md-6">
+                                <label class="form-label"><strong class="f-size-7">Contraseña:</strong></label>
+                                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Al menos un número, una letra en mayúscula, una letra en minúscula y al menos 8 caracteres" name="contrasenia" id="contrasenia" class="form-control" required="required">
                             </div>
                         </div>
-
                         <div class="row">
-                            <div class="col-md-4">
-                                <input type="hidden" name="idGasto" id="idGasto">
+                            <div class="col-md-4 mt-4">
+                                <input type="hidden" class="ocult" name="idUsuario" id="idUsuario">
                             </div>
                             <div class="col-md-5"></div>
                             <div class="col-md-3">
                                 <div class="modal-footer">
-                                    <button type="submit" name="actualizarGasto" id="actualizarGasto" class="btn btn-primary">Registrar</button>
+                                    <button type="submit" name="actualizar" class="btn btn-primary">Registrar</button>
                                 </div>
                             </div>
                         </div>

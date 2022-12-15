@@ -31,7 +31,7 @@ include(ASIDE);
     <p></p>
     <div class="row">
         <div class="clearfix"></div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="tile">
                 <div class="title-item">
                     <div class="text-center">
@@ -43,42 +43,59 @@ include(ASIDE);
                     <table class="table table-bordered table-opacity table-hover" id="tabla">
                         <thead class="text-center table-blue text-light">
                             <tr>
+                                <th>#</th>
                                 <th>NOMBRE</th>
                                 <th>APELLIDO</th>
                                 <th>TELEFONO</th>
                                 <th>CORREO</th>
                                 <th>USUARIO</th>
-                                <!-- <th>ACCION</th> -->
+                                <th class="ocult"></th>
+                                <th>ROL</th>
+                                <th>ESTADO</th>
+                                <th>ACCION</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($usuarios as $usuario) {
-                                if ($usuario['estado'] == 1) {
+                                
                             ?>
                                     <tr>
+                                        <td><?php echo $usuario['usuario_id'] ?></td>
                                         <td><?php echo $usuario['nombre'] ?></td>
                                         <td><?php echo $usuario['apellido'] ?></td>
                                         <td><?php echo $usuario['telefono'] ?></td>
                                         <td><?php echo $usuario['correo'] ?></td>
                                         <td><?php echo $usuario['usuario'] ?></td>
-                                        <!-- <td>
-                                            <a class="btn btn-warning-2" data-toggle="modal" data-target=""><i class="fa fa-pencil-square"></i></a>
-                                            <a href="" class="btn btn-danger btnEliminar" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
-                                        </td> -->
+                                        <td class="ocult"><?php echo $usuario['rol_id'] ?></td>
+                                        <td><?php echo $usuario['nombre_rol'] ?></td>
+                                        <?php if($usuario['estado'] == 1) {?>
+                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
+                                        <td>
+                                            <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
+                                            <a href="./usuario.php?eliminar=<?php echo $usuario['usuario_id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-lg"></i></a>
+                                        </td>
+                                        <?php }elseif($usuario['estado'] == 0){?>
+                                        <td class="text-center">
+                                            <a href="./usuario.php?activar=<?php echo $usuario['usuario_id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
+                                            <a class="btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
+                                        </td>
+                                        <?php };?>
                                     </tr>
                             <?php
-                                };
                             }; ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="tile">
                 <div class="title-item">
                     <div class="text-center">
-                        <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarRolModal"><i class="fa fa-newspaper-o"></i> Rol</a>
+                        <!-- <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarRolModal"><i class="fa fa-newspaper-o"></i> Rol</a> -->
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -99,7 +116,7 @@ include(ASIDE);
                                         <?php if($rol['estado'] == 1) {?>
                                         <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
                                         <td>
-                                            <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square" name="actualizarRol"></i></a>
+                                            <!-- <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square" name="actualizarRol"></i></a> -->
                                             <a href="./usuario.php?eliminarRol=<?php echo $rol['id'];?>" class="btn btn-danger" name="eliminarRol" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
                                         </td>
                                         <?php }elseif($rol['estado'] == 0){?>
@@ -107,7 +124,7 @@ include(ASIDE);
                                             <a href="./usuario.php?activarTipo=<?php echo $rol['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
                                         </td>
                                         <td>
-                                            <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
+                                            <!-- <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a> -->
                                             <a class="btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
                                         </td>
                                         <?php };?>

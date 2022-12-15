@@ -41,12 +41,12 @@ class CopropietarioControlador extends Copropietario
                 break;
 
                 case isset($_POST['actualizarCopropietario']):
+                    $this->copropietario = new Copropietario();
                     $id = $_POST['idCopropietario'];
                     $this->apartamento = $_POST['apartamento'];
                     $this->residente = $_POST['residente'];
                     $this->mascota = $_POST['mascota'];
-                    if(strlen($this->salario) > 2){
-                        $this->copropietario = new Copropietario();
+                    if(strlen($this->residente) > 0){
                         $this->copropietario->actualizar("copropietario",$this->apartamento, $this->residente,$this->mascota, $id);
                     echo $this->redirectVista("copropietario");
                     }else{

@@ -58,11 +58,11 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Nro. Residente:</strong></label>
-                                <input type="number" min="1" pattern="[0-9]+"  title="Debe contener solo letra números" name="residente" id="residente" class="form-control" required="required" onkeypress="return valideKey(event)">
+                                <input type="number" min="1" pattern="[0-9]+"  title="Debe contener solo letra números" name="residente"class="form-control" required="required" onkeypress="return valideKey(event)">
                             </div>
                             <div class="col-md-4">
                             <label class="form-label"><strong class="f-size-7">Nro. Mascota:</strong></label>
-                                <input type="number" min="1" pattern="[0-9]+"  title="Debe contener solo letra números" name="mascota" id="mascota" class="form-control" required="required" onkeypress="return valideKey(event)">
+                                <input type="number" min="1" pattern="[0-9]+"  title="Debe contener solo letra números" name="mascota" class="form-control" required="required" onkeypress="return valideKey(event)">
                             </div>
                         </div>
                         <div class="row">
@@ -105,8 +105,7 @@
                         <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Apartamento:</strong></label>
-                                <select name="apartamentoID" id="apartamentoID" class="form-control">
-                                <option value="0">Seleccionar</option>
+                                <select name="apartamento" id="apartamentoSelect" class="form-control">
                                 <?php foreach($apartamentos as $apartamento){ ?>
                                     <option value="<?php echo $apartamento["id"]?>"><?php echo $apartamento["numero_apartamento"]?></option>
                                 <?php } ?>
@@ -123,7 +122,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4 mt-4">
-                                <input type="text" id="idCopropietario" name="idCopropietario">
+                                <input type="hidden" class="ocult" id="idCopropietario" name="idCopropietario">
                             </div>
                             <div class="col-md-5"></div>
                             <div class="col-md-3">

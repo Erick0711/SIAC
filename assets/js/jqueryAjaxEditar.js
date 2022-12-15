@@ -50,14 +50,21 @@ $(document).ready(function () {
         $('#cargo').val(cargo);
         $('#salario').val(salario);
 
+        var idUsuario = data[0],
+        rolID = data[6],
+        rolSelect = data[7];
+        console.log(data);
+        $('#idUsuario').val(idUsuario);
+        $("#rolSelect").prepend("<option value="+ rolID +" selected='selected'>"+ rolSelect +"</option>");
+
+
         var idCopropietario = data[0],
         apartamentoID = data[10],
         apartamento = data[7],
         residente = data[8],
         mascota = data[9];
-        console.log(data);
         $('#idCopropietario').val(idCopropietario);
-        $("#apartamento").prepend("<option value="+ apartamentoID +" selected='selected'>"+ apartamento +"</option>");
+        $("#apartamentoSelect").prepend("<option value="+ apartamentoID +" selected='selected'>"+ apartamento +"</option>");
         $('#residente').val(residente);
         $('#mascota').val(mascota);
     });
