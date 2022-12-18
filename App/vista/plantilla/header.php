@@ -14,6 +14,7 @@
   <link rel="stylesheet" type="text/css" href="../../assets/css/animate.css">
   <link rel="stylesheet" type="text/css" href="../../assets/sweetalert2/sweetalert2.min.css">
   <!-- FONT-ICON CSS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 

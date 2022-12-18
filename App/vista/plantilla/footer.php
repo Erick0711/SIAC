@@ -23,5 +23,6 @@
 <script type="text/javascript" src="../../assets/sweetalert2/sweetalert2.all.min.js"></script>
 <script type="text/javascript" src="../../assets/js/alert.js"></script>
 <script type="text/javascript" src="../../assets/js/validacion.js"></script>
+<script type="text/javascript" src="../../assets/js/validaciones.js"></script>
 </body>
 </html>

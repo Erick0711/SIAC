@@ -14,7 +14,6 @@ $(document).ready(function () {
             descripcion = data[2],
             monto = data[3],
             ideTipoGasto = data[5];
-
         $('#idGasto').val(idGasto);
         $("#tipoGastoSelect").prepend("<option value="+ ideTipoGasto +" selected='selected'>"+ $tipoGastoSelect +"</option>");
         $('#descripcion').val(descripcion);
@@ -22,7 +21,6 @@ $(document).ready(function () {
 
         var idPabellon = data[0],
             numeroPabellon = data[1];
-
         $('#idPabellon').val(idPabellon);
         $('#numeroPabellon').val(numeroPabellon);
 
@@ -36,7 +34,6 @@ $(document).ready(function () {
             idtipoarticulo = data[5],
             descripcion = data[2],
             monto = data[3];
-
         $('#idArticulo').val(idArticulo);
         $("#tipoArticuloSelect").prepend("<option value="+ idtipoarticulo +" selected='selected'>"+ tipoArticulo +"</option>");
         $('#descripcion').val(descripcion);
@@ -45,7 +42,6 @@ $(document).ready(function () {
         var idFuncionario = data[0],
         cargo = data[7],
         salario = data[8];
-
         $('#idFuncionario').val(idFuncionario);
         $('#cargo').val(cargo);
         $('#salario').val(salario);
@@ -53,7 +49,6 @@ $(document).ready(function () {
         var idUsuario = data[0],
         rolID = data[6],
         rolSelect = data[7];
-        console.log(data);
         $('#idUsuario').val(idUsuario);
         $("#rolSelect").prepend("<option value="+ rolID +" selected='selected'>"+ rolSelect +"</option>");
 
@@ -67,6 +62,22 @@ $(document).ready(function () {
         $("#apartamentoSelect").prepend("<option value="+ apartamentoID +" selected='selected'>"+ apartamento +"</option>");
         $('#residente').val(residente);
         $('#mascota').val(mascota);
+
+        var idPersona = data[0],
+        nombre = data[1],
+        apellido = data[2],
+        ci = data[3],
+        complementoCi = data[4],
+        correo = data[5],
+        telefono = data[6];
+        $('#idPersona').val(idPersona);
+        $('#nombre').val(nombre);
+        $('#apellido').val(apellido);
+        $('#ci').val(ci);
+        $('#complemento_ci').val(complementoCi);
+        $('#correo').val(correo);
+        $('#telefono').val(telefono);
+
     });
 // EDITAR TIPOS DE TIPOS
     $('.editarbtnTipo').on('click', function () {
@@ -103,6 +114,46 @@ $(document).ready(function () {
         $('#idRol').val(idRol);
         $('#nombreRol').val(rol);
     });
+    // COPROPIETRAIO
+    $('.editarCopropietario').on('click', function () {
+        $('#registrarCopropietarioModal').modal('show');
+
+        $tr = $(this).closest('tr');
+
+        var data = $tr.children("td").map(function () {
+            return $(this).text();
+        }).get();
+        // console.log(data);
+        var idPerson = data[0];
+        $('#idPerson').val(idPerson);
+    });
+    // USUARIO
+    $('.editarUsuario').on('click', function () {
+        $('#registrarUsuarioModal').modal('show');
+        $tr = $(this).closest('tr');
+
+        var data = $tr.children("td").map(function () {
+            return $(this).text();
+        }).get();
+        // console.log(data);
+        var idPerson2 = data[0];
+        $('#idPerson2').val(idPerson2);
+    });
+    // FUNCIONARIO
+    $('.editarFuncionario').on('click', function () {
+        $('#registrarFuncionarioModal').modal('show');
+
+        $tr = $(this).closest('tr');
+
+        var data = $tr.children("td").map(function () {
+            return $(this).text();
+        }).get();
+        // console.log(data);
+        var idPerson3 = data[0];
+        $('#idPerson3').val(idPerson3);
+    });
 });
+
+
 $('.ocult').hide();
 $('.desactivar').attr("disabled", true);

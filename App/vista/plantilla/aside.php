@@ -3,7 +3,7 @@
     <aside class="app-sidebar">
         <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../../assets/img/Logo-siac.jpg" alt="User Image">
             <div>
-                <p class="app-sidebar__user-name"><?php echo $rol; ?></p>
+                <p class="app-sidebar__user-name"><?php echo $rol;?></p>
                 <p class="app-sidebar__user-designation">Admin</p>
             </div>
         </div>
@@ -18,6 +18,7 @@
                         <span class="app-menu__label">Persona</span><i class="treeview-indicator fa fa-angle-right"></i></a>
                     <ul class="treeview-menu">
                         <!-- <li><a class="treeview-item" href="./persona.php"><i class="icon fa fa-circle-o"></i> Persona</a></li> -->
+                        <li><a class="treeview-item" href="./persona.php"><i class="icon fa fa-circle-o"></i> Persona</a></li>
                         <li><a class="treeview-item" href="./funcionario.php"><i class="icon fa fa-circle-o"></i> Funcionario</a></li>
                         <li><a class="treeview-item" href="./usuario.php"><i class="icon fa fa-circle-o"></i> Usuario</a></li>
                         <li><a class="treeview-item" href="./copropietario.php"><i class="icon fa fa-circle-o"></i> Copropietario</a></li>
