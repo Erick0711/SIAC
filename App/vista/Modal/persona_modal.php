@@ -10,40 +10,46 @@
                         </button>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center">
-                        <h2 class="modal-title font-italic" id="personaLabel"><i class="fa-solid fa-street-view"></i> Persona</h2>
+                        <h2 class="modal-title font-italic" id="personaLabel"><i class="fa-solid fa-street-view fa-lg"></i>
+                        &nbsp;&nbsp;Persona</h2>
                     </div>
                 </div>
             </div>
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./persona.php" method="POST">
+                    <form action="./persona.php" method="POST" class="formulario" id="formPersonaRegistrar">
                         <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Nombre:</strong></label>
-                                <input type="text" name="nombre" class="form-control" onkeypress="return soloLetras(event)" minlength="3" pattern="[a-z]+" title="Debe contener solo letra minúscula, y almenos 4 caracteres" required="required">
+                                <input type="text" name="nombre" id="nombre" class="form-control" onkeypress="return letraEspacio(event)" required>
+                                <small id="mensaje__nombre"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Apellido:</strong></label>
-                                <input type="text" minlength="3" pattern="[a-z]+" title="Debe contener solo letra minúscula, y almenos 4 caracteres" name="apellido" class="form-control" onkeypress="return soloLetras(event)" required="required">
+                                <input type="text" name="apellido" id="apellido" class="form-control" onkeypress="return letraEspacio(event)" required>
+                                <small id="mensaje__apellido"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">CI:</strong></label>
-                                <input type="number" pattern="[0-9]+" minlength="6" min="1" name="ci" class="form-control" required="required">
+                                <input type="number" min="1" name="ci" id="ci" class="form-control" onkeypress="return numero(event)" required>
+                                <small id="mensaje__ci"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Complemento:</strong></label>
-                                <input type="text" minlength="1" pattern="[a-z]+" title="Debe contener solo letra minúscula, campo no obligatorio" name="complemento_ci" class="form-control">
+                                <input type="text" name="complemento_ci" class="form-control">
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Correo:</strong></label>
-                                <input type="text" minlength="6" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Debe contener un @ y un punto" name="correo" class="form-control" required="required">
+                                <input type="text" name="correo" id="correo" class="form-control" onkeypress="return letraCorreo(event)" required>
+                                <small id="mensaje__correo"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Teléfono:</strong></label>
-                                <input type="number" pattern="[0-9]+" minlength="8" min="1" name="telefono" class="form-control">
+                                <input type="number" min="1" name="telefono" id="telefono" class="form-control" onkeypress="return numero(event)" required>
+                                <small id="mensaje__telefono"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row">
@@ -84,33 +90,39 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./persona.php" method="POST">
-                        <div class="row  mt-4">
+                    <form action="./persona.php" method="POST" class="formulario" id="formPersonaEditar">
+                    <p class="invisible alert-danger text-center p-2" id="personaAlertaEdit"><strong>Alerta!</strong> valida tus campos haciendo click en cada uno de ellos.</p>
+                    <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Nombre:</strong></label>
-                                <input type="text" name="nombre" id="nombre" class="form-control" onkeypress="return soloLetras(event)" minlength="3" pattern="[a-z]+" title="Debe contener solo letra minúscula, y almenos 4 caracteres" required="required">
+                                <input type="text" name="nombreEdit" id="nombreEdit" class="form-control" onkeypress="return letraEspacio(event)" required>
+                                <small id="mensaje__nombreEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Apellido:</strong></label>
-                                <input type="text" minlength="3" pattern="[a-z]+" title="Debe contener solo letra minúscula, y almenos 4 caracteres" name="apellido" id="apellido" class="form-control" onkeypress="return soloLetras(event)" required="required">
+                                <input type="text" name="apellidoEdit" id="apellidoEdit" class="form-control" onkeypress="return letraEspacio(event)" required>
+                                <small id="mensaje__apellidoEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">CI:</strong></label>
-                                <input type="number" pattern="[0-9]+" minlength="6" min="1" name="ci" id="ci" class="form-control" required="required">
+                                <input type="number" min="1" name="ciEdit" id="ciEdit" class="form-control" onkeypress="return numero(event)" required>
+                                <small id="mensaje__ciEdit"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Complemento:</strong></label>
-                                <input type="text" minlength="1" pattern="[a-z]+" title="Debe contener solo letra minúscula, campo no obligatorio" name="complemento_ci" id="complemento_ci" class="form-control">
+                                <input type="text" name="complemento_ci" id="complemento_ci" class="form-control">
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Correo:</strong></label>
-                                <input type="text" minlength="6" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Debe contener un @ y un punto" name="correo" id="correo" class="form-control" required="required">
+                                <input type="text" name="correoEdit" id="correoEdit" class="form-control" onkeypress="return correo(event)" required>
+                                <small id="mensaje__correoEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Teléfono:</strong></label>
-                                <input type="number" pattern="[0-9]+" minlength="8" min="1" name="telefono" id="telefono" class="form-control">
+                                <input type="number" min="1" name="telefonoEdit" id="telefonoEdit" class="form-control" required>
+                                <small id="mensaje__telefonoEdit"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row">

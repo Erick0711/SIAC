@@ -62,7 +62,7 @@ $(document).ready(function () {
         $("#apartamentoSelect").prepend("<option value="+ apartamentoID +" selected='selected'>"+ apartamento +"</option>");
         $('#residente').val(residente);
         $('#mascota').val(mascota);
-
+        console.log(data);
         var idPersona = data[0],
         nombre = data[1],
         apellido = data[2],
@@ -71,12 +71,12 @@ $(document).ready(function () {
         correo = data[5],
         telefono = data[6];
         $('#idPersona').val(idPersona);
-        $('#nombre').val(nombre);
-        $('#apellido').val(apellido);
-        $('#ci').val(ci);
+        $('#nombreEdit').val(nombre);
+        $('#apellidoEdit').val(apellido);
+        $('#ciEdit').val(ci);
         $('#complemento_ci').val(complementoCi);
-        $('#correo').val(correo);
-        $('#telefono').val(telefono);
+        $('#correoEdit').val(correo);
+        $('#telefonoEdit').val(telefono);
 
     });
 // EDITAR TIPOS DE TIPOS

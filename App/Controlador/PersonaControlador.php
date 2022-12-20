@@ -33,20 +33,17 @@ class PersonaControlador extends Persona
                 case isset($_POST["actualizarPersona"]):
                     $this->persona = new Persona();
                     $id = $_POST['idPersona'];
-                    $this->nombre = $_POST['nombre'];
-                    $this->apellido = $_POST['apellido'];
-                    $this->ci = $_POST['ci'];
+                    $this->nombre = $_POST['nombreEdit'];
+                    $this->apellido = $_POST['apellidoEdit'];
+                    $this->ci = $_POST['ciEdit'];
                     $this->complemento_ci = $_POST['complemento_ci'];
-                    $this->correo = $_POST['correo'];
-                    $this->telefono = $_POST['telefono'];
-                    if(strlen($this->nombre) > 2){
+                    $this->correo = $_POST['correoEdit'];
+                    $this->telefono = $_POST['telefonoEdit'];
                         $this->persona = new Persona();
                         $this->persona->actualizar("persona", $this->nombre, $this->apellido, 
                                                         $this->ci, $this->complemento_ci, $this->correo, $this->telefono,$id);
                     echo $this->redirectVista("persona");
-                    }else{
-                        echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
-                    }
+                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                     break;
 
                 case isset($_POST["registrarCopropietario"]):
@@ -55,13 +52,10 @@ class PersonaControlador extends Persona
                     $apartamento = $_POST['apartamento'];
                     $residente = $_POST['residente'];
                     $mascota = $_POST['mascota'];
-                    if(strlen($apartamento) > 0){
                         $this->persona = new Persona();
                         $this->persona->registrarCopropietario("copropietario", $apartamento, $residente,$mascota,$id);
-                    echo $this->redirectVista("persona");
-                    }else{
+                        echo $this->redirectVista("persona");
                         echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
-                    }
                     break;
 
                 case isset($_POST["registrarUsuario"]):

@@ -67,7 +67,7 @@ include(ASIDE);
                                     <td><?php echo $persona['correo']; ?></td>
                                     <td><?php echo $persona['telefono']; ?></td>
                                     <td class="text-center">
-                                        <a href="" class="btn btn-warning text-dark" data-toggle="modal" data-target="#editarModal"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                                        <a href="" class="btn btn-warning text-dark editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
                                     </td>
                                     <td class="text-center">
                                         <a data-toggle="modal" data-target="#registrarCopropietarioModal" class="btn btn-success text-white editarCopropietario"><i class="fa-solid fa-person-shelter fa-lg"></i>
@@ -91,6 +91,9 @@ include(ASIDE);
     <?php
     include("./Modal/persona_modal.php");
     include("./Modal/personas_modal.php");
-    //  FOOTER
+    ?>
+    <script type="text/javascript" src="../../assets/validacion/persona/persona.js"></script>
+    <script type="text/javascript" src="../../assets/validacion/persona/persona_edit.js"></script>
+    <?php
     include(FOOTER);
     ?>
