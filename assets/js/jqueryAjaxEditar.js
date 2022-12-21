@@ -40,11 +40,11 @@ $(document).ready(function () {
         $('#montoArticulo').val(monto);
 
         var idFuncionario = data[0],
-        cargo = data[7],
+        cargo = data[7].toLowerCase(),
         salario = data[8];
         $('#idFuncionario').val(idFuncionario);
-        $('#cargo').val(cargo);
-        $('#salario').val(salario);
+        $('#cargoEdit').val(cargo);
+        $('#salarioEdit').val(salario);
 
         var idUsuario = data[0],
         rolID = data[6],
@@ -62,10 +62,10 @@ $(document).ready(function () {
         $("#apartamentoSelect").prepend("<option value="+ apartamentoID +" selected='selected'>"+ apartamento +"</option>");
         $('#residente').val(residente);
         $('#mascota').val(mascota);
-        console.log(data);
+
         var idPersona = data[0],
-        nombre = data[1],
-        apellido = data[2],
+        nombre = data[1].toLowerCase(),
+        apellido = data[2].toLowerCase(),
         ci = data[3],
         complementoCi = data[4],
         correo = data[5],

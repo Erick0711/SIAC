@@ -17,19 +17,7 @@ const expresiones = {
     numero: /^[0-9]{1,10}$/,
 }
 const campos = {
-	usuario: false,
-	contrasenia: false,
-    confirmacion: false,
-    residente: false,
-    mascota: false,
-    cargo: false,
-    salario: false,
-    nombre: false,
-    apellido: false,
-    ci: false,
-    correo: false,
-    telefono: false,
-    dato: false
+	
 }
 // const nombre = "MAICOL ERICK ARTEAGA GUZMAN"
 // console.log(nombre.length);

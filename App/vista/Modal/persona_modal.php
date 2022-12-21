@@ -10,7 +10,7 @@
                         </button>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center">
-                        <h2 class="modal-title font-italic" id="personaLabel"><i class="fa-solid fa-street-view fa-lg"></i>
+                        <h2 class="modal-title font-italic" id="personaLabel"><i class="fa-solid fa-universal-access fa-lg"></i>
                         &nbsp;&nbsp;Persona</h2>
                     </div>
                 </div>

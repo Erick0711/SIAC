@@ -22,28 +22,20 @@ class FuncionarioControlador extends Funcionario
                 $this->telefono = $_POST['telefono'];
                 $this->cargo = $_POST['cargo'];
                 $this->salario = $_POST['salario'];
-                if(strlen($this->nombre) > 2){
                     $this->funcionario = new Funcionario();
                     $this->funcionario->registrar("persona", "funcionario", $this->nombre, $this->apellido, 
                                                     $this->ci, $this->complemento_ci, $this->correo, $this->telefono, 
                                                     $this->cargo, $this->salario);
                 echo $this->redirectVista("funcionario");
-                }else{
-                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
-                }
                 break;
 
                 case isset($_POST['actualizarFuncionario']):
                     $id = $_POST['idFuncionario'];
-                    $this->cargo = $_POST['cargo'];
-                    $this->salario = $_POST['salario'];
-                    if(strlen($this->salario) > 2){
+                    $this->cargo = $_POST['cargoEdit'];
+                    $this->salario = $_POST['salarioEdit'];
                         $this->funcionario = new Funcionario();
                         $this->funcionario->actualizar("funcionario",$this->cargo, $this->salario, $id);
-                    echo $this->redirectVista("funcionario");
-                    }else{
-                        echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
-                    }
+                        echo $this->redirectVista("funcionario");
                     break;
 
                 case isset($_GET['eliminar']):

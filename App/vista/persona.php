@@ -24,7 +24,7 @@ include(ASIDE);
 <main class="app-content ">
     <div class="app-title">
         <div>
-            <h1 class="font-italic"><i class="fa fa-th-list"></i> Persona</h1>
+            <h1 class="font-italic"><i class="fa-sharp fa-solid fa-location-dot"></i>&nbsp; Persona</h1>
         </div>
     </div>
     <p>
@@ -38,7 +38,7 @@ include(ASIDE);
             <div class="tile">
                 <div class="title-item">
                     <div class="text-center">
-                        <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarPersonaModal"><i class="fa-solid fa-street-view fa-2x"></i> Registrar</a>
+                        <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarPersonaModal"><i class="fa-solid fa-universal-access fa-2x"></i> Nueva Persona</a>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -60,10 +60,10 @@ include(ASIDE);
                             <?php foreach ($personas as $persona) { ?>
                                 <tr>
                                     <td><?php echo $persona['id']; ?></td>
-                                    <td><?php echo $persona['nombre']; ?></td>
-                                    <td><?php echo $persona['apellido']; ?></td>
+                                    <td><?php echo ucwords($persona['nombre']); ?></td>
+                                    <td><?php echo ucwords($persona['apellido']); ?></td>
                                     <td><?php echo $persona['ci']; ?></td>
-                                    <td><?php echo $persona['complemento_ci']; ?></td>
+                                    <td><?php echo strtoupper($persona['complemento_ci']); ?></td>
                                     <td><?php echo $persona['correo']; ?></td>
                                     <td><?php echo $persona['telefono']; ?></td>
                                     <td class="text-center">

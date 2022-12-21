@@ -24,7 +24,7 @@ include(ASIDE);
                 <div class="tile">
                     <div class="title-item">
                         <div class="text-center">
-                            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarFuncionarioModal"><i class="fa fa-plus"></i> Nuevo Funcionario</a>
+                            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarFuncionarioModal"><i class="fa-solid fa-briefcase fa-2x"></i> Nuevo Funcionario</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -48,17 +48,17 @@ include(ASIDE);
                                 <?php foreach ($funcionarios as $funcionario) { ?>
                                     <tr>
                                         <td><?php echo $funcionario['funcionario_id']; ?></td>
-                                        <td><?php echo $funcionario['nombre']; ?></td>
-										<td><?php echo $funcionario['apellido']; ?></td>
+                                        <td><?php echo ucwords($funcionario['nombre']); ?></td>
+										<td><?php echo ucwords($funcionario['apellido']); ?></td>
 										<td><?php echo $funcionario['ci']; ?></td>
 										<?php if ($funcionario['complemento_ci'] == "") { ?>
-											<td>Null</td>
+											<td>Ninguno</td>
 										<?php }else{?>
-											<td><?php echo $funcionario['complemento_ci']; ?></td>
+											<td><?php echo strtoupper($funcionario['complemento_ci']); ?></td>
 											<?php }?>
 										<td><?php echo $funcionario['correo']; ?></td>
 										<td><?php echo $funcionario['telefono']; ?></td>
-										<td><?php echo $funcionario['cargo']; ?></td>
+										<td><?php echo ucfirst($funcionario['cargo']);?></td>
 										<td><?php echo $funcionario['salario']; ?></td>
                                         <?php if ($funcionario['estado'] == 1) { ?>
                                             <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
@@ -85,7 +85,7 @@ include(ASIDE);
         </div>
     </div>
 
-<?php
-	include(FOOTER);
-	include("./Modal/funcionario_modal.php");
-?>
+<?php include("./Modal/funcionario_modal.php");?>
+<script type="text/javascript" src="../../assets/validacion/funcionario/funcionario.js"></script>
+<script type="text/javascript" src="../../assets/validacion/funcionario/funcionario_edit.js"></script>
+<?php include(FOOTER);?>
