@@ -13,7 +13,7 @@ include(ASIDE);
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1 class="font-italic"><i class="fa fa-th-list font-italic"></i> Funcionario</h1>
+            <h1 class="font-italic"><i class="fa-sharp fa-solid fa-location-dot"></i>&nbsp; Funcionario</h1>
         </div>
     </div>
     <p><?php $consulta->consulta();?></p>
@@ -63,8 +63,8 @@ include(ASIDE);
                                         <?php if ($funcionario['estado'] == 1) { ?>
                                             <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
                                             <td>
-                                                <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
-                                                <a href="./funcionario.php?eliminar=<?php echo $funcionario['funcionario_id']; ?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
+                                                <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                                                <a href="./funcionario.php?eliminar=<?php echo $funcionario['funcionario_id']; ?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                             </td>
                                         <?php } elseif ($funcionario['estado'] == 0) { ?>
                                             <td class="text-center">

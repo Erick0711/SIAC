@@ -7,7 +7,6 @@ const camposEdit = {
     ciEdit: false,
     correoEdit: false,
     telefonoEdit: false,
-    dato: false
 }
 // const nombre = "MAICOL ERICK ARTEAGA GUZMAN"
 // console.log(nombre.length);

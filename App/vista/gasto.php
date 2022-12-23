@@ -126,6 +126,7 @@ include(ASIDE);
 <?php
 include("./Modal/gasto_modal.php");
 include("./Modal/tipo_gasto_modal.php");
-//  FOOTER
-include("./plantilla/footer.php");
 ?>
+<script type="text/javascript" src="../../assets/validacion/gasto/gasto.js"></script>
+<script type="text/javascript" src="../../assets/validacion/gasto/gasto_edit.js"></script>
+<?php include(FOOTER);?>

@@ -24,7 +24,7 @@ include(ASIDE);
                 <div class="tile">
                     <div class="title-item">
                         <div class="text-center">
-                            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarCopropietarioModal"><i class="fa fa-plus"></i> Nuevo Copropietario</a>
+                            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarCopropietarioModal"><i class="fa-solid fa-person-shelter fa-2x"></i>&nbsp; Nuevo Copropietario</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -50,13 +50,13 @@ include(ASIDE);
                                 <?php foreach ($copropietarios as $copropietario) { ?>
                                     <tr>
                                         <td><?php echo $copropietario['copropietario_id']; ?></td>
-                                        <td><?php echo $copropietario['nombre']; ?></td>
-										<td><?php echo $copropietario['apellido']; ?></td>
+                                        <td><?php echo ucwords($copropietario['nombre']); ?></td>
+										<td><?php echo ucwords($copropietario['apellido']); ?></td>
 										<td><?php echo $copropietario['ci']; ?></td>
 										<?php if ($copropietario['complemento_ci'] == "") { ?>
-											<td>Null</td>
+											<td>Ninguno</td>
 										<?php }else{?>
-											<td><?php echo $copropietario['complemento_ci']; ?></td>
+											<td><?php echo strtoupper($copropietario['complemento_ci']); ?></td>
 											<?php }?>
 										<td><?php echo $copropietario['correo']; ?></td>
 										<td><?php echo $copropietario['telefono']; ?></td>
@@ -88,8 +88,7 @@ include(ASIDE);
             </div>
         </div>
     </div>
-
-<?php
-	include(FOOTER);
-	include("./Modal/copropietario_modal.php");
-?>
+<?php include("./Modal/copropietario_modal.php");?>
+<script type="text/javascript" src="../../assets/validacion/copropietario/copropietario.js"></script>
+<script type="text/javascript" src="../../assets/validacion/copropietario/copropietario_edit.js"></script>
+<?php include(FOOTER);?>

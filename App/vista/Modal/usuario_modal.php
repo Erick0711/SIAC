@@ -10,64 +10,77 @@
                         </button>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center">
-                        <h2 class="modal-title font-italic" id="estacionamientoLabel"><i class="fa fa-user"></i> Usuario</h2>
+                        <h2 class="modal-title font-italic" id="estacionamientoLabel"><i class="fa-solid fa-user"></i>&nbsp; Usuario</h2>
                     </div>
                 </div>
             </div>
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./usuario.php" method="POST">
-                        <div class="row  mt-4">
+                    <form action="./usuario.php" method="POST" class="formulario" id="formUsuario">
+                    <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Nombre:</strong></label>
-                                <input type="text" name="nombre" class="form-control" onkeypress="return soloLetras(event)" minlength="3" pattern="[a-z]+" title="Debe contener solo letra minúscula, y almenos 4 caracteres" required="required">
+                                <input type="text" name="nombre" id="nombre" class="form-control" onkeypress="return soloLetras(event)" >
+                                <small id="usuario__nombre"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Apellido:</strong></label>
-                                <input type="text" minlength="3" pattern="[a-z]+" title="Debe contener solo letra minúscula, y almenos 4 caracteres" name="apellido" class="form-control" onkeypress="return soloLetras(event)" required="required">
+                                <input type="text" name="apellido" id="apellido" class="form-control" onkeypress="return letraEspacio(event)" >
+                                <small id="usuario__apellido"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">CI:</strong></label>
-                                <input type="number" pattern="[0-9]+" minlength="6" min="1" name="ci" class="form-control" required="required">
+                                <input type="number" min="1" name="ci" id="ci" class="form-control" onkeypress="return numero(event)" >
+                                <small id="usuario__ci"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Complemento:</strong></label>
-                                <input type="text" minlength="1" pattern="[a-z]+" title="Debe contener solo letra minúscula, campo no obligatorio" name="complemento_ci" class="form-control">
+                                <input type="text" name="complemento_ci" class="form-control">
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Correo:</strong></label>
-                                <input type="text" minlength="6" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Debe contener un @ y un punto" name="correo" class="form-control" required="required">
+                                <input type="text" name="correo" id="correo" class="form-control" onkeypress="return letraCorreo(event)" >
+                                <small id="usuario__correo"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Teléfono:</strong></label>
-                                <input type="number" pattern="[0-9]+" minlength="8" min="1" name="telefono" class="form-control">
+                                <input type="number" min="1" name="telefono" id="telefono" class="form-control" onkeypress="return numero(event)" >
+                                <small id="usuario__telefono"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row  mt-4">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label class="form-label"><strong class="f-size-7">Rol:</strong></label>
-                                <select class="custom-select" name="rol">
+                                <select class="custom-select" name="rol" id="rol">
                                     <option value="0">Seleccionar</option>
                                     <?php foreach ($roles as $rol) { ?>
                                         <option value="<?php echo $rol['id']; ?>"><?php echo $rol['nombre_rol']; ?></option>
                                     <?php }; ?>
                                 </select>
+                                <small id="usuario__rol"  class="mensaje"></small>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label class="form-label"><strong class="f-size-7">Usuario:</strong></label>
-                                <input type="text" minlength="6" pattern="[A-Za-z0-9]+"  title="Debe contener solo letra minúscula, y almenos 4 caracteres" name="usuario" class="form-control" required="required">
+                                <input type="text" name="usuario" id="usuario" class="form-control" onkeypress="return letraNumero(event)">
+                                <small id="usuario__usuario"  class="mensaje"></small>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3 mt-2">
                                 <label class="form-label"><strong class="f-size-7">Contraseña:</strong></label>
-                                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Al menos un número, una letra en mayúscula, una letra en minúscula y al menos 8 caracteres" name="contrasenia" class="form-control" required="required">
+                                <input type="password"  name="contrasenia" id="contrasenia" class="form-control">
+                                <small id="usuario__contrasenia" class="mensaje"></small>
+                            </div>
+                            <div class="col-md-3 mt-2">
+                                <label class="form-label"><strong class="f-size-7">Confirmar contraseña:</strong></label>
+                                <input type="password" name="confirmacion"  id="confirmacion" class="form-control">
+                                <small id="usuario__confirmacion" class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4 mt-4">
-                                <!-- <input type="password" name="contrasenia" class="form-control" placeholder="Confirmación de contraseña"> -->
+                                <!-- <input type="password" name="contrasenia" class="form-control" placeholder="Confirmación de contraseña"> --><i class="fa-solid fa-eye text-dark btn" id="ver"></i>
                             </div>
                             <div class="col-md-5"></div>
                             <div class="col-md-3">
@@ -86,7 +99,7 @@
 
 <!-- MODAL FORMULARIO EDITAR-->
 <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog d-flex justify-content-center">
         <div class="modal-content">
             <div class="modal-header bg-warning text-dark">
             <div class="row w-100">
@@ -96,30 +109,34 @@
                         </button>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center">
-                        <h2 class="modal-title font-italic" id="estacionamientoLabel"><i class="fa fa-user"></i> Usuario</h2>
+                        <h2 class="modal-title font-italic" id="estacionamientoLabel"><i class="fa-solid fa-pen-to-square fa-lg"></i> Usuario</h2>
                     </div>
                 </div>
             </div>
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./usuario.php" method="POST">
+                    <form action="./usuario.php" method="POST" class="formulario" id="formUsuarioEdit">
+                    <p class="invisible alert-danger text-center p-2" id="usuarioAlertaEdit"><strong>Alerta!</strong> valida tus campos haciendo click en cada uno de ellos.</p>
                         <div class="row  mt-4">
                             <div class="col-md-6">
                                 <label class="form-label"><strong class="f-size-7">Rol:</strong></label>
-                                <select class="custom-select" name="rol" id="rolSelect">
+                                <select class="custom-select" name="rolEdit" id="rolSelect">
                                     <?php foreach ($roles as $rol) { ?>
-                                        <option value="<?php echo $rol['id']; ?>"><?php echo $rol['nombre_rol']; ?></option>
+                                        <option value="<?php echo $rol['id']; ?>"><?php echo ucfirst($rol['nombre_rol']); ?></option>
                                     <?php }; ?>
                                 </select>
+                                <small id="usuario__rolEdit" class="mensaje"></small>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"><strong class="f-size-7">Contraseña:</strong></label>
-                                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Al menos un número, una letra en mayúscula, una letra en minúscula y al menos 8 caracteres" name="contrasenia" id="contrasenia" class="form-control" required="required">
+                                <input type="password" name="contraseniaEdit" id="contraseniaEdit" class="form-control">
+                                <small id="usuario__contraseniaEdit" class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4 mt-4">
+                            <i class="fa-solid fa-eye text-dark btn" id="verEdit"></i>
                                 <input type="hidden" class="ocult" name="idUsuario" id="idUsuario">
                             </div>
                             <div class="col-md-5"></div>

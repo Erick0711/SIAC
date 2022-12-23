@@ -17,11 +17,11 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./gasto.php" method="POST">
+                    <form action="./gasto.php" method="POST" class="formulario" id="formGasto">
                         <div class="row  mt-2">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Tipo de gasto:</strong></label>
-                                <select class="custom-select" name="tipo_gasto">
+                                <select class="custom-select" name="tipoGasto" id="tipoGasto">
                                     <option value="0">Seleccionar</option>
                                     <?php foreach ($tipos as $tipo) {
                                         if ($tipo['estado'] == 1) {
@@ -30,14 +30,17 @@
                                         <?php } ?>
                                     <?php }; ?>
                                 </select>
+                                <small id="gasto__tipoGasto"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Descripción:</strong></label>
-                                <input type="text" minlength="4" pattern="[a-z]+" title="Debe contener solo minúscula, y al menos 3 caracteres" name="descripcion" class="form-control" onkeypress="return soloLetras(event)" required="required">
+                                <input type="text" name="descripcion" id="descripcion" class="form-control">
+                                <small id="gasto__descripcion"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Monto:</strong></label>
-                                <input type="number" min="1" minlength="1" pattern="[0-9]+" name="monto" class="form-control" onkeypress="return valideKey(event)" required="required">
+                                <input type="number" min="0" name="monto" id="monto" class="form-control">
+                                <small id="gasto__monto"  class="mensaje"></small>
                             </div>
                         </div>
 
@@ -76,33 +79,35 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./gasto.php" method="POST">
+                    <form action="./gasto.php" method="POST" class="formulario" id="formGastoEdit">
+                    <p class="invisible alert-danger text-center p-2" id="gastoAlertaEdit"><strong>Alerta!</strong> valida tus campos haciendo click en cada uno de ellos.</p>
                         <div class="row  mt-2">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Tipo de gasto:</strong></label>
-                                <select class="custom-select" name="tipo_gasto" id="tipoGastoSelect">
+                                <select class="custom-select" name="tipoGastoEdit" id="tipoGastoSelect">
                                     <?php foreach ($tipos as $tipo) {
                                         if ($tipo['estado'] == 1) {
                                     ?>
-                                            <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
+                                        <option value="<?php echo $tipo['id']; ?>"><?php echo $tipo['nombre']; ?></option>
                                         <?php } ?>
                                     <?php }; ?>
                                 </select>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Descripción:</strong></label>
-                                <input type="text"  minlength="4" pattern="[a-z]+" title="Debe contener solo minúscula, y al menos 3 caracteres" name="descripcion" id="descripcion" class="form-control" onkeypress="return soloLetra(event)">
+                                <input type="text" name="descripcionGastoEdit" id="descripcionGastoEdit" class="form-control">
+                                <small id="gasto__descripcionGastoEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Monto:</strong></label>
-                                <input type="number" min="1" minlength="1" pattern="[0-9]+" name="monto" id="monto" class="form-control" onkeypress="return valideKey(event)" required="required">
+                                <input type="number" min="1" name="montoEdit" id="montoEdit" class="form-control">
+                                <small id="gasto__montoEdit"  class="mensaje"></small>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="hidden" name="idGasto" onkeypress="return valideKey(event) 
-                    " id="idGasto">
+                                <input type="hidden" name="idGasto" id="idGasto">
                             </div>
                             <div class="col-md-5"></div>
                             <div class="col-md-3">

@@ -10,40 +10,45 @@
                         </button>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center">
-                        <h2 class="modal-title font-italic" id="copropietarioLabel"><i class="fa fa-male"></i> Copropietario</h2>
+                        <h2 class="modal-title font-italic" id="copropietarioLabel"><i class="fa-solid fa-person-shelter fa-lg"></i> Copropietario</h2>
                     </div>
                 </div>
             </div>
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./copropietario.php" method="POST">
-                        <div class="row  mt-4">
+                    <form action="./copropietario.php" method="POST" class="formulario" id="formCopropietario">
+                    <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Nombre:</strong></label>
-                                <input type="text" name="nombre" class="form-control" onkeypress="return soloLetras(event)" minlength="3" pattern="[a-z]+" title="Debe contener solo letra minúscula, y almenos 4 caracteres" required="required">
+                                <input type="text" name="nombre" id="nombre" class="form-control" onkeypress="return soloLetras(event)" >
+                                <small id="copropietario__nombre"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Apellido:</strong></label>
-                                <input type="text" minlength="3" pattern="[a-z]+" title="Debe contener solo letra minúscula, y almenos 4 caracteres" name="apellido" class="form-control" onkeypress="return soloLetras(event)" required="required">
+                                <input type="text" name="apellido" id="apellido" class="form-control" onkeypress="return letraEspacio(event)" >
+                                <small id="copropietario__apellido"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">CI:</strong></label>
-                                <input type="number" pattern="[0-9]+" minlength="6" min="1" name="ci" onkeypress="return valideKey(event)" class="form-control" required="required">
+                                <input type="number" min="1" name="ci" id="ci" class="form-control" onkeypress="return numero(event)" >
+                                <small id="copropietario__ci"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Complemento:</strong></label>
-                                <input type="text" minlength="1" pattern="[a-z]+" title="Debe contener solo letra minúscula, campo no obligatorio" name="complemento_ci" class="form-control" onkeypress="return soloLetras(event)">
+                                <input type="text" name="complemento_ci" class="form-control">
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Correo:</strong></label>
-                                <input type="text" minlength="6" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Debe contener un @ y un punto" name="correo" class="form-control" required="required">
+                                <input type="text" name="correo" id="correo" class="form-control" onkeypress="return letraCorreo(event)" >
+                                <small id="copropietario__correo"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Teléfono:</strong></label>
-                                <input type="number" pattern="[0-9]+" minlength="8" min="1" name="telefono" class="form-control" onkeypress="return valideKey(event)">
+                                <input type="number" min="1" name="telefono" id="telefono" class="form-control" onkeypress="return numero(event)" >
+                                <small id="copropietario__telefono"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row  mt-4">
@@ -55,14 +60,17 @@
                                     <option value="<?php echo $apartamento["id"]?>"><?php echo $apartamento["numero_apartamento"]?></option>
                                 <?php } ?>
                                 </select>
+                                <small id="copropietario__apartamento"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Nro. Residente:</strong></label>
-                                <input type="number" min="1" pattern="[0-9]+"  title="Debe contener solo letra números" name="residente"class="form-control" required="required" onkeypress="return valideKey(event)">
+                                <input type="number" min="1" name="residente" id="residente" class="form-control" onkeypress="return numero(event)">
+                                <small id="copropietario__residente"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                             <label class="form-label"><strong class="f-size-7">Nro. Mascota:</strong></label>
-                                <input type="number" min="1" pattern="[0-9]+"  title="Debe contener solo letra números" name="mascota" class="form-control" required="required" onkeypress="return valideKey(event)">
+                                <input type="number" min="1" name="mascota" id="mascota" class="form-control" onkeypress="return numero(event)">
+                                <small id="copropietario__mascota"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row">
@@ -84,8 +92,8 @@
 
 <!-- MODAL FORMULARIO EDITAR-->
 <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog d-flex justify-content-center">
+        <div class="modal-content w-75">
             <div class="modal-header bg-warning text-dark">
             <div class="row w-100">
                     <div class="col-md-12 d-flex justify-content-end align-items-end">
@@ -101,11 +109,12 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./copropietario.php" method="POST">
+                    <form action="./copropietario.php" method="POST" class="formulario" id="formCopropietarioEdit">
+                    <p class="invisible alert-danger text-center p-2" id="copropietarioAlertaEdit"><strong>Alerta!</strong> valida tus campos haciendo click en cada uno de ellos.</p>
                         <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Apartamento:</strong></label>
-                                <select name="apartamento" id="apartamentoSelect" class="form-control">
+                                <select name="apartamentoEdit" id="apartamentoSelect" class="form-control">
                                 <?php foreach($apartamentos as $apartamento){ ?>
                                     <option value="<?php echo $apartamento["id"]?>"><?php echo $apartamento["numero_apartamento"]?></option>
                                 <?php } ?>
@@ -113,11 +122,13 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Residente:</strong></label>
-                                <input type="number" min="1" pattern="[0-9]+"  title="Debe contener solo letra números" name="residente" id="residente" class="form-control" required="required">
+                                <input type="number" min="0" name="residenteEdit" id="residenteEdit" class="form-control">
+                                <small id="copropietario__residenteEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                             <label class="form-label"><strong class="f-size-7">Mascota:</strong></label>
-                                <input type="number" min="1" pattern="[0-9]+"  title="Debe contener solo letra números" name="mascota" id="mascota" class="form-control" required="required">
+                                <input type="number" min="0" name="mascotaEdit" id="mascotaEdit" class="form-control">
+                                <small id="copropietario__mascotaEdit"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row">

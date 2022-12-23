@@ -43,16 +43,11 @@ class UsuarioControlador extends Usuario
             case isset($_POST['actualizar']):
                 $this->usuario = new Usuario();
                 $idUsuario = $_POST['idUsuario'];
-                $this->contrasenia = $_POST['contrasenia'];
-                $this->rol = $_POST['rol'];
-                if($this->rol > 0){
+                $this->contrasenia = $_POST['contraseniaEdit'];
+                $this->rol = $_POST['rolEdit'];
                 $this->contrasenia_hash = password_hash($this->contrasenia, PASSWORD_DEFAULT, ['cost' => 10]);
-                $datos = $this->usuario->actualizarUsuario("usuario", $this->contrasenia_hash, $this->rol, $idUsuario);
-                echo $datos;
+                $this->usuario->actualizarUsuario("usuario", $this->contrasenia_hash, $this->rol, $idUsuario);
                 echo $this->redirectVista("usuario");
-                }else{
-                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
-                }
                 break;
 
             case isset($_GET['eliminar']):

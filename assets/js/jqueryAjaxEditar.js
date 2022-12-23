@@ -11,13 +11,13 @@ $(document).ready(function () {
 
         var idGasto = data[0],
             $tipoGastoSelect = data[1],
-            descripcion = data[2],
-            monto = data[3],
+            descripcionGastoEdit = data[2].toLowerCase(),
+            montoEdit = data[3],
             ideTipoGasto = data[5];
         $('#idGasto').val(idGasto);
         $("#tipoGastoSelect").prepend("<option value="+ ideTipoGasto +" selected='selected'>"+ $tipoGastoSelect +"</option>");
-        $('#descripcion').val(descripcion);
-        $('#monto').val(monto);
+        $('#descripcionGastoEdit').val(descripcionGastoEdit);
+        $('#montoEdit').val(montoEdit);
 
         var idPabellon = data[0],
             numeroPabellon = data[1];
@@ -32,11 +32,11 @@ $(document).ready(function () {
         var idArticulo = data[0],
             tipoArticulo = data[1],
             idtipoarticulo = data[5],
-            descripcion = data[2],
+            descripcionArticuloEdit = data[2],
             monto = data[3];
         $('#idArticulo').val(idArticulo);
         $("#tipoArticuloSelect").prepend("<option value="+ idtipoarticulo +" selected='selected'>"+ tipoArticulo +"</option>");
-        $('#descripcion').val(descripcion);
+        $('#descripcionArticuloEdit').val(descripcionArticuloEdit);
         $('#montoArticulo').val(monto);
 
         var idFuncionario = data[0],
@@ -55,13 +55,13 @@ $(document).ready(function () {
 
         var idCopropietario = data[0],
         apartamentoID = data[10],
-        apartamento = data[7],
-        residente = data[8],
-        mascota = data[9];
+        apartamentoEdit = data[7],
+        residenteEdit = data[8],
+        mascotaEdit = data[9];
         $('#idCopropietario').val(idCopropietario);
-        $("#apartamentoSelect").prepend("<option value="+ apartamentoID +" selected='selected'>"+ apartamento +"</option>");
-        $('#residente').val(residente);
-        $('#mascota').val(mascota);
+        $("#apartamentoSelect").prepend("<option value="+ apartamentoID +" selected='selected'>"+ apartamentoEdit +"</option>");
+        $('#residenteEdit').val(residenteEdit);
+        $('#mascotaEdit').val(mascotaEdit);
 
         var idPersona = data[0],
         nombre = data[1].toLowerCase(),
@@ -90,9 +90,9 @@ $(document).ready(function () {
         }).get();
 
         var idTipoGasto = data[0],
-            tipoGasto = data[1];
+        nombreTipoEdit = data[1].toLowerCase();
         $('#idTipoGasto').val(idTipoGasto)
-        $('#tipoGasto').val(tipoGasto);
+        $('#nombreTipoEdit').val(nombreTipoEdit);
 
         var idEstacionamiento = data[0],
             numeroPabellon = data[1],
