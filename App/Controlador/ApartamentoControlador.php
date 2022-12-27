@@ -17,7 +17,7 @@ class ApartamentoControlador extends Apartamento
         {
             case isset($_POST['guardarApartamento']):
                 $this->apartamento = new Apartamento();
-                $this->numeroApartamento = $_POST['numero_apartamento'];
+                $this->numeroApartamento = $_POST['numeroApartamento'];
                 if(mb_strlen($this->numeroApartamento) >= 2 && preg_match($this->cadenaMixta, $this->numeroApartamento)){
                 $convertir = ucfirst($this->numeroApartamento);
                 $dato = $this->apartamento->comparar('apartamento',  $convertir);
@@ -32,10 +32,10 @@ class ApartamentoControlador extends Apartamento
                 }
                 break;
 
-            case isset($_POST['editarApartamento']):
+            case isset($_POST['actualizarApartamento']):
                 $this->apartamento = new Apartamento();
                 $id = $_POST['idApartamento'];
-                $this->numeroApartamento = $_POST['numero_apartamento'];
+                $this->numeroApartamento = $_POST['numeroApartamentoEdit'];
                 if(mb_strlen($this->numeroApartamento) >= 2 && preg_match($this->cadenaMixta, $this->numeroApartamento)){
                     $convertir = ucfirst($this->numeroApartamento);
                     $dato = $this->apartamento->comparar('apartamento', $convertir);

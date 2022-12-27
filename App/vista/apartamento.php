@@ -72,9 +72,9 @@ include(ASIDE);
     </div>
 
 
-<!-- VENTANA MODAL -->
 <?php
 include("./Modal/apartamento_modal.php");
-//  FOOTER
-include("./plantilla/footer.php");
 ?>
+<script type="text/javascript" src="../../assets/validacion/apartamento/apartamento.js"></script>
+<script type="text/javascript" src="../../assets/validacion/apartamento/apartamento_edit.js"></script>
+<?php include(FOOTER)?>

@@ -17,11 +17,12 @@
             <div class="modal-body ">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./apartamento.php" method="POST" autocomplete="off">
+                    <form action="./apartamento.php" method="POST" class="formulario" id="formApartamento" autocomplete="off">
                         <div class="row  mt-2">
                             <div class="col-md-12">
                                 <label class="form-label"><strong class="f-size-7"> Nro.&nbsp;&nbsp;Apartamento:</strong></label>
-                                <input type="text" name="numero_apartamento" class="form-control transfor-lowercase" onkeypress="return soloLetraNumero(event)" pattern="[a-z]{1}[0-9]+" title="Debe contener solo una letra del abecedario, y al menos 1 número" required="required">
+                                <input type="text" name="numeroApartamento" id="numeroApartamento" class="form-control">
+                                <small id="apartamento__numeroApartamento"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row">
@@ -64,11 +65,13 @@
             <div class="modal-body ">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./apartamento.php" method="POST" autocomplete="off">
+                    <form action="./apartamento.php" method="POST" class="formulario" id="formApartamentoEdit" autocomplete="off">
+                    <p class="invisible alert-danger text-center p-2" id="apartamentoAlertaEdit"><strong>Alerta!</strong> valida tus campos haciendo click en cada uno de ellos.</p>
                         <div class="row mt-2">
                             <div class="col-md-12">
                                 <label class="form-label"><strong class="f-size-7"> Nro.&nbsp;&nbsp;Apartamento:</strong></label>
-                                <input type="text" name="numero_apartamento" id="numeroApartamento" class="form-control" onkeypress="return mixto(event)" pattern="[a-zA-Z]{1}[0-9]+" title="Debe contener solo una letra del abecedario, y al menos 1 número" required="required">
+                                <input type="text" name="numeroApartamentoEdit" id="numeroApartamentoEdit" class="form-control">
+                                <small id="apartamento__numeroApartamentoEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-1">
                                 <input type="hidden" class="ocult" name="idApartamento" id="idApartamento" require="required">
@@ -80,7 +83,7 @@
                             <div class="col-md-5"></div>
                             <div class="col-md-3">
                                 <div class="modal-footer">
-                                    <button type="submit" name="editarApartamento" onclick="guardar(event)" class="btn btn-primary">Guardar</button>
+                                    <button type="submit" name="actualizarApartamento" class="btn btn-primary">Guardar</button>
                                 </div>
                             </div>
                         </div>

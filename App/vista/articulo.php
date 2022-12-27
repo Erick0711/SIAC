@@ -128,11 +128,10 @@ include(ASIDE);
     </div>
 
 
-
-<!-- VENTANA MODAL -->
 <?php
 include("./Modal/articulo_modal.php");
 include("./Modal/tipo_articulo_modal.php");
-//  FOOTER
-include("./plantilla/footer.php");
 ?>
+<script type="text/javascript" src="../../assets/validacion/articulo/articulo.js"></script>
+<script type="text/javascript" src="../../assets/validacion/articulo/articulo_edit.js"></script>
+<?php include(FOOTER);?>

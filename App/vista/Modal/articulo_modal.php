@@ -17,11 +17,11 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./articulo.php" method="POST" autocomplete="off">
+                    <form action="./articulo.php" method="POST" class="formulario" id="formArticulo" autocomplete="off">
                         <div class="row  mt-2">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Tipo de artículo:</strong></label>
-                                <select class="custom-select" name="tipoArticulo">
+                                <select class="custom-select" name="tipoArticulo" id="tipoArticulo">
                                     <option value="0">Seleccionar</option>
                                     <?php foreach ($tipos as $tipo) {
                                         if ($tipo['estado'] == 1) {
@@ -30,14 +30,17 @@
                                         <?php   } ?>
                                     <?php }; ?>
                                 </select>
+                                <small id="articulo__tipoArticulo"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Descripción:</strong></label>
-                                <input type="text" minlength="4" pattern="[a-z]+" name="descripcion" class="form-control" onkeypress="return soloLetras(event)" title="Debe contener solo minúscula, y al menos 3 caracteres" required="required">
+                                <input type="text" name="descripcion" id="descripcion" class="form-control">
+                                <small id="articulo__descripcion"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Monto:</strong></label>
-                                <input type="number" min="1" minlength="1" pattern="[0-9]+" name="montoArticulo" class="form-control" onkeypress="return valideKey(event)" title="Debe contener al menos 1 número" required="required">
+                                <input type="number" min="1" name="montoArticulo" id="montoArticulo" class="form-control">
+                                <small id="articulo__montoArticulo"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row  mt-2">
@@ -76,10 +79,12 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./articulo.php" method="POST" autocomplete="off">
+                    <form action="./articulo.php" method="POST" class="formulario" id="formArticuloEdit" autocomplete="off">
+                    <p class="invisible alert-danger text-center p-2" id="articuloAlertaEdit"><strong>Alerta!</strong> valida tus campos haciendo click en cada uno de ellos.</p>
                         <div class="row  mt-2">
                             <div class="col-md-4">
-                                <select class="custom-select" name="tipoArticulo" id="tipoArticuloSelect">
+                            <label class="form-label"><strong class="f-size-7">Tipo artículo:</strong></label>
+                                <select class="custom-select" name="tipoArticuloEdit" id="tipoArticuloSelect">
                                     <?php foreach ($tipos as $tipo) {
                                         if ($tipo['estado'] == 1) {
                                     ?>
@@ -89,11 +94,14 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" name="descripcion" id="descripcion" class="form-control" onkeypress="return soloLetras(event)" placeholder="Tipo de Articulo..." required="required">
+                                <label class="form-label"><strong class="f-size-7">Descripción:</strong></label>
+                                <input type="text" name="descripcionArticuloEdit" id="descripcionArticuloEdit" class="form-control">
+                                <small id="articulo__descripcionArticuloEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
-                                <input type="number" name="montoArticulo" id="montoArticulo" class="form-control" onkeypress="return valideKey(event) 
-                    " placeholder="Tipo de Articulo..." required="required">
+                                <label class="form-label"><strong class="f-size-7">Monto:</strong></label>
+                                <input type="number" name="montoArticuloEdit" id="montoArticuloEdit" class="form-control">
+                                <small id="articulo__montoArticuloEdit"  class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row  mt-2">

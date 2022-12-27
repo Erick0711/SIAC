@@ -130,7 +130,8 @@ include(ASIDE);
 <?php
 include("./Modal/pabellon_modal.php");
 include("./Modal/estacionamiento_modal.php");
-//  FOOTER
-include(FOOTER);
 ?>
+    <script type="text/javascript" src="../../assets/validacion/estacionamiento/estacionamiento.js"></script>
+    <script type="text/javascript" src="../../assets/validacion/estacionamiento/estacionamiento_edit.js"></script>
+<?php include(FOOTER);?>
 

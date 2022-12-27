@@ -23,7 +23,7 @@ class ArticuloControlador extends Articulo
             /**********************************************TIPO DE ARTICULOS******************************************************/ 
             case isset($_POST['registrarTipo']):
                 $this->articulo = new Articulo();
-                $this->tipoArticulo = $_POST['tipoArticulo'];
+                $this->tipoArticulo = $_POST['tipo'];
                 if(mb_strlen($this->tipoArticulo) >= 4 && is_string($this->tipoArticulo) && preg_match($this->minuscula, $this->tipoArticulo)){
                     $convertir = ucfirst($this->tipoArticulo);
                     $dato = $this->compararTipo("tipo_articulo",$convertir, "nombre_articulo");
@@ -41,7 +41,7 @@ class ArticuloControlador extends Articulo
             case isset($_POST['actualizarTipo']):
                 $this->articulo = new Articulo();
                 $this->idTipoArticulo = $_POST['idTipoArticulo'];
-                $this->tipoArticulo = $_POST['tipoArticulo'];
+                $this->tipoArticulo = $_POST['tipoEdit'];
                 if(mb_strlen($this->tipoArticulo) >= 4 && is_string($this->tipoArticulo) 
                     && preg_match($this->minuscula, $this->tipoArticulo)){
                     $convertir = ucfirst($this->tipoArticulo);
@@ -95,9 +95,9 @@ class ArticuloControlador extends Articulo
             case isset($_POST['actualizarArticulo']):
                 $this->articulo = new Articulo();
                 $id = $_POST['idArticulo'];
-                $this->tipoArticulo = $_POST['tipoArticulo'];
-                $this->descripcion = $_POST['descripcion'];
-                $this->monto = $_POST['montoArticulo'];
+                $this->tipoArticulo = $_POST['tipoArticuloEdit'];
+                $this->descripcion = $_POST['descripcionArticuloEdit'];
+                $this->monto = $_POST['montoArticuloEdit'];
                 if($this->tipoArticulo >= 1 && mb_strlen($this->descripcion) >= 1 && is_string($this->descripcion) && $this->monto > 0  && 
                     mb_strlen($this->monto) >= 1 && preg_match($this->minuscula, $this->descripcion)){
                     $convertir = ucfirst($this->descripcion);

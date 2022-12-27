@@ -10,6 +10,7 @@ class Estacionamiento extends Conexion
     use Alerta,Redireccion,Complemento;
     protected   $estacionamiento,  
                 $numeroEstacionamiento,
+                $numeroPabellon,
                 $idPabellon;
 
     public function Estacionamiento()

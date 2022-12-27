@@ -17,11 +17,12 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./articulo.php" method="POST" autocomplete="off">
+                    <form action="./articulo.php" method="POST" class="formulario" id="formArticuloTipo" autocomplete="off">
                         <div class="row  mt-2">
                             <div class="col-md-12">
                                 <label class="form-label"><strong class="f-size-7">Tipo de artículo:</strong></label>
-                                <input type="text" minlength="4" pattern="[a-z]+" title="Debe contener solo minúscula, y al menos 3 caracteres" name="tipoArticulo" class="form-control" onkeypress="return soloLetras(event)" required="required">
+                                <input type="text" name="tipo" id="tipo" class="form-control">
+                                <small id="articulo__tipo"  class="mensaje"></small>
                             </div>
                             <div class="col-md-12">
                             </div>
@@ -62,12 +63,14 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./articulo.php" method="POST" autocomplete="off">
+                    <form action="./articulo.php" method="POST" class="formulario" id="formArticuloTipoEdit" autocomplete="off">
+                    <p class="invisible alert-danger text-center p-2" id="articuloTipoAlertaEdit"><strong>Alerta!</strong> valida tus campos haciendo click en cada uno de ellos.</p>
                         <div class="row  mt-2">
 
                             <div class="col-md-12">
                                 <label class="form-label"><strong class="f-size-7">Tipo de artículo:</strong></label>
-                                <input type="text" id="tipoArticulo" name="tipoArticulo" minlength="4" pattern="[a-z]+" title="Debe contener solo minúscula, y al menos 3 caracteres" class="form-control" onkeypress="return soloLetra(event)" required="required">
+                                <input type="text" name="tipoEdit" id="tipoEdit" class="form-control">
+                                <small id="articulo__tipoEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-12">
                                 <input type="hidden" class="ocult" id="idTipoArticulo" name="idTipoArticulo" required="required">

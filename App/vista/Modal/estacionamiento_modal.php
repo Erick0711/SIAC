@@ -17,11 +17,11 @@
             <div class="modal-body ">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./recinto.php" method="POST">
+                    <form action="./recinto.php" method="POST" class="formulario" id="formEstacionamiento">
                         <div class="row  mt-2">
                             <div class="col-md-6">
                                 <label class="form-label"><strong class="f-size-7">Pabellón:</strong></label>
-                                <select name="idPabellon" id="idPabellon" class="custom-select">
+                                <select name="numeroPabellon" id="numeroPabellon" class="custom-select">
                                     <option value="0">Seleccionar Pabellon</option>
                                     <?php foreach ($pabellones as $pabellon) {;
                                         if ($pabellon['estado'] == 1) {
@@ -30,10 +30,12 @@
                                         <?php } ?>
                                     <?php }; ?>
                                 </select>
+                                <small id="estacionamiento__numeroPabellon"  class="mensaje"></small>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"><strong class="f-size-7">Nro. Estacionamiento:</strong></label>
-                                <input type="number" minlength="1" maxlength="4" min="1" name="numeroEstacionamiento" class="form-control" onkeypress="return valideKey(event)" required="required">
+                                <input type="number" min="1" name="numeroEstacionamiento" id="numeroEstacionamiento" class="form-control">
+                                <small id="estacionamiento__numeroEstacionamiento" class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row">
@@ -71,11 +73,12 @@
             <div class="modal-body ">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./recinto.php" method="POST">
+                    <form action="./recinto.php" method="POST" class="formulario" id="formEstacionamientoEdit">
+                    <p class="invisible alert-danger text-center p-2" id="estacionamientoNumeroAlertaEdit"><strong>Alerta!</strong> valida tus campos haciendo click en cada uno de ellos.</p>
                         <div class="row  mt-2">
                             <div class="col-md-6">
                                 <label class="form-label"><strong>Pabellón:</strong></label>
-                                <select name="idPabellon" id="idNumeroPabellon" class="custom-select pabellon">
+                                <select name="numeroPabellonEdit" id="numeroPabellonEdit" class="custom-select pabellon">
                                     <?php foreach ($pabellones as $pabellon) {;
                                         if ($pabellon['estado'] == 1) {
                                     ?>
@@ -86,11 +89,12 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"><strong>Nro. Estacionamiento:</strong></label>
-                                <input type="number" name="numeroEstacionamiento" id="numeroEstacionamiento" onkeypress="return valideKey(event)" class="form-control">
+                                <input type="number" name="numeroEstacionamientoEdit" id="numeroEstacionamientoEdit" class="form-control">
+                                <small id="estacionamiento__numeroEstacionamientoEdit" class="mensaje"></small>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4"><input type="hidden" class="ocult" name="idEstacionamiento" onkeypress="return valideKey(event)" id="idEstacionamiento"></div>
+                            <div class="col-md-4"><input type="hidden" class="ocult" name="idEstacionamiento" id="idEstacionamiento"></div>
                             <div class="col-md-5"></div>
                             <div class="col-md-3">
                                 <div class="modal-footer">

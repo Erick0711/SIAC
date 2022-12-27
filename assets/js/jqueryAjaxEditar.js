@@ -10,34 +10,34 @@ $(document).ready(function () {
 
 
         var idGasto = data[0],
-            $tipoGastoSelect = data[1],
+            tipoGastoSelect = data[1],
             descripcionGastoEdit = data[2].toLowerCase(),
             montoEdit = data[3],
             ideTipoGasto = data[5];
         $('#idGasto').val(idGasto);
-        $("#tipoGastoSelect").prepend("<option value="+ ideTipoGasto +" selected='selected'>"+ $tipoGastoSelect +"</option>");
+        $("#tipoGastoSelect").prepend("<option value="+ ideTipoGasto +" selected='selected'>"+ tipoGastoSelect +"</option>");
         $('#descripcionGastoEdit').val(descripcionGastoEdit);
         $('#montoEdit').val(montoEdit);
 
         var idPabellon = data[0],
-            numeroPabellon = data[1];
+            pabellon = data[1];
         $('#idPabellon').val(idPabellon);
-        $('#numeroPabellon').val(numeroPabellon);
+        $('#pabellonEdit').val(pabellon);
 
         var idDepartamento = data[0],
-            numeroDepartamento = data[1];
+            numeroApartamentoEdit = data[1].toLowerCase();
         $('#idApartamento').val(idDepartamento);
-        $('#numeroApartamento').val(numeroDepartamento);
+        $('#numeroApartamentoEdit').val(numeroApartamentoEdit);
 
         var idArticulo = data[0],
             tipoArticulo = data[1],
             idtipoarticulo = data[5],
-            descripcionArticuloEdit = data[2],
-            monto = data[3];
+            descripcionArticuloEdit = data[2].toLowerCase(),
+            montoArticuloEdit = data[3];
         $('#idArticulo').val(idArticulo);
         $("#tipoArticuloSelect").prepend("<option value="+ idtipoarticulo +" selected='selected'>"+ tipoArticulo +"</option>");
         $('#descripcionArticuloEdit').val(descripcionArticuloEdit);
-        $('#montoArticulo').val(monto);
+        $('#montoArticuloEdit').val(montoArticuloEdit);
 
         var idFuncionario = data[0],
         cargo = data[7].toLowerCase(),
@@ -95,18 +95,18 @@ $(document).ready(function () {
         $('#nombreTipoEdit').val(nombreTipoEdit);
 
         var idEstacionamiento = data[0],
-            numeroPabellon = data[1],
-            numeroEstacionamiento = data[2],
+            numeroPabellonEdit = data[1],
+            numeroEstacionamientoEdit = data[2],
             idPabellon = data[3];
-        $("#idNumeroPabellon").prepend("<option value="+ idPabellon +" selected='selected'>"+ numeroPabellon +"</option>");
+        $("#numeroPabellonEdit").prepend("<option value="+ idPabellon +" selected='selected'>"+ numeroPabellonEdit +"</option>");
         $('#idEstacionamiento').val(idEstacionamiento);
-        $('#numeroEstacionamiento').val(numeroEstacionamiento);
+        $('#numeroEstacionamientoEdit').val(numeroEstacionamientoEdit);
 
         console.log(data);
         var idTipoArticulo = data[0],
-            tipoArticulo = data[1];
+        tipoEdit = data[1].toLowerCase();
         $('#idTipoArticulo').val(idTipoArticulo);
-        $('#tipoArticulo').val(tipoArticulo);
+        $('#tipoEdit').val(tipoEdit);
 
 
         var idRol = data[0],

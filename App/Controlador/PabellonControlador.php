@@ -15,7 +15,7 @@ class PabellonControlador extends Pabellon
         {
             case isset($_POST['guardarPabellon']):
                 $this->pabellon = new Pabellon();
-                $this->numeroPabellon = $_POST['numero_pabellon'];
+                $this->numeroPabellon = $_POST['pabellon'];
                 if($this->numeroPabellon >= 1 && preg_match($this->numeros, $this->numeroPabellon)){
                     $dato = $this->pabellon->comparar('pabellon', $this->numeroPabellon);
                     if(isset($dato['numero_pabellon']) && $dato['numero_pabellon'] == $this->numeroPabellon){
@@ -32,7 +32,7 @@ class PabellonControlador extends Pabellon
             case isset($_POST['editarPabellon']):
                 $this->pabellon = new Pabellon();
                 $id = $_POST['idPabellon'];
-                $this->numeroPabellon = $_POST['numero_pabellon'];
+                $this->numeroPabellon = $_POST['pabellonEdit'];
                 $dato = $this->pabellon->comparar('pabellon', $this->numeroPabellon);
                 if($this->numeroPabellon >= 1 && preg_match($this->numeros, $this->numeroPabellon)){
                     if(isset($dato['numero_pabellon']) && $dato['numero_pabellon'] == $this->numeroPabellon){

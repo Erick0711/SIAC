@@ -15,14 +15,14 @@ class EstacionamientoControlador extends Estacionamiento
         {
             case isset($_POST['guardarEstacionamiento']):
                 $this->estacionamiento = new Estacionamiento();
-                $this->idPabellon = $_POST['idPabellon'];
+                $this->numeroPabellon = $_POST['numeroPabellon'];
                 $this->numeroEstacionamiento = $_POST['numeroEstacionamiento'];
-                $dato = $this->estacionamiento->comparar('estacionamiento', $this->numeroEstacionamiento, $this->idPabellon);
-                if($this->idPabellon >= 1 && $this->numeroEstacionamiento >= 1 && preg_match($this->numeros, $this->numeroEstacionamiento)){
+                $dato = $this->estacionamiento->comparar('estacionamiento', $this->numeroEstacionamiento, $this->numeroPabellon);
+                if($this->numeroPabellon >= 1 && $this->numeroEstacionamiento >= 1 && preg_match($this->numeros, $this->numeroEstacionamiento)){
                     if(isset($dato['numero_estacionamiento']) && $dato['numero_estacionamiento'] == $this->numeroEstacionamiento){
                         echo $this->mensaje("danger","dark","Alerta!","Datos ya existentes dentro del sistema");
                     }else{
-                        $this->estacionamiento->registrarEstacionamiento("estacionamiento",$this->idPabellon, 
+                        $this->estacionamiento->registrarEstacionamiento("estacionamiento",$this->numeroPabellon, 
                         $this->numeroEstacionamiento);
                         echo $this->redirectVista("recinto");
                     }
@@ -33,8 +33,8 @@ class EstacionamientoControlador extends Estacionamiento
 
             case isset($_POST['actualizarEstacionamiento']):
                 $this->estacionamiento = new Estacionamiento();
-                $this->idPabellon = $_POST['idPabellon'];
-                $this->numeroEstacionamiento = $_POST['numeroEstacionamiento'];
+                $this->idPabellon = $_POST['numeroPabellonEdit'];
+                $this->numeroEstacionamiento = $_POST['numeroEstacionamientoEdit'];
                 $idEstacionamiento = $_POST['idEstacionamiento'];
                 $dato = $this->estacionamiento->comparar('estacionamiento', $this->numeroEstacionamiento, $this->idPabellon);
                 if(isset($this->numeroEstacionamiento) && $this->numeroEstacionamiento >= 1 && preg_match($this->numeros, $this->numeroEstacionamiento)){
