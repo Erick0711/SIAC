@@ -19,26 +19,28 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./persona.php" method="POST" class="formulario" id="formCopropietario">
+                    <form action="./persona.php" method="POST" class="formulario" id="formCopropietario" autocomplete="off">
                         <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Apartamento:</strong></label>
                                 <select name="apartamento" id="apartamentoSelect" class="form-control">
                                 <option value="0">Seleccionar</option>
-                                <?php foreach($apartamentos as $apartamento){ ?>
+                                <?php foreach($apartamentos as $apartamento){ 
+                                    if($apartamento['estado'] == 1){?>
                                     <option value="<?php echo $apartamento["id"]?>"><?php echo $apartamento["numero_apartamento"]?></option>
-                                <?php } ?>
+                                <?php }
+                                    } ?>
                                 </select>
                                 <small id="mensaje__apartamento"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Residente:</strong></label>
-                                <input type="number" min="1" name="residente" id="residente" class="form-control" onkeypress="return numero(event)">
+                                <input type="number" min="1" name="residente" id="residente" class="form-control" onkeypress="return numero(event)" required>
                                 <small id="mensaje__residente"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                             <label class="form-label"><strong class="f-size-7">Mascota:</strong></label>
-                                <input type="number" min="1" name="mascota" id="mascota" class="form-control" onkeypress="return numero(event)">
+                                <input type="number" min="0" name="mascota" id="mascota" class="form-control" onkeypress="return numero(event)" required>
                                 <small id="mensaje__mascota"  class="mensaje"></small>
                             </div>
                         </div>
@@ -92,17 +94,17 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"><strong class="f-size-7">Usuario:</strong></label>
-                                <input type="text" name="usuario" id="usuario" class="form-control" onkeypress="return letraNumero(event)">
+                                <input type="text" name="usuario" id="usuario" class="form-control" onkeypress="return letraNumero(event)" required>
                                 <small id="mensaje__usuario"  class="mensaje"></small>
                             </div>
                             <div class="col-md-6 mt-2">
                                 <label class="form-label"><strong class="f-size-7">Contraseña:</strong></label>
-                                <input type="password"  name="contrasenia" id="contrasenia" class="form-control">
+                                <input type="password"  name="contrasenia" id="contrasenia" class="form-control" required>
                                 <small id="mensaje__contrasenia" class="mensaje"></small>
                             </div>
                             <div class="col-md-6 mt-2">
                                 <label class="form-label"><strong class="f-size-7">Confirmar contraseña:</strong></label>
-                                <input type="password" name="confirmacion"  id="confirmacion" class="form-control">
+                                <input type="password" name="confirmacion"  id="confirmacion" class="form-control" required>
                                 <small id="mensaje__confirmacion" class="mensaje"></small>
                             </div>
                         </div>
@@ -147,16 +149,16 @@
             <div class="modal-body">
                 <div class="container form">
                     <!-- FORMULARIO -->
-                    <form action="./persona.php" method="POST" class="formulario" id="formFuncionario">
+                    <form action="./persona.php" method="POST" class="formulario" id="formFuncionario" autocomplete="off">
                         <div class="row  mt-4">
                             <div class="col-md-6">
                                 <label class="form-label"><strong class="f-size-7">Cargo:</strong></label>
-                                <input type="text" name="cargo" id="cargo" class="form-control" onkeypress="return letraMinuscula(event)">
+                                <input type="text" name="cargo" id="cargo" class="form-control" onkeypress="return letraMinuscula(event)" required>
                                 <small id="mensaje__cargo" class="mensaje"></small>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"><strong class="f-size-7">Salario:</strong></label>
-                                <input type="number" min="1" name="salario" id="salario" class="form-control" onkeypress="return numero(event)">
+                                <input type="number" min="1" name="salario" id="salario" class="form-control" onkeypress="return numero(event)" required>
                                 <small id="mensaje__salario" class="mensaje"></small>
                             </div>
                             <div class="col-md-4">

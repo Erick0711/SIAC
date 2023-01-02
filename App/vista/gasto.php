@@ -17,7 +17,7 @@ include(ASIDE);
 <main class="app-content">
   <div class="app-title">
     <div>
-      <h1 class="font-italic"><i class="fa fa-th-list"></i> Gasto</h1>
+      <h1 class="font-italic"><i class="fa-sharp fa-solid fa-location-dot"></i>&nbsp; Gasto</h1>
     </div>
   </div>
   <p><?php $consulta->consulta(); ?></p>
@@ -27,7 +27,7 @@ include(ASIDE);
       <div class="tile">
         <div class="title-item">
           <div class="text-center">
-            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarModal"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Nuevo Gasto</a>
+            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarModal"><i class="fa-solid fa-circle-plus fa-lg"></i> Nuevo Gasto</a>
           </div>
         </div>
         <div class="table-responsive">
@@ -55,18 +55,18 @@ include(ASIDE);
                   <td>BS</td>
                   <td class="ocult"><?php echo $gasto['tipo_gasto_id']; ?></td>
                   <?php if ($gasto['estado'] == 1) { ?>
-                    <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
-                    <td>
-                      <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
-                      <a href="./gasto.php?eliminar=<?php echo $gasto['id']; ?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
+                    <td class="text-center"><button class="btn btn-success" disabled><i class="fa-solid fa-check"></i></button></td>
+                    <td class="text-center">
+                      <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                      <a href="./gasto.php?eliminar=<?php echo $gasto['id']; ?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa-solid fa-trash-can fa-lg"></i></a>
                     </td>
                   <?php } elseif ($gasto['estado'] == 0) { ?>
                     <td class="text-center">
                       <a href="./gasto.php?activar=<?php echo $gasto['id']; ?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
                     </td>
-                    <td>
-                      <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
-                      <a class="btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
+                    <td class="text-center">
+                      <a class="btn btn-light2" disabled><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                      <a class="btn btn-light2" disabled><i class="fa-solid fa-trash-can fa-lg"></i></a>
                     </td>
                   <?php }; ?>
                 </tr>
@@ -81,7 +81,7 @@ include(ASIDE);
       <div class="tile">
         <div class="title-item">
           <div class="text-center">
-            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarTipoModal"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Tipo Gasto</a>
+            <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarTipoModal"><i class="fa-solid fa-circle-plus fa-lg"></i> Tipo Gasto</a>
           </div>
         </div>
         <div class="table-responsive">
@@ -100,18 +100,18 @@ include(ASIDE);
                   <td><?php echo $tipo['id'] ?></td>
                   <td><?php echo $tipo['nombre'] ?></td>
                   <?php if ($tipo['estado'] == 1) { ?>
-                    <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
-                    <td>
-                      <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
-                      <a href="./gasto.php?eliminarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="eliminarTipo" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
+                    <td class="text-center"><button class="btn btn-success" disabled><i class="fa-solid fa-check"></i></button></td>
+                    <td class="text-center">
+                      <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                      <a href="./gasto.php?eliminarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="eliminarTipo" onclick="advertencia(event)"><i class="fa-solid fa-trash-can fa-lg"></i></a>
                     </td>
                   <?php } elseif ($tipo['estado'] == 0) { ?>
                     <td class="text-center">
                       <a href="./gasto.php?activarTipo=<?php echo $tipo['id']; ?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
                     </td>
-                    <td>
-                      <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
-                      <a class="btn btn btn-light2" disabled><i class="fa fa-trash"></i></a>
+                    <td class="text-center">
+                      <a class="btn btn-light2" disabled><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                      <a class="btn btn btn-light2" disabled><i class="fa-solid fa-trash-can fa-lg"></i></a>
                     </td>
                   <?php }; ?>
                 </tr>

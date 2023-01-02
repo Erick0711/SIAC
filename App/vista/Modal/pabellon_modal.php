@@ -17,11 +17,11 @@
             <div class="modal-body ">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./recinto.php" method="POST" class="formulario" id="formPabellon">
+                    <form action="./recinto.php" method="POST" class="formulario" id="formPabellon" autocomplete="off">
                         <div class="row  mt-2">
                             <div class="col-md-12">
                                 <label class="form-label"><strong class="f-size-7">Nro. Pabellón:</strong></label>
-                                <input type="number" min="1" name="pabellon" id="pabellon" class="form-control">
+                                <input type="number" min="1" name="pabellon" id="pabellon" class="form-control" onkeypress="return numero(event)" required>
                                 <small id="estacionamiento__pabellon"  class="mensaje"></small>
                             </div>
                         </div>
@@ -61,15 +61,16 @@
                 <div class="container">
                     <!-- FORMULARIO -->
                     <form action="./recinto.php" method="POST" class="formulario" id="formPabellonEdit">
-                    <p class="invisible alert-danger text-center p-2" id="pabellonAlertaEdit"><strong>Alerta!</strong> valida tus campos haciendo click en cada uno de ellos.</p>
+                    <p class="invisible alert-danger text-center p-2" id="pabellonAlertaEdit"><strong>Alerta!</strong> 
+                    valida tus campos haciendo click en cada uno de ellos.</p>
                         <div class="row  mt-2">
                             <div class="col-md-12">
                                 <label class="form-label"><strong class="f-size-7">Nro. Pabellón:</strong></label>
-                                <input type="number" min="1" name="pabellonEdit" id="pabellonEdit" class="form-control">
+                                <input type="number" min="1" name="pabellonEdit" id="pabellonEdit" class="form-control" onkeypress="return numero(event)" required>
                                 <small id="estacionamiento__pabellonEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-1">
-                                <input type="text" class="ocult" name="idPabellon" id="idPabellon" required="required">
+                                <input type="text" class="ocult" name="idPabellon" id="idPabellon">
                             </div>
                         </div>
                         <div class="row">

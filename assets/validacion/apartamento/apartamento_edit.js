@@ -8,7 +8,7 @@ const camposEdit = {
 const validarFormularioEdit = (e)=>{
     switch (e.target.name) {
         case "numeroApartamentoEdit":
-            validarCampo(expresiones.Letranumero,e.target, "*Solo una letra de la (a-z) y mini 1 numero del (0-9)", "numeroApartamentoEdit");
+            validarCampoEdit(expresiones.Letranumero,e.target, "*Solo una letra de la (a-z) y mini 1 numero del (0-9)", "numeroApartamentoEdit");
         break;
 
         default:

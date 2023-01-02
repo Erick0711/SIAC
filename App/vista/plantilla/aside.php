@@ -13,32 +13,32 @@
 
             <!-- PERSONA - TABLA - FORMULARIO -->
             <?php if ($_SESSION['nombre_rol'] == "SIAC") { ?>
-                <li><a class="app-menu__item active" href="./inicio"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Inicio</span></a></li>
-                <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-users"></i>
+                <li><a class="app-menu__item active" href="./inicio"><i class="app-menu__icon fa-solid fa-house"></i><span class="app-menu__label">Inicio</span></a></li>
+                <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa-solid fa-people-group"></i>
                         <span class="app-menu__label">Persona</span><i class="treeview-indicator fa fa-angle-right"></i></a>
                     <ul class="treeview-menu">
                         <!-- <li><a class="treeview-item" href="./persona.php"><i class="icon fa fa-circle-o"></i> Persona</a></li> -->
-                        <li><a class="treeview-item" href="./persona.php"><i class="icon fa fa-circle-o"></i> Persona</a></li>
-                        <li><a class="treeview-item" href="./funcionario.php"><i class="icon fa fa-circle-o"></i> Funcionario</a></li>
-                        <li><a class="treeview-item" href="./usuario.php"><i class="icon fa fa-circle-o"></i> Usuario</a></li>
-                        <li><a class="treeview-item" href="./copropietario.php"><i class="icon fa fa-circle-o"></i> Copropietario</a></li>
+                        <li><a class="treeview-item" href="./persona.php"><i class="icon fa-regular fa-circle"></i> Persona</a></li>
+                        <li><a class="treeview-item" href="./funcionario.php"><i class="icon fa-regular fa-circle"></i> Funcionario</a></li>
+                        <li><a class="treeview-item" href="./usuario.php"><i class="icon fa-regular fa-circle"></i> Usuario</a></li>
+                        <li><a class="treeview-item" href="./copropietario.php"><i class="icon fa-regular fa-circle"></i> Copropietario</a></li>
                     </ul>
                 </li>
                 <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-clipboard"></i><span class="app-menu__label">Expensa</span><i class="treeview-indicator fa fa-angle-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a class="treeview-item" href="./gasto.php"><i class="icon fa fa-circle-o"></i>Gasto</a></li>
-                        <li><a class="treeview-item" href="./articulo.php"><i class="icon fa fa-circle-o"></i>Articulo</a></li>
+                        <li><a class="treeview-item" href="./gasto.php"><i class="icon fa-regular fa-circle"></i> Gasto</a></li>
+                        <li><a class="treeview-item" href="./articulo.php"><i class="icon fa-regular fa-circle"></i> Articulo</a></li>
                     </ul>
                 </li>
                 <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-car"></i><span class="app-menu__label">Recinto</span><i class="treeview-indicator fa fa-angle-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a class="treeview-item" href="./recinto.php"><i class="icon fa fa-circle-o"></i>Estacionamiento</a></li>
-                        <li><a class="treeview-item" href="./apartamento.php"><i class="icon fa fa-circle-o"></i> Apartamento</a></li>
+                        <li><a class="treeview-item" href="./recinto.php"><i class="icon fa-regular fa-circle"></i> Estacionamiento</a></li>
+                        <li><a class="treeview-item" href="./apartamento.php"><i class="icon fa-regular fa-circle"></i> Apartamento</a></li>
                     </ul>
                 </li>
                 <!-- <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-usd"></i><span class="app-menu__label">Reporte</span><i class="treeview-indicator fa fa-angle-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Pagos</a></li>
+                        <li><a class="treeview-item" href="./pago.php"><i class="icon fa fa-circle-o"></i>Pagos</a></li>
                         <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Cuenta Nominal</a></li>
                     </ul>
                 </li> -->
@@ -50,19 +50,19 @@
                 <span class="app-menu__label">Persona</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
                 <!-- <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Persona</a></li> -->
-                <li><a class="treeview-item" href="./copropietario.php"><i class="icon fa fa-circle-o"></i> Copropietario</a></li>
+                <li><a class="treeview-item" href="./copropietario.php"><i class="icon fa-regular fa-circle"></i> Copropietario</a></li>
             </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-clipboard"></i><span class="app-menu__label">Expensa</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href="./gasto.php"><i class="icon fa fa-circle-o"></i>Gasto</a></li>
-                <li><a class="treeview-item" href="./articulo.php"><i class="icon fa fa-circle-o"></i>Articulo</a></li>
+                <li><a class="treeview-item" href="./gasto.php"><i class="icon fa-regular fa-circle"></i> Gasto</a></li>
+                <li><a class="treeview-item" href="./articulo.php"><i class="icon fa-regular fa-circle"></i> Articulo</a></li>
             </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-car"></i><span class="app-menu__label">Recinto</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href="./recinto.php"><i class="icon fa fa-circle-o"></i>Estacionamiento</a></li>
-                <li><a class="treeview-item" href="./apartamento.php"><i class="icon fa fa-circle-o"></i> Apartamento</a></li>
+                <li><a class="treeview-item" href="./recinto.php"><i class="icon fa-regular fa-circle"></i> Estacionamiento</a></li>
+                <li><a class="treeview-item" href="./apartamento.php"><i class="icon fa-regular fa-circle"></i> Apartamento</a></li>
             </ul>
         </li>
         <!-- <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-usd"></i><span class="app-menu__label">Reporte</span><i class="treeview-indicator fa fa-angle-right"></i></a>

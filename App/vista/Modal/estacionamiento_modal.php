@@ -17,7 +17,7 @@
             <div class="modal-body ">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./recinto.php" method="POST" class="formulario" id="formEstacionamiento">
+                    <form action="./recinto.php" method="POST" class="formulario" id="formEstacionamiento" autocomplete="off">
                         <div class="row  mt-2">
                             <div class="col-md-6">
                                 <label class="form-label"><strong class="f-size-7">Pabellón:</strong></label>
@@ -34,7 +34,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"><strong class="f-size-7">Nro. Estacionamiento:</strong></label>
-                                <input type="number" min="1" name="numeroEstacionamiento" id="numeroEstacionamiento" class="form-control">
+                                <input type="number" min="1" name="numeroEstacionamiento" id="numeroEstacionamiento" class="form-control" onkeypress="return numero(event)" required>
                                 <small id="estacionamiento__numeroEstacionamiento" class="mensaje"></small>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"><strong>Nro. Estacionamiento:</strong></label>
-                                <input type="number" name="numeroEstacionamientoEdit" id="numeroEstacionamientoEdit" class="form-control">
+                                <input type="number" name="numeroEstacionamientoEdit" id="numeroEstacionamientoEdit" class="form-control" onkeypress="return numero(event)" required>
                                 <small id="estacionamiento__numeroEstacionamientoEdit" class="mensaje"></small>
                             </div>
                         </div>

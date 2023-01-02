@@ -94,6 +94,8 @@ class UsuarioControlador extends Usuario
                         //     $rol == "Copropietario" => header("location: ./copropietario.php"),
                         //     default => header("location: ./login.php")
                         // };
+                    }else{
+                        echo "El dato no fue encontrado";
                     }
             default:
                 break;

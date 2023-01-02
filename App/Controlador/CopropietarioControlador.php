@@ -29,15 +29,14 @@ class CopropietarioControlador extends Copropietario
                 $this->apartamento = $_POST['apartamento'];
                 $this->residente = $_POST['residente'];
                 $this->mascota = $_POST['mascota'];
-                if(strlen($this->nombre) > 2){
+
                     $this->copropietario = new Copropietario();
                     $this->copropietario->registrar("persona", "copropietario", $this->nombre, $this->apellido, 
                                                     $this->ci, $this->complemento_ci, $this->correo, $this->telefono, 
                                                     $this->apartamento, $this->residente,$this->mascota);
+                    $this->copropietario->eliminar('apartamento',$this->apartamento);
+                    
                 echo $this->redirectVista("copropietario");
-                }else{
-                    echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
-                }
                 break;
 
                 case isset($_POST['actualizarCopropietario']):

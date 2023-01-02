@@ -17,16 +17,16 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./funcionario.php" method="POST" class="formulario" id="formFuncionario">
+                    <form action="./funcionario.php" method="POST" class="formulario" id="formFuncionario" autocomplete="off">
                         <div class="row  mt-4">
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Nombre:</strong></label>
-                                <input type="text" name="nombre" id="nombre" class="form-control" onkeypress="return letraMinuscula(event)" required>
+                                <input type="text" name="nombre" id="nombre" class="form-control" onkeypress="return letraEspacio(event)" required>
                                 <small id="funcionario__nombre"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Apellido:</strong></label>
-                                <input type="text" name="apellido" id="apellido" class="form-control" onkeypress="return letraMinuscula(event)" required>
+                                <input type="text" name="apellido" id="apellido" class="form-control" onkeypress="return letraEspacio(event)" required>
                                 <small id="funcionario__apellido"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">

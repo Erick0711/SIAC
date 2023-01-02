@@ -63,7 +63,11 @@ include(ASIDE);
                                     <td><?php echo ucwords($persona['nombre']); ?></td>
                                     <td><?php echo ucwords($persona['apellido']); ?></td>
                                     <td><?php echo $persona['ci']; ?></td>
-                                    <td><?php echo strtoupper($persona['complemento_ci']); ?></td>
+
+                                    <td><?php if(empty($persona['complemento_ci'])){ echo 'Ninguno'; 
+                                        }elseif(isset($persona['complemento_ci'])){ echo strtoupper($persona['complemento_ci']); }?>
+                                    </td>
+
                                     <td><?php echo $persona['correo']; ?></td>
                                     <td><?php echo $persona['telefono']; ?></td>
                                     <td class="text-center">

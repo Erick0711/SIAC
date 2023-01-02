@@ -17,12 +17,12 @@
             <div class="modal-body">
                 <div class="container">
                     <!-- FORMULARIO -->
-                    <form action="./gasto.php" method="POST" class="formulario" id="formGastoTipo">
+                    <form action="./gasto.php" method="POST" class="formulario" id="formGastoTipo" autocomplete="off">
                         <div class="row  mt-2">
 
                             <div class="col-md-12">
                                 <label class="form-label"><strong class="f-size-7">Tipo de gasto:</strong></label>
-                                <input type="text" name="nombreTipo" id="nombreTipo" class="form-control">
+                                <input type="text" name="nombreTipo" id="nombreTipo" class="form-control" onkeypress="return letraMinuscula(event)" required>
                                 <small id="gasto__nombreTipo"  class="mensaje"></small>
                             </div>
                             <div class="col-md-12">
@@ -65,11 +65,12 @@
                 <div class="container">
                     <!-- FORMULARIO -->
                     <form action="./gasto.php" method="POST" class="formulario" id="formGastoTipoEdit">
-                    <p class="invisible alert-danger text-center p-2" id="gastoTipoAlertaEdit"><strong>Alerta!</strong> valida tus campos haciendo click en cada uno de ellos.</p>
+                    <p class="invisible alert-danger text-center p-2" id="gastoTipoAlertaEdit"><strong>Alerta!</strong> 
+                    valida tus campos haciendo click en cada uno de ellos.</p>
                         <div class="row  mt-2">
                             <div class="col-md-12">
                                 <label class="form-label"><strong class="f-size-7">Tipo de gasto:</strong></label>
-                                <input type="text" name="nombreTipoEdit" id="nombreTipoEdit" class="form-control">
+                                <input type="text" name="nombreTipoEdit" id="nombreTipoEdit" class="form-control" onkeypress="return letraMinuscula(event)" required>
                                 <small id="gasto__nombreTipoEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-12">

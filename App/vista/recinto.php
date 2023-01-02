@@ -20,7 +20,7 @@ include(ASIDE);
 <main class="app-content ">
     <div class="app-title">
         <div>
-            <h1 class="font-italic"><i class="fa fa-th-list"></i> Recinto</h1>
+            <h1 class="font-italic"><i class="fa-sharp fa-solid fa-location-dot"></i>&nbsp; Recinto</h1>
         </div>
     </div>
     <p>
@@ -35,7 +35,7 @@ include(ASIDE);
             <div class="tile">
                 <div class="title-item">
                     <div class="text-center">
-                        <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarEstacionamientoModal"><i class="fa fa-plus"></i> Nuevo Estacionamiento</a>
+                        <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarEstacionamientoModal"><i class="fa-solid fa-circle-plus fa-lg"></i> Nuevo Estacionamiento</a>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -58,18 +58,18 @@ include(ASIDE);
                                         <td><?php echo $estacionamiento['numero_estacionamiento'];?></td>
                                         <td class="ocult"><?php echo $estacionamiento['id'];?></td>
                                         <?php if($estacionamiento['estado'] == 1) {?>
-                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
-                                        <td>
-                                            <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square"></i></a>
-                                            <a href="./recinto.php?eliminarEstacionamiento=<?php echo $estacionamiento['estacionamiento_id'];?>" class="btn btn-danger" name="eliminarEstacionamiento" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
+                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa-solid fa-check"></i></button></td>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                                            <a href="./recinto.php?eliminarEstacionamiento=<?php echo $estacionamiento['estacionamiento_id'];?>" class="btn btn-danger" name="eliminarEstacionamiento" onclick="advertencia(event)"><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                         </td>
                                         <?php }elseif($estacionamiento['estado'] == 0){?>
                                         <td class="text-center">
                                             <a href="./recinto.php?activar=<?php echo $estacionamiento['estacionamiento_id'];?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
                                         </td>
-                                        <td>
-                                            <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
-                                            <a class="btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
+                                        <td class="text-center">
+                                            <a class="btn btn-light2" disabled><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                                            <a class="btn btn-light2" disabled><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                         </td>
                                         <?php };?>
                                     </tr>
@@ -83,7 +83,7 @@ include(ASIDE);
             <div class="tile">
                 <div class="title-item">
                     <div class="text-center">
-                        <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarRecintoModal"><i class="fa fa-plus"></i> Nuevo Pabellon</a>
+                        <a href="" type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#registrarRecintoModal"><i class="fa-solid fa-circle-plus fa-lg"></i> Nuevo Pabellon</a>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -102,18 +102,18 @@ include(ASIDE);
                                         <td><?php echo $pabellon['id'];?></td>
                                         <td><?php echo $pabellon['numero_pabellon'];?></td>
                                         <?php if($pabellon['estado'] == 1) {?>
-                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
-                                        <td>
-                                            <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa fa-pencil-square"></i></a>
-                                            <a href="./recinto.php?eliminar=<?php echo $pabellon['id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa fa-trash fa-3x"></i></a>
+                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa-solid fa-check"></i></button></td>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                                            <a href="./recinto.php?eliminar=<?php echo $pabellon['id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                         </td>
                                         <?php }elseif($pabellon['estado'] == 0){?>
                                         <td class="text-center">
                                             <a href="./recinto.php?activarTipo=<?php echo $pabellon['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
                                         </td>
-                                        <td>
-                                            <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
-                                            <a class="btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
+                                        <td class="text-center">
+                                            <a class="btn btn-light2" disabled><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                                            <a class="btn btn-light2" disabled><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                         </td>
                                         <?php };?>
                                     </tr>

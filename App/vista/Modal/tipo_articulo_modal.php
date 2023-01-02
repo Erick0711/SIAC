@@ -21,7 +21,7 @@
                         <div class="row  mt-2">
                             <div class="col-md-12">
                                 <label class="form-label"><strong class="f-size-7">Tipo de artículo:</strong></label>
-                                <input type="text" name="tipo" id="tipo" class="form-control">
+                                <input type="text" name="tipo" id="tipo" class="form-control" onkeypress="return letraMinuscula(event)" required>
                                 <small id="articulo__tipo"  class="mensaje"></small>
                             </div>
                             <div class="col-md-12">
@@ -73,7 +73,7 @@
                                 <small id="articulo__tipoEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-12">
-                                <input type="hidden" class="ocult" id="idTipoArticulo" name="idTipoArticulo" required="required">
+                                <input type="hidden" class="ocult" id="idTipoArticulo" name="idTipoArticulo" onkeypress="return letraMinuscula(event)" required>
                             </div>
                         </div>
                         <div class="row  mt-2">

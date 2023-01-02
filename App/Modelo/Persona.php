@@ -95,6 +95,11 @@ class Persona extends Conexion{
             current_timestamp());");
         return $registros;
     }
+    public function eliminar($tabla, $id)
+    {
+        $registros = $this->ejecutarFetch("UPDATE $tabla SET estado=0 WHERE id=$id");
+        return $registros;
+    }
     function buscar($consulta){
         $sentencia = $this->conexion->prepare("SELECT * FROM persona WHERE nombre LIKE '%$consulta%' LIMIT 5");
         $sentencia->execute();  

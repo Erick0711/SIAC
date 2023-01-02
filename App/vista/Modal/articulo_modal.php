@@ -34,12 +34,12 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Descripción:</strong></label>
-                                <input type="text" name="descripcion" id="descripcion" class="form-control">
+                                <input type="text" name="descripcion" id="descripcion" class="form-control" onkeypress="return letraMinuscula(event)" required>
                                 <small id="articulo__descripcion"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Monto:</strong></label>
-                                <input type="number" min="1" name="montoArticulo" id="montoArticulo" class="form-control">
+                                <input type="number" min="1" name="montoArticulo" id="montoArticulo" class="form-control" onkeypress="return numero(event)" required>
                                 <small id="articulo__montoArticulo"  class="mensaje"></small>
                             </div>
                         </div>
@@ -95,12 +95,12 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Descripción:</strong></label>
-                                <input type="text" name="descripcionArticuloEdit" id="descripcionArticuloEdit" class="form-control">
+                                <input type="text" name="descripcionArticuloEdit" id="descripcionArticuloEdit" class="form-control" onkeypress="return letraMinuscula(event)" required>
                                 <small id="articulo__descripcionArticuloEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label"><strong class="f-size-7">Monto:</strong></label>
-                                <input type="number" name="montoArticuloEdit" id="montoArticuloEdit" class="form-control">
+                                <input type="number" name="montoArticuloEdit" id="montoArticuloEdit" class="form-control" onkeypress="return numero(event)" required>
                                 <small id="articulo__montoArticuloEdit"  class="mensaje"></small>
                             </div>
                         </div>

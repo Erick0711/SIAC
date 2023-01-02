@@ -10,11 +10,11 @@ const camposEdit = {
 const validarFormularioEdit = (e)=>{
     switch (e.target.name) {
         case "numeroEstacionamientoEdit":
-            validarCampoEdit(expresiones.numero,e.target, "*Solo letra minúscula (a-z), min 1 caracter.","numeroEstacionamientoEdit");
+            validarCampoEdit(expresiones.numero,e.target, "**Solo números (0-9) , min 1 caracteres","numeroEstacionamientoEdit");
         break;
 
         case "pabellonEdit":
-            validarCampoEdit(expresiones.numero,e.target, "*Solo números (0-9) , min 1 caracteres max 1.","pabellonEdit");
+            validarCampoEdit(expresiones.numero,e.target, "*Solo números (0-9) , min 1 caracteres","pabellonEdit");
         break;
         default:
             break;
@@ -51,7 +51,7 @@ formEstacionamientoEdit.addEventListener('submit', (e)=>{
 
 
 formPabellonEdit.addEventListener('submit', (e)=>{
-    if(camposEdit.pabellon){
+    if(camposEdit.pabellonEdit){
         formPabellonEdit.submit();
     }else{
     document.getElementById('pabellonAlertaEdit').classList.remove('invisible')

@@ -59,8 +59,8 @@ class Usuario extends Conexion
             if($sentencia->execute()){
             $registros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
             return $registros;   
-            }else{
-                echo $this->alerta_fallo;
+            // }else{
+            //     echo $this->alerta_fallo;
             }
         } 
     } 
@@ -91,8 +91,8 @@ class Usuario extends Conexion
             $sentencia = $this->conexion->prepare($sql);
             $sentencia->execute();
             $registros = $sentencia->fetch(PDO::FETCH_ASSOC);
-            $pass = $registros['contrasenia'];
-            if(password_verify($contrasenia, $pass)){
+            $hash = $registros['contrasenia'];
+            if(password_verify($contrasenia, $hash)){
                 return $registros;
             }
     }

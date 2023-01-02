@@ -60,7 +60,7 @@ include(ASIDE);
                                 
                             ?>
                                     <tr>
-                                        <td><?php echo $usuario['usuario_id'] ?></td>
+                                        <td><?php echo $usuario['id'] ?></td>
                                         <td><?php echo ucwords($usuario['nombre']) ?></td>
                                         <td><?php echo ucwords($usuario['apellido']) ?></td>
                                         <td><?php echo $usuario['telefono'] ?></td>
@@ -69,16 +69,16 @@ include(ASIDE);
                                         <td class="ocult"><?php echo $usuario['rol_id'] ?></td>
                                         <td><?php echo ucfirst($usuario['nombre_rol']) ?></td>
                                         <?php if($usuario['estado'] == 1) {?>
-                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
-                                        <td>
+                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa-solid fa-check"></i></button></td>
+                                        <td class="text-center">
                                             <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
-                                            <a href="./usuario.php?eliminar=<?php echo $usuario['usuario_id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa-solid fa-trash-can fa-lg"></i></a>
+                                            <a href="./usuario.php?eliminar=<?php echo $usuario['id'];?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                         </td>
                                         <?php }elseif($usuario['estado'] == 0){?>
                                         <td class="text-center">
-                                            <a href="./usuario.php?activar=<?php echo $usuario['usuario_id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)"><i class="fa-solid fa-power-off fa-lg"></i></a>
+                                            <a href="./usuario.php?activar=<?php echo $usuario['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)"><i class="fa-solid fa-power-off fa-lg"></i></a>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <a class="btn btn-light2" disabled><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
                                             <a class="btn btn-light2" disabled><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                         </td>
@@ -114,8 +114,8 @@ include(ASIDE);
                                         <td><?php echo $rol['id'];?></td>
                                         <td><?php echo ucfirst($rol['nombre_rol']);?></td>
                                         <?php if($rol['estado'] == 1) {?>
-                                        <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
-                                        <td>
+                                        <td class="text-center"><button class="btn btn-success" disabled><i class="fa-solid fa-check"></i></button></td>
+                                        <td class="text-center">
                                             <!-- <a class="btn btn-warning-2 editarbtnTipo" data-toggle="modal" data-target="#editarModalTipo"><i class="fa fa-pencil-square" name="actualizarRol"></i></a> -->
                                             <a href="./usuario.php?eliminarRol=<?php echo $rol['id'];?>" class="btn btn-danger" name="eliminarRol" onclick="advertencia(event)"><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                         </td>
@@ -123,7 +123,7 @@ include(ASIDE);
                                         <td class="text-center">
                                             <a href="./usuario.php?activarTipo=<?php echo $rol['id'];?>" class="btn btn-danger" name="activarTipo" onclick="advertenciaActivar(event)"><i class="fa-solid fa-power-off fa-lg"></i></a>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <!-- <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a> -->
                                             <a class="btn btn-light2" disabled><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                         </td>

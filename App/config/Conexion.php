@@ -6,7 +6,7 @@ class Conexion
 {
     protected $server = "127.0.0.1";
     protected $user = "root";
-    protected $name = "siac_sevilla";
+    protected $name = "siac_sevilla2";
     protected $password = "";
     protected $conexion;
     public function __construct()

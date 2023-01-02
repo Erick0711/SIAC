@@ -51,18 +51,18 @@ include(ASIDE);
                                         <td><?php echo ucwords($funcionario['nombre']); ?></td>
 										<td><?php echo ucwords($funcionario['apellido']); ?></td>
 										<td><?php echo $funcionario['ci']; ?></td>
-										<?php if ($funcionario['complemento_ci'] == "") { ?>
-											<td>Ninguno</td>
-										<?php }else{?>
-											<td><?php echo strtoupper($funcionario['complemento_ci']); ?></td>
-											<?php }?>
+
+										<td><?php if(empty($persona['complemento_ci'])){ echo 'Ninguno'; 
+                                        }elseif(isset($persona['complemento_ci'])){ echo strtoupper($persona['complemento_ci']); }?>
+                                        </td>
+
 										<td><?php echo $funcionario['correo']; ?></td>
 										<td><?php echo $funcionario['telefono']; ?></td>
 										<td><?php echo ucfirst($funcionario['cargo']);?></td>
 										<td><?php echo $funcionario['salario']; ?></td>
                                         <?php if ($funcionario['estado'] == 1) { ?>
-                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa fa-check-square-o"></i></button></td>
-                                            <td>
+                                            <td class="text-center"><button class="btn btn-success" disabled><i class="fa-solid fa-check"></i></button></td>
+                                            <td class="text-center">
                                                 <a class="btn btn-warning-2 editarbtn" data-toggle="modal" data-target="#editarModal"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
                                                 <a href="./funcionario.php?eliminar=<?php echo $funcionario['funcionario_id']; ?>" class="btn btn-danger" name="eliminar" onclick="advertencia(event)"><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                             </td>
@@ -70,9 +70,9 @@ include(ASIDE);
                                             <td class="text-center">
                                                 <a href="./funcionario.php?activar=<?php echo $funcionario['funcionario_id']; ?>" class="btn btn-danger" name="activar" onclick="advertenciaActivar(event)"><i class="fa fa-power-off"></i></a>
                                             </td>
-                                            <td>
-                                                <a class="btn btn-light2" disabled><i class="fa fa-pencil-square"></i></a>
-                                                <a class="btn btn-light2" disabled><i class="fa fa-trash fa-3x"></i></a>
+                                            <td class="text-center">
+                                                <a class="btn btn-light2" disabled><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                                                <a class="btn btn-light2" disabled><i class="fa-solid fa-trash-can fa-lg"></i></a>
                                             </td>
                                         <?php }; ?>
                                     </tr>

@@ -21,7 +21,7 @@
                         <div class="row  mt-2">
                             <div class="col-md-12">
                                 <label class="form-label"><strong class="f-size-7"> Nro.&nbsp;&nbsp;Apartamento:</strong></label>
-                                <input type="text" name="numeroApartamento" id="numeroApartamento" class="form-control">
+                                <input type="text" name="numeroApartamento" id="numeroApartamento" class="form-control" onkeypress="return letraNumero(event)" required>
                                 <small id="apartamento__numeroApartamento"  class="mensaje"></small>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                         <div class="row mt-2">
                             <div class="col-md-12">
                                 <label class="form-label"><strong class="f-size-7"> Nro.&nbsp;&nbsp;Apartamento:</strong></label>
-                                <input type="text" name="numeroApartamentoEdit" id="numeroApartamentoEdit" class="form-control">
+                                <input type="text" name="numeroApartamentoEdit" id="numeroApartamentoEdit" class="form-control" onkeypress="return numero(event)" required>
                                 <small id="apartamento__numeroApartamentoEdit"  class="mensaje"></small>
                             </div>
                             <div class="col-md-1">

@@ -54,8 +54,8 @@ class PersonaControlador extends Persona
                     $mascota = $_POST['mascota'];
                         $this->persona = new Persona();
                         $this->persona->registrarCopropietario("copropietario", $apartamento, $residente,$mascota,$id);
+                        $this->eliminar('apartamento', $apartamento);
                         echo $this->redirectVista("persona");
-                        echo $this->mensaje("warning","dark","Validación","Por favor rellene todos los campos");
                     break;
 
                 case isset($_POST["registrarUsuario"]):

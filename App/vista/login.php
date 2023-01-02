@@ -27,11 +27,11 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label"><i class="fa fa-user"></i> Usuario:</label>
-                    <input class="form-control" name="usuario" type="text" value="maicolarteaga0711" required="required" minlength="5">
+                    <input class="form-control" name="usuario" type="text" value="" required="required" minlength="5">
                 </div>
                 <div class="form-group">
                     <label class="control-label"><i class="fa fa-key"></i> Contraseña:</label>
-                    <input class="form-control" name="contrasenia" type="password" value="123" required="required" minlength="1">
+                    <input class="form-control" name="contrasenia" type="password" value="" required="required" minlength="1">
                 </div>
 
                 <div class="form-group btn-container">
