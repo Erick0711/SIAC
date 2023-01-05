@@ -36,12 +36,12 @@
                         <li><a class="treeview-item" href="./apartamento.php"><i class="icon fa-regular fa-circle"></i> Apartamento</a></li>
                     </ul>
                 </li>
-                <!-- <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-usd"></i><span class="app-menu__label">Reporte</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-usd"></i><span class="app-menu__label">Reporte</span><i class="treeview-indicator fa fa-angle-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a class="treeview-item" href="./pago.php"><i class="icon fa fa-circle-o"></i>Pagos</a></li>
-                        <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Cuenta Nominal</a></li>
+                        <li><a class="treeview-item" href="./pago.php"><i class="icon fa-regular fa-circle"></i>Pago</a></li>
+                        <!-- <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Cuenta Nominal</a></li> -->
                     </ul>
-                </li> -->
+                </li>
                 <!-- <li><a class="app-menu__item" target="_blank" href="./manual"><i class="app-menu__icon fa fa-book"></i><span class="app-menu__label">Manual</span></a></li> -->
         </ul>
     <?php } elseif ($_SESSION['nombre_rol'] == "Administrador") { ?>
